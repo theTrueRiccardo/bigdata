@@ -11,39 +11,39 @@ frontend/my-app/bazel-out
 frontend/my-app/node_modules
 
 # profiling files
-frontend/my-app/chrome-profiler-events*.json
+#frontend/my-app/chrome-profiler-events*.json
 
 # IDEs and editors
-frontend/my-app/.idea
-frontend/my-app/.project
-frontend/my-app/.classpath
-frontend/my-app/.c9/
-frontend/my-app/*.launch
-frontend/my-app/.settings/
-frontend/my-app/*.sublime-workspace
+#frontend/my-app/.idea
+#frontend/my-app/.project
+#frontend/my-app/.classpath
+#frontend/my-app/.c9/
+#frontend/my-app/*.launch
+#frontend/my-app/.settings/
+#frontend/my-app/*.sublime-workspace
 
 # IDE - VSCode
-frontend/my-app/.vscode/*
-frontend/my-app/!.vscode/settings.json
-frontend/my-app/!.vscode/tasks.json
-frontend/my-app/!.vscode/launch.json
-frontend/my-app/!.vscode/extensions.json
-frontend/my-app/.history/*
+#frontend/my-app/.vscode/*
+#frontend/my-app/!.vscode/settings.json
+#frontend/my-app/!.vscode/tasks.json
+#frontend/my-app/!.vscode/launch.json
+#frontend/my-app/!.vscode/extensions.json
+#frontend/my-app/.history/*
 
 # misc
-frontend/my-app/.angular/cache
-frontend/my-app/.sass-cache
-frontend/my-app/connect.lock
-frontend/my-app/coverage
-frontend/my-app/libpeerconnection.log
-frontend/my-app/npm-debug.log
-frontend/my-app/yarn-error.log
-frontend/my-app/testem.log
-frontend/my-app/typings
+#frontend/my-app/.angular/cache
+#frontend/my-app/.sass-cache
+#frontend/my-app/connect.lock
+#frontend/my-app/coverage
+#frontend/my-app/libpeerconnection.log
+#frontend/my-app/npm-debug.log
+#frontend/my-app/yarn-error.log
+#frontend/my-app/testem.log
+#frontend/my-app/typings
 
 # System Files
-frontend/my-app/.DS_Store
-frontend/my-app/Thumbs.db
+#frontend/my-app/.DS_Store
+#frontend/my-app/Thumbs.db
 
 
 backend/fake_taxi/logs

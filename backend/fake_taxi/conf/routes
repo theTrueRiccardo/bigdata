@@ -12,3 +12,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /todo                       controllers.TodoListController.getAll
 
 GET     /query                      controllers.SparkController.eseguiQuery
+
+GET     /taxi                       controllers.SparkController.contaTaxi

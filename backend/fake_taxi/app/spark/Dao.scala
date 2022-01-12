@@ -14,7 +14,7 @@ class Dao{
             .config("spark.master", "local")
             .getOrCreate()
     //val sparkContext = new SparkContext()
-    val logData  = spark.sparkContext.textFile(dataset).cache()
+    val logData  = spark.sparkContext.textFile("C:/Users/Riccardo/Desktop/taxi_log_2008_by_id/1.txt").cache()
     //val utile=new Util()
     //val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     //val logData = spark.read.textFile(logFile).cache()

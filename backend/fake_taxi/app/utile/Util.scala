@@ -1,6 +1,7 @@
 package utile;
 import models._
-class Util extends Serializable{
+object Util extends Serializable{
+
     def parseTaxi(linea : String) : Taxi ={
         val array=linea.split(",")
         val id=array(0).toInt

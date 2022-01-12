@@ -14,8 +14,8 @@ class Dao{
             .config("spark.master", "local")
             .getOrCreate()
     //val sparkContext = new SparkContext()
-    val logData = spark.sparkContext.textFile(dataset).cache()
-    val utile=new Util()
+    val logData  = spark.sparkContext.textFile(dataset).cache()
+    //val utile=new Util()
     //val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     //val logData = spark.read.textFile(logFile).cache()
     //val numAs = logData.filter(line => line.contains("a")).count()
@@ -27,7 +27,8 @@ class Dao{
     
 
     def prendiTutti() : Array[Taxi] ={
-        return logData.map(x => utile.parseTaxi(x)).take(10)
+        return logData.map(x => Util.parseTaxi(x)).collect().toArray.filter( _.latitudine == 39.93883) 
+        //la seguente query prende tutti i taxi che sono alla latitudine 39.93883
     }
     
     

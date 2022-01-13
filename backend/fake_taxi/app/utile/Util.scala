@@ -12,7 +12,8 @@ object Util extends Serializable{
         val dataOra=new DataOra(data,ora)
         val longitudine=array(2).toDouble
         val latitudine=array(3).toDouble
-        val taxi=new Taxi(id,dataOra,longitudine,latitudine)
+        val coordinata=new Coordinata(longitudine, latitudine)
+        val taxi=new Taxi(id,dataOra,coordinata)
         return taxi
     }
 }

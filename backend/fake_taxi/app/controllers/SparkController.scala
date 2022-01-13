@@ -13,8 +13,10 @@ import utile._
 @Singleton
 class SparkController @Inject()(val controllerComponents: ControllerComponents, val dao : Dao) extends BaseController{
     
+    implicit val coordinataJson = Json.format[Coordinata]
     implicit val dataOra = Json.format[DataOra]
     implicit val taxiJson = Json.format[Taxi]
+    
     
     def eseguiQuery : Action[AnyContent] = Action {
         val risultato=dao.query()
@@ -23,6 +25,11 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
 
     def contaTaxi : Action[AnyContent] = Action {
         val group=dao.prendiTutti()
+        Ok(Json.toJson(group))
+    }
+
+    def mattia : Action[AnyContent] = Action {
+        val group=dao.mattia()
         Ok(Json.toJson(group))
     }
 }

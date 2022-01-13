@@ -27,8 +27,14 @@ class Dao{
     
 
     def prendiTutti() : Array[Taxi] ={
-        return logData.map(x => Util.parseTaxi(x)).collect().toArray.filter( _.latitudine == 39.93883) 
+        return logData.map(x => Util.parseTaxi(x)).collect().toArray.take(10)
         //la seguente query prende tutti i taxi che sono alla latitudine 39.93883
+    }
+
+    def mattia() : (Coordinata, Int) ={        
+        val taxi = logData.map(x => Util.parseTaxi(x))
+        val result = taxi.map(x => (x.coordinata, 1),[1,5,6,3,2,15,32]).reduceByKey(_+_).collect.maxBy(_._2)
+        return result
     }
     
     

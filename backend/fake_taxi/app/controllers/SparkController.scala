@@ -32,4 +32,12 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         val group=dao.mattia()
         Ok(Json.toJson(group))
     }
+
+    def orario(orarioInizio: Double ,orarioFine : Double) : Action[AnyContent] = Action {
+        val group=dao.orario(orarioInizio,orarioFine)
+        Ok(Json.toJson(group))
+    }
+
+
 }
+

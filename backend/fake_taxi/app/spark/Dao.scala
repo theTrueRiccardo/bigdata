@@ -14,7 +14,7 @@ class Dao{
             .config("spark.master", "local")
             .getOrCreate()
     //val sparkContext = new SparkContext()
-    val logData  = spark.sparkContext.textFile("C:/Users/Riccardo/Desktop/taxi_log_2008_by_id/1.txt").cache()
+    val logData  = spark.sparkContext.textFile(dataset).cache()
     //val utile=new Util()
     //val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     //val logData = spark.read.textFile(logFile).cache()
@@ -33,10 +33,15 @@ class Dao{
 
     def mattia() : (Coordinata, Int) ={        
         val taxi = logData.map(x => Util.parseTaxi(x))
-        val result = taxi.map(x => (x.coordinata, 1),[1,5,6,3,2,15,32]).reduceByKey(_+_).collect.maxBy(_._2)
+        val result = taxi.map(x => (x.coordinata, 1)).reduceByKey(_+_).collect.maxBy(_._2)
         return result
     }
     
+    def orario(orarioInizio : Double, orarioFine: Double) : Array[(Int,Int)] ={        
+        val taxi = logData.map(x => Util.parseTaxi(x))
+        val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio ).map(x => (x.id, 1)).reduceByKey(_+_).collect
+        return result
+    }
     
     def query() : String = {
         val numAs = logData.filter(line => line.contains("a")).count()

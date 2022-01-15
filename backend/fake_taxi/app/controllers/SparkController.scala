@@ -38,6 +38,10 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         Ok(Json.toJson(group))
     }
 
+    def area(inizioLong: Double ,fineLong : Double, inizioLat : Double , fineLat: Double) : Action[AnyContent] = Action {
+        val group=dao.area(inizioLong,fineLong,inizioLat,fineLat)
+        Ok(Json.toJson(group))
+    }
 
 }
 

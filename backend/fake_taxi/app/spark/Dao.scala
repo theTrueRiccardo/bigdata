@@ -42,6 +42,15 @@ class Dao{
         val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio ).map(x => (x.id, 1)).reduceByKey(_+_).collect
         return result
     }
+
+    def area(inizioLong : Double, fineLong: Double , inizioLat : Double, fineLat: Double) : Array[(Int,Int)] ={        
+        val taxi = logData.map(x => Util.parseTaxi(x))
+        val result = taxi.filter(x => x.coordinata.longitudine < fineLong && x.coordinata.longitudine > inizioLong && x.coordinata.latitudine < fineLat && x.coordinata.latitudine > inizioLat )
+        .map(x => (x.id, 1))
+        .reduceByKey(_+_)
+        .collect
+        return result
+    }
     
     def query() : String = {
         val numAs = logData.filter(line => line.contains("a")).count()

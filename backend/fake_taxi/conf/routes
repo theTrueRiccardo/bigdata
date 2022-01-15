@@ -18,3 +18,5 @@ GET     /taxi                       controllers.SparkController.contaTaxi
 GET     /mattia                     controllers.SparkController.mattia
 
 GET     /orario/:inizio/:fine       controllers.SparkController.orario(inizio : Double , fine : Double)
+
+GET     /area/:inizioLong/:fineLong/:inizioLat/:fineLat      controllers.SparkController.area(inizioLong: Double ,fineLong : Double, inizioLat :   Double , fineLat: Double) 

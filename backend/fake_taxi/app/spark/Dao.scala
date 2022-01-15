@@ -33,23 +33,38 @@ class Dao{
 
     def mattia() : (Coordinata, Int) ={        
         val taxi = logData.map(x => Util.parseTaxi(x))
+       
         val result = taxi.map(x => (x.coordinata, 1)).reduceByKey(_+_).collect.maxBy(_._2)
         return result
     }
     
     def orario(orarioInizio : Double, orarioFine: Double) : Array[(Int,Int)] ={        
         val taxi = logData.map(x => Util.parseTaxi(x))
+        
         val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio ).map(x => (x.id, 1)).reduceByKey(_+_).collect
         return result
     }
 
     def area(inizioLong : Double, fineLong: Double , inizioLat : Double, fineLat: Double) : Array[(Int,Int)] ={        
         val taxi = logData.map(x => Util.parseTaxi(x))
-        val result = taxi.filter(x => x.coordinata.longitudine < fineLong && x.coordinata.longitudine > inizioLong && x.coordinata.latitudine < fineLat && x.coordinata.latitudine > inizioLat )
+        
+        val result = taxi.filter(x => x.coordinata.longitudine <= fineLong && x.coordinata.longitudine >= inizioLong && x.coordinata.latitudine <= fineLat && x.coordinata.latitudine >= inizioLat )
         .map(x => (x.id, 1))
         .reduceByKey(_+_)
         .collect
         return result
+    }
+
+    def confrontoGiornoNotte(id : Int) : String ={
+        
+        val taxi = logData.map(x => Util.parseTaxi(x))
+        val totale = taxi.count
+        val giorno = taxi.filter(x => x.id == id && x.dataOra.ore >= 7 && x.dataOra.ore < 20).count
+        val notte = totale - giorno
+        if (giorno > notte ) return s"il taxi con id: $id lavora principalmente di giorno; giorno: $giorno, notte: $notte."
+    
+        s"il taxi con id: $id lavora principalmente di notte; giorno: $giorno, notte: $notte."
+    
     }
     
     def query() : String = {

@@ -43,5 +43,10 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         Ok(Json.toJson(group))
     }
 
+    def confrontoGiornoNotte(id: Int) : Action[AnyContent] = Action {
+        val group=dao.confrontoGiornoNotte(id)
+        Ok(Json.toJson(group))
+    }
+
 }
 

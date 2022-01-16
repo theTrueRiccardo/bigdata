@@ -15,6 +15,7 @@ class Dao{
             .getOrCreate()
     //val sparkContext = new SparkContext()
     val logData  = spark.sparkContext.textFile(dataset).cache()
+    val analisiDimensionale = new AnalisiDimensionale()
     //val utile=new Util()
     //val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     //val logData = spark.read.textFile(logFile).cache()
@@ -39,15 +40,13 @@ class Dao{
     }
     
     def orario(orarioInizio : Double, orarioFine: Double) : Array[(Int,Int)] ={        
-        val taxi = logData.map(x => Util.parseTaxi(x))
-        
-        val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio ).map(x => (x.id, 1)).reduceByKey(_+_).collect
+        val taxi = logData.map(x => Util.parseTaxi(x))        
+        val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio).map(x => (x.id, 1)).reduceByKey(_+_).collect
         return result
     }
 
     def area(inizioLong : Double, fineLong: Double , inizioLat : Double, fineLat: Double) : Array[(Int,Int)] ={        
-        val taxi = logData.map(x => Util.parseTaxi(x))
-        
+        val taxi = logData.map(x => Util.parseTaxi(x))       
         val result = taxi.filter(x => x.coordinata.longitudine <= fineLong && x.coordinata.longitudine >= inizioLong && x.coordinata.latitudine <= fineLat && x.coordinata.latitudine >= inizioLat )
         .map(x => (x.id, 1))
         .reduceByKey(_+_)
@@ -55,14 +54,12 @@ class Dao{
         return result
     }
 
-    def confrontoGiornoNotte(id : Int) : String ={
-        
+    def confrontoGiornoNotte(id : Int) : String ={       
         val taxi = logData.map(x => Util.parseTaxi(x))
         val totale = taxi.count
         val giorno = taxi.filter(x => x.id == id && x.dataOra.ore >= 7 && x.dataOra.ore < 20).count
         val notte = totale - giorno
-        if (giorno > notte ) return s"il taxi con id: $id lavora principalmente di giorno; giorno: $giorno, notte: $notte."
-    
+        if (giorno > notte ) return s"il taxi con id: $id lavora principalmente di giorno; giorno: $giorno, notte: $notte."   
         s"il taxi con id: $id lavora principalmente di notte; giorno: $giorno, notte: $notte."
     
     }
@@ -71,5 +68,10 @@ class Dao{
         val numAs = logData.filter(line => line.contains("a")).count()
         val numBs = logData.filter(line => line.contains("b")).count()
         return s"Lines with a: $numAs, Lines with b: $numBs"
+    }
+
+    def analiPerDimensioni(dimensioni : String*) : (Object, Int) = {
+        val taxi = logData.map(x => Util.parseTaxi(x))
+        return analisiDimensionale.queryDimensionale(dimensioni, taxi)
     }
 }

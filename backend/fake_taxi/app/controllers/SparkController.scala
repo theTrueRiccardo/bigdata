@@ -33,7 +33,7 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         Ok(Json.toJson(group))
     }
 
-    def orario(orarioInizio: Double ,orarioFine : Double) : Action[AnyContent] = Action {
+    def orario(orarioInizio: Double, orarioFine : Double) : Action[AnyContent] = Action {
         val group=dao.orario(orarioInizio,orarioFine)
         Ok(Json.toJson(group))
     }

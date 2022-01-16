@@ -22,3 +22,5 @@ GET     /orario/:inizio/:fine       controllers.SparkController.orario(inizio : 
 GET     /area/:inizioLong/:fineLong/:inizioLat/:fineLat      controllers.SparkController.area(inizioLong: Double ,fineLong : Double, inizioLat :   Double , fineLat: Double) 
 
 GET     /confrontoGiornoNotte/:id           controllers.SparkController.confrontoGiornoNotte(id : Int)
+
+GET     /analisiDimensionale/:

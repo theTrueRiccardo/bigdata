@@ -1,10 +1,10 @@
 package spark;
 import scala.Util._
-class AnalisiDimensionale{
+class AnalisiDimensionale(sparkContext : SparkContext){
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora", "taxi")
     //l'asterisco indica un vararg, non una simpatizzazione verso la comunità LGBT
-    def queryDimensionale(dimensioni : String*, rdd : RDD[Taxi])=(Object, Int){
+    def queryDimensionale(dimensioni : String*, rdd : RDD[Rilevazione])=(Object, Int){
         dimensioniOrdinate=dimensioni.sorted;
         for(numero <- 1 to 31) {
             val stringaBit = (numero).toBinaryString

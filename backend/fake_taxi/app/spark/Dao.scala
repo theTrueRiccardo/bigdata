@@ -14,8 +14,10 @@ class Dao{
             .config("spark.master", "local")
             .getOrCreate()
     //val sparkContext = new SparkContext()
-    val logData  = spark.sparkContext.textFile(dataset).cache()
-    val analisiDimensionale = new AnalisiDimensionale()
+    val analisiPerTaxi=new AnalisiPerTaxi(spark.sparkContext)
+    val analisiDimensionale=new AnalisiDimensionale(spark.sparkContext)
+    val machineLearning=new MachineLearning(spark.sparkContext)
+    val logData = spark.sparkContext.textFile(dataset).cache()
     //val utile=new Util()
     //val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
     //val logData = spark.read.textFile(logFile).cache()
@@ -73,5 +75,9 @@ class Dao{
     def analiPerDimensioni(dimensioni : String*) : (Object, Int) = {
         val taxi = logData.map(x => Util.parseTaxi(x))
         return analisiDimensionale.queryDimensionale(dimensioni, taxi)
+    }
+
+    def schedaTaxi(id : Int) : SchedaTaxi={
+        return analisiPerTaxi.schedaTaxi(id)
     }
 }

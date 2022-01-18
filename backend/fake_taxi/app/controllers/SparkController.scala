@@ -15,7 +15,13 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
     
     implicit val coordinataJson = Json.format[Coordinata]
     implicit val dataOra = Json.format[DataOra]
-    implicit val taxiJson = Json.format[Taxi]
+    implicit val rilevazioneJson = Json.format[Rilevazione]
+    implicit val SchedaTaxi = Json.format[SchedaTaxi]
+
+    def schedaTaxi(id : Int): Action[AnyContent] = Action {
+        val risultato=dao.schedaTaxi(id)
+        Ok(risultato)
+    }
     
     
     def eseguiQuery : Action[AnyContent] = Action {

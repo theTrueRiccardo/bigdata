@@ -5,6 +5,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 import models._
 import utile._
+import scala.io.Source
 
 
 class AnalisiPerTaxi(sparkContext : SparkContext){
@@ -20,8 +21,9 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         val rilevazioniNotte = confrontoGiornoNotte._3
         val msgConfrontoGiornoNotte = confrontoGiornoNotte._4
         val numeroRilevazioniPerFasciaOraria = rilevazioniPerFasciaOraria(id, rilevazioni)
-        var tempoAttivo=0.0
-        var tempoFermo=0.0
+        val tempi = tempoOzioAttivita(id)
+        var tempoAttivo=tempi._1
+        var tempoFermo=tempi._2
         val percorso= this.percorso(id, rilevazioni)
         return SchedaTaxi(
             rilevazioniTotali,
@@ -75,6 +77,29 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         return rilevazioni.map(x => (x.dataOra.giorno+"/"+x.dataOra.mese+"/"+x.dataOra.anno,List(x.coordinata)))
         .reduceByKey(_:::_).collect
     }
+
+    def tempoOzioAttivita(id : Int) : (Double, Double) = {
+        val filename = cartellaFileTaxi+id+".txt"
+        val array=Source.fromFile.getLines.map(x => Util.parseRilevazione(x)).collect
+        val tempoTotale=0.0
+        val tempoAttivita=0.0
+        val tempoOzio=0.0
+        for(i <- 0 until array.length-1){
+            val rilevazione1 = array(i)
+            var j=i+1
+            val rilevazione2=array(j)
+            while(j < array.length && rilevazione2.coordinata == rilevazione1.coordinata){
+                tempoOzio+=(differenzaTempo(rilevazione1.dataOra, rilevazione2.dataOra)
+                j++;
+                rilevazione2=array(j)
+            }
+        }
+       for(i <- 1 until array.length){
+           tempoTotale+=differenzaTempo(array(i-1).dataOra, array(i).dataOra)
+       }
+       tempoAttivita=tempoTotale-tempoOzio
+       return (tempoAttivita, tempoOzio)
+    }
     /*
     def listaDoppioni(id : Int) : Array[Rilevazione] ={
         //val listaCoordinate1 = coordinateDoppioni(id).foreach(println)
@@ -90,12 +115,25 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         val result = filtro.map( x => x._1).collect
         return result
     }
+    */
 
-    def differenzaTempo(prima : DataOra , dopo : DataOra) : Int ={
-        if(x.ore == y.ore) return y.minuti - x.minuti
+    //mi rompeva troppo i coglioni domani lo faccio mo mi secca dio cane
+    def differenzaTempo(prima : DataOra , dopo : DataOra) : Double ={
+        if(prima.ore == dopo.ore) return dopo.minuti - prima.minuti
+        val tempo=0.0
+        do{
+            tempo+=(60-prima.minuti)
+            prima=new DataOra((ora)"")
+        }
+        val oraDopo=dopo.ore
+        var oraPrima=prima.ore
+        val tempo=0.0
+        while(oraPrima!=oraDopo){
+            tempo+=(60)
+        }
         val tempo = (60 - x.minuti) + y.minuti;
         return tempo;
-    } */
+    } 
 
 
     

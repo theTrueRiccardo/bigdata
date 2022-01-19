@@ -9,8 +9,6 @@ GET     /                           controllers.HomeController.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /todo                       controllers.TodoListController.getAll
-
 GET     /query                      controllers.SparkController.eseguiQuery
 
 GET     /taxi                       controllers.SparkController.contaTaxi
@@ -23,6 +21,6 @@ GET     /area/:inizioLong/:fineLong/:inizioLat/:fineLat      controllers.SparkCo
 
 GET     /confrontoGiornoNotte/:id   controllers.SparkController.confrontoGiornoNotte(id : Int)
 
-GET     /doppioni/:id               controllers.SparkController.listaDoppioni(id : Int)
+#GET     /doppioni/:id               controllers.SparkController.listaDoppioni(id : Int)
 
-GET     /schedaTaxi/:id             controllers.SparkController.scheda(id : Int)
+GET     /schedaTaxi/:id             controllers.SparkController.schedaTaxi(id : Int)

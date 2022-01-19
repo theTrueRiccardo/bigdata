@@ -2,7 +2,7 @@ package utile;
 import models._
 object Util extends Serializable{
 
-    def parseRilevazione(linea : String) : Taxi ={
+    def parseRilevazione(linea : String) : Rilevazione ={
         val array=linea.split(",")
         val id=array(0).toInt
         val dataOraStringa=array(1)
@@ -13,7 +13,7 @@ object Util extends Serializable{
         val longitudine=array(2).toDouble
         val latitudine=array(3).toDouble
         val coordinata=new Coordinata(longitudine, latitudine)
-        val Rilevazione=new Rilevazione(id,dataOra,coordinata)
-        return taxi
+        val rilevazione=new Rilevazione(id,dataOra,coordinata)
+        return rilevazione
     }
 }

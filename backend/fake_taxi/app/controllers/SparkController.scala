@@ -20,7 +20,8 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
 
     def schedaTaxi(id : Int): Action[AnyContent] = Action {
         val risultato=dao.schedaTaxi(id)
-        Ok(risultato)
+        
+        Ok(Json.toJson(risultato))
     }
     
     

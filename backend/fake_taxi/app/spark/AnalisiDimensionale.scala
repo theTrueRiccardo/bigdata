@@ -1,12 +1,21 @@
 package spark;
-import scala.Util._
+import utile._
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
+import models._
+import scala.collection.mutable.ArrayBuffer
+
+
 class AnalisiDimensionale(sparkContext : SparkContext){
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora", "taxi")
     //l'asterisco indica un vararg, non una simpatizzazione verso la comunità LGBT
-    def queryDimensionale(dimensioni : String*, rdd : RDD[Rilevazione])=(Object, Int){
-        dimensioniOrdinate=dimensioni.sorted;
-        for(numero <- 1 to 31) {
+    def queryDimensionale(rdd : RDD[Rilevazione],dimensioni : Seq[String]): Array[(Object, Int)] ={ // da vedere
+        val dimensioniOrdinate=dimensioni.sorted;// da vedere
+        //for(numero : Int <- 1 to 31) {
+            val numero = 0 // da togliere
             val stringaBit = (numero).toBinaryString
             var sottoinsiemeDimensioniQuery = new ArrayBuffer[String]()
             for(indice <- 0 until stringaBit.length){
@@ -16,7 +25,7 @@ class AnalisiDimensionale(sparkContext : SparkContext){
             }
             val numeroDimensioni=sottoinsiemeDimensioniQuery.length
             //if(numeroDimensioni==1){
-            dim0 = sottoinsiemeDimensioniQuery(0)
+            val dim0 = sottoinsiemeDimensioniQuery(0)
             return rdd.map(x => (x.getClass.getDeclaredMethod(dim0).invoke(x) , 1)).reduceByKey(_+_).collect
             //}
             //if(numeroDimensioni==1) 
@@ -24,6 +33,6 @@ class AnalisiDimensionale(sparkContext : SparkContext){
             //else if(numeroDimensioni==3)
             //else if(numeroDimensioni==4)
             //else if(numeroDimensioni==5)
-        }       
+       // }       
     }
 }

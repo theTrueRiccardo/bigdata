@@ -9,7 +9,7 @@ import models._
 
 @Singleton
 class TodoListController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
-
+/*
     private val todoList = new mutable.ListBuffer[TodoListItem]()
     implicit val todoListJson = Json.format[TodoListItem]
     todoList += TodoListItem(1, "test", true)
@@ -22,5 +22,5 @@ class TodoListController @Inject()(val controllerComponents: ControllerComponent
         } else {
             Ok(Json.toJson(todoList))
         }
-    }
+    }*/
 }

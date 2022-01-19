@@ -5,6 +5,7 @@ import org.apache.spark.SparkConf
 import models._
 import utile._
 
+
 class Dao{
     
     val SPARK_HOME=sys.env.get("SPARK_HOME").get.replaceAll("\\\\", "/")
@@ -29,26 +30,26 @@ class Dao{
    
     
 
-    def prendiTutti() : Array[Taxi] ={
-        return logData.map(x => Util.parseTaxi(x)).collect().toArray.take(10)
+    def prendiTutti() : Array[Rilevazione] ={
+        return logData.map(x => Util.parseRilevazione(x)).collect().toArray.take(10)
         //la seguente query prende tutti i taxi che sono alla latitudine 39.93883
     }
 
     def mattia() : (Coordinata, Int) ={        
-        val taxi = logData.map(x => Util.parseTaxi(x))
+        val taxi = logData.map(x => Util.parseRilevazione(x))
        
         val result = taxi.map(x => (x.coordinata, 1)).reduceByKey(_+_).collect.maxBy(_._2)
         return result
     }
     
     def orario(orarioInizio : Double, orarioFine: Double) : Array[(Int,Int)] ={        
-        val taxi = logData.map(x => Util.parseTaxi(x))        
+        val taxi = logData.map(x => Util.parseRilevazione(x))        
         val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio).map(x => (x.id, 1)).reduceByKey(_+_).collect
         return result
     }
 
     def area(inizioLong : Double, fineLong: Double , inizioLat : Double, fineLat: Double) : Array[(Int,Int)] ={        
-        val taxi = logData.map(x => Util.parseTaxi(x))       
+        val taxi = logData.map(x => Util.parseRilevazione(x))       
         val result = taxi.filter(x => x.coordinata.longitudine <= fineLong && x.coordinata.longitudine >= inizioLong && x.coordinata.latitudine <= fineLat && x.coordinata.latitudine >= inizioLat )
         .map(x => (x.id, 1))
         .reduceByKey(_+_)
@@ -57,7 +58,7 @@ class Dao{
     }
 
     def confrontoGiornoNotte(id : Int) : String ={       
-        val taxi = logData.map(x => Util.parseTaxi(x))
+        val taxi = logData.map(x => Util.parseRilevazione(x))
         val totale = taxi.count
         val giorno = taxi.filter(x => x.id == id && x.dataOra.ore >= 7 && x.dataOra.ore < 20).count
         val notte = totale - giorno
@@ -72,12 +73,12 @@ class Dao{
         return s"Lines with a: $numAs, Lines with b: $numBs"
     }
 
-    def analiPerDimensioni(dimensioni : String*) : (Object, Int) = {
-        val taxi = logData.map(x => Util.parseTaxi(x))
-        return analisiDimensionale.queryDimensionale(dimensioni, taxi)
+    def analiPerDimensioni(dimensioni : String*) : Array[(Object, Int)] = {
+        val taxi = logData.map(x => Util.parseRilevazione(x))
+        return analisiDimensionale.queryDimensionale(taxi,dimensioni)
     }
 
     def schedaTaxi(id : Int) : SchedaTaxi={
-        return analisiPerTaxi.schedaTaxi(id)
+        return analisiPerTaxi.scheda(id)
     }
 }

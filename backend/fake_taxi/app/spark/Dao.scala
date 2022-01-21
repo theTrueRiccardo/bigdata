@@ -73,12 +73,13 @@ class Dao{
         return s"Lines with a: $numAs, Lines with b: $numBs"
     }
 
-    def analiPerDimensioni(dimensioni : String*) : Array[(Object, Int)] = {
-        val taxi = logData.map(x => Util.parseRilevazione(x))
-        return analisiDimensionale.queryDimensionale(taxi,dimensioni)
-    }
+    
 
     def schedaTaxi(id : Int) : SchedaTaxi={
         return analisiPerTaxi.scheda(id)
+    }
+
+    def analisiDimensionale(dimensioni : List[String]) : Array[(List[Object], Int)]  ={
+        return this.analisiDimensionale.queryDimensionale(dimensioni)
     }
 }

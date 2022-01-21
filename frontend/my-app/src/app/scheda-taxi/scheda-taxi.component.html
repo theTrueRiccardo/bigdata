@@ -7,3 +7,24 @@
 <h2>tempo attivo{{scheda?.tempoAttivo}}</h2>
 <h2>tempo fermo {{scheda?.tempoFermo}}</h2>
 <h2>percorso {{scheda?.percorso}}</h2>
+<ul>
+
+    <li *ngFor="let item of scheda?.percorso">
+    
+    <b>{{item?.[0]}}</b>
+    
+    <ul>
+    
+    <li *ngFor="let percorso of item?.[1]">
+    
+    {{percorso.longitudine}}
+    
+    {{percorso.latitudine}}
+    
+    </li>
+    
+    </ul>
+    
+    </li>
+    
+    </ul>

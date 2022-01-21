@@ -14,13 +14,27 @@ import utile._
 class SparkController @Inject()(val controllerComponents: ControllerComponents, val dao : Dao) extends BaseController{
     
     implicit val coordinataJson = Json.format[Coordinata]
-    implicit val dataOra = Json.format[DataOra]
+    implicit val dataOraJson = Json.format[DataOra]
     implicit val rilevazioneJson = Json.format[Rilevazione]
-    implicit val SchedaTaxi = Json.format[SchedaTaxi]
-
+    implicit val SchedaTaxiJson = Json.format[SchedaTaxi]
+    implicit val aggregatoJson = new Writes[ Array[(List[Object], Int)] ] {
+        def writes( aggr: Array[(List[Object], Int)] ) : JsObject = {
+            var json = Json.obj()
+            for(i <- 0 until aggr.length){
+                json = json + (""+aggr(i)._1 -> JsNumber(aggr(i)._2) )
+            }
+            return json
+         }
+    }
+   
     def schedaTaxi(id : Int): Action[AnyContent] = Action {
-        val risultato=dao.schedaTaxi(id)
-        
+        val risultato=dao.schedaTaxi(id)        
+        Ok(Json.toJson(risultato))
+    }
+
+
+    def analisiDimensionale(dim : List[String]): Action[AnyContent] = Action {
+        val risultato=dao.analisiDimensionale(dim)        
         Ok(Json.toJson(risultato))
     }
     

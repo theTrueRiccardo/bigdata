@@ -21,6 +21,6 @@ GET     /area/:inizioLong/:fineLong/:inizioLat/:fineLat      controllers.SparkCo
 
 GET     /confrontoGiornoNotte/:id   controllers.SparkController.confrontoGiornoNotte(id : Int)
 
-#GET     /doppioni/:id               controllers.SparkController.listaDoppioni(id : Int)
-
 GET     /schedaTaxi/:id             controllers.SparkController.schedaTaxi(id : Int)
+
+GET     /analisiDimensionale        controllers.SparkController.analisiDimensionale(dim : List[String])

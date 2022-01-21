@@ -6,16 +6,20 @@ import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 import models._
 import scala.collection.mutable.ArrayBuffer
+import scala.math._
 
 
 class AnalisiDimensionale(sparkContext : SparkContext){
+    
+    val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
+    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))
     //quetse dimensioni sono ordinate lessicograficamente
-    val dimensioni=Array("data", "latitudine", "longitudine", "ora", "taxi")
-    //l'asterisco indica un vararg, non una simpatizzazione verso la comunità LGBT
-    def queryDimensionale(rdd : RDD[Rilevazione],dimensioni : Seq[String]): Array[(Object, Int)] ={ // da vedere
-        val dimensioniOrdinate=dimensioni.sorted;// da vedere
-        //for(numero : Int <- 1 to 31) {
-            val numero = 0 // da togliere
+    val dimensioni=Array("data", "latitudine", "longitudine", "ora")
+
+
+    def queryDimensionale(dimensioniUtente : List[String]): Array[(List[Object], Int)] = { // da vedere
+        val dimensioniUtenteOrdinate=dimensioniUtente.sorted;
+        for(numero <- 1 until ((pow(2,dimensioni.length)).asInstanceOf[Int]) ) {
             val stringaBit = (numero).toBinaryString
             var sottoinsiemeDimensioniQuery = new ArrayBuffer[String]()
             for(indice <- 0 until stringaBit.length){
@@ -23,16 +27,27 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                     sottoinsiemeDimensioniQuery += this.dimensioni(indice)
                 }
             }
-            val numeroDimensioni=sottoinsiemeDimensioniQuery.length
-            //if(numeroDimensioni==1){
-            val dim0 = sottoinsiemeDimensioniQuery(0)
-            return rdd.map(x => (x.getClass.getDeclaredMethod(dim0).invoke(x) , 1)).reduceByKey(_+_).collect
-            //}
-            //if(numeroDimensioni==1) 
-            //else if(numeroDimensioni==2)
-            //else if(numeroDimensioni==3)
-            //else if(numeroDimensioni==4)
-            //else if(numeroDimensioni==5)
-       // }       
+            if(sottoinsiemeDimensioniQuery sameElements dimensioniUtenteOrdinate){
+                val numeroDimensioni=sottoinsiemeDimensioniQuery.length
+                //(x.getClass.getDeclaredMethod(dim0).invoke(x) , 1) = ([x.dimensione],1)
+                if(numeroDimensioni==1){
+                    val dim0 = sottoinsiemeDimensioniQuery(0)
+                    return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
+                }
+                else if(numeroDimensioni==2){
+                    val dim0 = sottoinsiemeDimensioniQuery(0)
+                    val dim1= sottoinsiemeDimensioniQuery(1)
+                    return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x), x.getClass.getDeclaredMethod(dim1).invoke(x) ) , 1)).reduceByKey(_+_).collect                }
+                //else if(numeroDimensioni==3)
+                //else if(numeroDimensioni==4)
+                //else if(numeroDimensioni==5)
+                else{
+                    //fittizio
+                    return (Array( (List(1,2,3),1), (List(4,5,6),13) )).asInstanceOf[Array[(List[Object], Int)]]
+                }
+            }
+        }
+        //fittizio
+        return (Array( (List(1,2,3),1), (List(4,5,6),13) )).asInstanceOf[Array[(List[Object], Int)]] 
     }
 }

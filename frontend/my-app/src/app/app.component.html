@@ -1,35 +1,32 @@
 <!-- Navigation -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-     <a class="navbar-brand" href="#">{{ title }}</a>
-    </div>
+<nav class="navbar is-info" >
+  <div id="navMenuColorinfo-example" class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:4200/">
+      <i class="fa fa-taxi" style="font-size:48px;"></i>
+    </a>
 
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-        </span>
-     </button>
-     <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
 
+  </div>
+  <div id="navMenuColorinfo-example" class="navbar-menu">
            <div>
-            <a class="nav-link" routerLink="/schedaTaxi">Scheda Taxi</a>
+                  <a class="navbar-item"  routerLink="/schedaTaxi">Scheda Taxi</a>
            </div>
-           <li class="nav-item">
 
             <div>
-                  <a class="nav-link" routerLink="/analisiDimensionale">Analisi Dimensionale</a>
+                  <a class="navbar-item" routerLink="/analisiDimensionale">Analisi Dimensionale</a>
             </div>
 
             <div>
-                        <a class="nav-link" routerLink="/machineLearning">Machine Learning</a>
+                  <a class="navbar-item" routerLink="/machineLearning">Machine Learning</a>
             </div>
-</li>
 
-        </ul>
-
-     </div>
-
-</nav>
+    </div>
+  </nav>
 
 <router-outlet></router-outlet>
 

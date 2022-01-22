@@ -6,6 +6,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import { coordinata } from '../coordinata';
+
 
 @Component({
   selector: 'app-scheda-taxi',
@@ -34,6 +36,13 @@ export class SchedaTaxiComponent implements OnInit {
     this.giornoNotte();
     this.tempoAttivita();
     this.fascia();
+    this.percorso(0);
+    this.percorso(1);
+    this.percorso(2);
+    this.percorso(3);
+    this.percorso(4);
+    this.percorso(5);
+    this.percorso(6);
   }
 
   public getScheda(): void{
@@ -131,6 +140,54 @@ export class SchedaTaxiComponent implements OnInit {
     chart.legend = new am4charts.Legend();
   }
 
+  percorso(giorno : any){
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    let percorso_giorno  = this.scheda?.percorso[giorno][1]
+    // Create chart instance
+    let chart = am4core.create("chartdivs"+giorno, am4charts.XYChart);
+
+    percorso_giorno?.forEach(function (value)
+      {chart.data.push({
+        "x": value.longitudine,
+        "ay": value.latitudine,
+        "aValue": 1
+      })})
+
+
+    // Add data
+
+
+    // Create axes
+    let xAxis = chart.xAxes.push(new am4charts.ValueAxis());
+    xAxis.renderer.minGridDistance = 40;
+
+    // Create value axis
+    let yAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+    // Create series
+    let series1 = chart.series.push(new am4charts.LineSeries());
+    series1.dataFields.valueX = "x";
+    series1.dataFields.valueY = "ay";
+    series1.dataFields.value = "aValue";
+    series1.strokeWidth = 2;
+
+    let bullet1 = series1.bullets.push(new am4charts.CircleBullet());
+    series1.heatRules.push({
+      target: bullet1.circle,
+      min: 5,
+      max: 20,
+      property: "radius"
+    });
+
+    bullet1.tooltipText = "{valueX} x {valueY}";
+
+
+
+    //scrollbars
+    chart.scrollbarX = new am4core.Scrollbar();
+    chart.scrollbarY = new am4core.Scrollbar();
+  }
 
 
 

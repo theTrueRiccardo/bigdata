@@ -9,9 +9,10 @@
   <input type="text" id="id" class="form-control" formControlName="id" placeholder="Id" required autofocus>
   <button class="button is-info"  type="submit">Start</button>
 </form>
-
 <h2 class="title is-2" > Totale rilevazioni: {{scheda?.rilevazioniTotali}}</h2>
-
+<br>
+<br>
+<br>
 <div class="columns">
   <div class="column">
     <div id="chartdiv"></div>
@@ -20,29 +21,21 @@
     <div id="chartdiv1"></div>
   </div>
 </div>
-
+<br>
+<br>
 <h3 class="subtitle is-3" > {{scheda?.msgConfrontoGiornoNotte}}</h3>
-
+<br>
+<br>
+<br>
 <div id="chartdiv2"></div>
+<br>
+<br>
+<br>
+<br>
+<div id="chartdivs0"></div>
+<br>
+<br>
+<br>
 
-<ul>
 
-    <li *ngFor="let item of scheda?.percorso">
 
-    <b>{{item?.[0]}}</b>
-
-    <ul>
-
-    <li *ngFor="let percorso of item?.[1]">
-
-    {{percorso.longitudine}}
-
-    {{percorso.latitudine}}
-
-    </li>
-
-    </ul>
-
-    </li>
-
-    </ul>

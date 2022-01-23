@@ -6,6 +6,7 @@ import org.apache.spark.rdd.RDD
 import models._
 import utile._
 import scala.io._
+import scala.util.control.Breaks._
 
 
 class AnalisiPerTaxi(sparkContext : SparkContext){
@@ -87,54 +88,53 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         var tempoTotale=0.0
         var tempoAttivita=0.0
         var tempoOzio=0.0
-        for(i <- 0 until array.length-1){
+        var i=0
+        while(i < array.length-1){
             var rilevazione1 = array(i)
             var j=i+1
             var rilevazione2=array(j)
+            breakable{
             while(j < array.length && rilevazione2.coordinata == rilevazione1.coordinata){
-                tempoOzio+=(differenzaTempo(rilevazione1.dataOra, rilevazione2.dataOra))
+                tempoOzio=tempoOzio+(rilevazione1.dataOra.differenzaTempoMinuti(rilevazione2.dataOra))
                 j+=1
+                if(j == array.length) break 
                 rilevazione2=array(j)
             }
+            }
+            i=j
+            println("calcolo ozio")
         }
+        println(s"lunghezza array=${array.length}")
         for(i <- 1 until array.length){
-            tempoTotale+=differenzaTempo(array(i-1).dataOra, array(i).dataOra)
+            tempoTotale=tempoTotale+(array(i-1).dataOra.differenzaTempoMinuti(array(i).dataOra))
+            println(s"calcolo totale i=$i")
         }
         tempoAttivita=tempoTotale-tempoOzio
+        println("sto chiudendo il file")
         file.close()
+        println("sto tornando")
         return (tempoAttivita, tempoOzio)
     }
 
-    /*
-    def listaDoppioni(id : Int) : Array[Rilevazione] ={
-        //val listaCoordinate1 = coordinateDoppioni(id).foreach(println)
-        val listaCoordinate = coordinateDoppioni(id)
-        val taxi = logData.map(x => Util.parseTaxi(x))
-        val result = taxi.filter( x => x.id == id && listaCoordinate.contains(x.coordinata)).collect
-        return result
-    }
-
-    def coordinateDoppioni(id : Int) : Array[Coordinata] ={
-        val taxi = logData.map(x => Util.parseRilevazione(x))
-        val filtro = taxi.filter(x => x.id == id).map(x => (x.coordinata, 1)).reduceByKey(_+_).filter(_._2 > 1)
-        val result = filtro.map( x => x._1).collect
-        return result
-    }
-    */
-
     
-    def differenzaTempo(prima : DataOra , dopo : DataOra) : Double ={
-        if(prima.ore == dopo.ore) return dopo.minuti - prima.minuti
+    /*
+    def differenzaTempo(prima : dataOraPrecedente , dopo : dataOraPrecedente) : Double ={
         var tempo=0.0
-        var prima1=prima
-        do{
-            val avanzamento=prima1.avanzaAllaProssimaOraRestituendoMinuti();
-            tempo+=avanzamento._2
-            prima1=avanzamento._1
-        }while(prima1.ore != dopo.ore);
-        tempo+=(dopo.minuti-prima1.minuti)
+        var dataOraPrecedente=prima
+        while(dataOraPrecedente.data != dopo.data){
+            val avanzamento=dataOraPrecedente.avanzaAlProssimoGiornoRestituendoMinuti();
+            dataOraPrecedente=avanzamento._1 //altra dataOraPrecedente
+            tempo+=avanzamento._2 //minuti
+        }
+        while(dataOraPrecedente.ore != dopo.ore){
+            val avanzamento=dataOraPrecedente.avanzaAllaProssimaOraRestituendoMinuti();
+            dataOraPrecedente=avanzamento._1 //altra dataOraPrecedente
+            tempo+=avanzamento._2 //minuti
+        }
+        tempo+=(dopo.minuti-dataOraPrecedente.minuti)
         return tempo
     } 
+    */
 
 
     

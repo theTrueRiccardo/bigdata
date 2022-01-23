@@ -36,6 +36,11 @@ export class SchedaTaxiComponent implements OnInit {
 
   }
 
+  test(num : Number){
+    this.percorso(num)
+    console.log(2)
+  }
+
   public getScheda(): void{
     this.schedaService.getScheda(this.id).subscribe(
       (response: schedaTaxi) => {
@@ -50,7 +55,7 @@ export class SchedaTaxiComponent implements OnInit {
         this.percorso(4);
         this.percorso(5);
         this.percorso(6);
-        this.percorso(7);
+
       },
       (error : HttpErrorResponse) => {
         alert(error.message);
@@ -141,12 +146,15 @@ export class SchedaTaxiComponent implements OnInit {
     chart.legend = new am4charts.Legend();
   }
 
+//valore piu visualizza
   percorso(giorno : any){
     am4core.useTheme(am4themes_animated);
     // Themes end
-    let percorso_giorno  = this.scheda?.percorso[giorno][1]
+    let percorso_giorno  = this.scheda?.percorso[parseInt(giorno)][1]
+
     // Create chart instance
     let chart = am4core.create("chartdivs"+giorno, am4charts.XYChart);
+
 
     percorso_giorno?.forEach(function (value)
       {chart.data.push({

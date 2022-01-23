@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MachineLearningComponent } from './machine-learning/machine-learning.component';
 import { AnalisiDimensionaleComponent } from './analisi-dimensionale/analisi-dimensionale.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AnalisiDimensionaleComponent } from './analisi-dimensionale/analisi-dim
     SchedaTaxiComponent,
     HomeComponent,
     MachineLearningComponent,
-    AnalisiDimensionaleComponent
+    AnalisiDimensionaleComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -24,7 +27,9 @@ import { AnalisiDimensionaleComponent } from './analisi-dimensionale/analisi-dim
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

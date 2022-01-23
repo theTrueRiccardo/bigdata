@@ -33,23 +33,24 @@ export class SchedaTaxiComponent implements OnInit {
     this.id = data.id;
     console.log(this.id)
     this.getScheda();
-    this.giornoNotte();
-    this.tempoAttivita();
-    this.fascia();
-    this.percorso(0);
-    this.percorso(1);
-    this.percorso(2);
-    this.percorso(3);
-    this.percorso(4);
-    this.percorso(5);
-    this.percorso(6);
+
   }
 
   public getScheda(): void{
     this.schedaService.getScheda(this.id).subscribe(
       (response: schedaTaxi) => {
         this.scheda = response;
-
+        this.giornoNotte();
+        this.tempoAttivita();
+        this.fascia();
+        this.percorso(0);
+        this.percorso(1);
+        this.percorso(2);
+        this.percorso(3);
+        this.percorso(4);
+        this.percorso(5);
+        this.percorso(6);
+        this.percorso(7);
       },
       (error : HttpErrorResponse) => {
         alert(error.message);

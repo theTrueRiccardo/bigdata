@@ -19,6 +19,7 @@ export class SchedaTaxiComponent implements OnInit {
    formData: FormGroup =  new FormGroup({
     id : new FormControl,
  });
+  totaleRilevazioni = ""
   scheda: schedaTaxi | undefined;
 
   constructor(private schedaService : SchedaTaxiService) { }
@@ -36,15 +37,21 @@ export class SchedaTaxiComponent implements OnInit {
 
   }
 
-  test(num : Number){
-    this.percorso(num)
-    console.log(2)
+  visible =[true,false,false,false,false,false,false]
+
+  visibile(num : any){
+    this.visible = [false,false,false,false,false,false,false]
+    console.log(num)
+    this.visible[num] = true
   }
+
+
 
   public getScheda(): void{
     this.schedaService.getScheda(this.id).subscribe(
       (response: schedaTaxi) => {
         this.scheda = response;
+        this.totaleRilevazioni= "Totale rilevazioni: "+this.scheda.rilevazioniTotali
         this.giornoNotte();
         this.tempoAttivita();
         this.fascia();
@@ -154,7 +161,7 @@ export class SchedaTaxiComponent implements OnInit {
 
     // Create chart instance
     let chart = am4core.create("chartdivs"+giorno, am4charts.XYChart);
-
+    console.log(giorno)
 
     percorso_giorno?.forEach(function (value)
       {chart.data.push({

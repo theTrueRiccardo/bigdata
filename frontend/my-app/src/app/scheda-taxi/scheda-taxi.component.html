@@ -9,7 +9,7 @@
   <input type="text" id="id" class="form-control" formControlName="id" placeholder="Id" required autofocus>
   <button class="button is-info"  type="submit">Start</button>
 </form>
-<h2 class="title is-2" > Totale rilevazioni: {{scheda?.rilevazioniTotali}}</h2>
+<h2 class="title is-2" >{{totaleRilevazioni}}</h2>
 <br>
 <br>
 <br>
@@ -33,28 +33,28 @@
 <br>
 
 
-<mat-tab-group animationDuration="0ms">
+<mat-tab-group (selectedIndexChange)="visibile($event)">
   <mat-tab label="2/2/2008">
-    <div id="chartdivs0"></div>
   </mat-tab>
-  <mat-tab label="3/2/2008" >
-      <div id="chartdivs1"></div>
+  <mat-tab label="3/2/2008"  >
   </mat-tab>
   <mat-tab label="4/2/2008">
-    <div id="chartdivs2"></div>
   </mat-tab>
   <mat-tab label="5/2/2008">
-    <div id="chartdivs3"></div>
   </mat-tab>
   <mat-tab label="6/2/2008">
-    <div id="chartdivs4"></div>
   </mat-tab>
   <mat-tab label="7/2/2008">
-    <div id="chartdivs5"></div>
   </mat-tab>
   <mat-tab label="8/2/2008">
-    <div id="chartdivs6"></div>
   </mat-tab>
 </mat-tab-group>
 
 
+<div id="chartdivs0" [style.display]="visible[0] ? 'block' : 'none'"></div>
+<div id="chartdivs1"[style.display]="visible[1] ? 'block' : 'none'"></div>
+<div id="chartdivs2"[style.display]="visible[2] ? 'block' : 'none'"></div>
+<div id="chartdivs3"[style.display]="visible[3] ? 'block' : 'none'"></div>
+<div id="chartdivs4"[style.display]="visible[4] ? 'block' : 'none'"></div>
+<div id="chartdivs5"[style.display]="visible[5] ? 'block' : 'none'"></div>
+<div id="chartdivs6"[style.display]="visible[6] ? 'block' : 'none'"></div>

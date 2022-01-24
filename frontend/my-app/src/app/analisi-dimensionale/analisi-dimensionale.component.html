@@ -1,1 +1,8 @@
-<p>analisi-dimensionale works!</p>
+
+<select class="select" #parametro>
+  <option value="data">Data</option>
+</select>
+<button class="button is-info" (click) = "onClickSubmit(parametro.value)">Start</button>
+
+<div id="chartdiv"></div>
+

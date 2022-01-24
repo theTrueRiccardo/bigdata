@@ -16,7 +16,6 @@ class AnalisiDimensionale(sparkContext : SparkContext){
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora")
 
-
     def queryDimensionale(dimensioniUtente : List[String]): Array[(List[Object], Int)] = { // da vedere
         val dimensioniUtenteOrdinate=dimensioniUtente.sorted;
         for(numero <- 1 until ((pow(2,dimensioni.length)).asInstanceOf[Int]) ) {

@@ -12,7 +12,7 @@ class Dao{
     val dataset = sys.env.get("DATASET").get.replaceAll("\\\\", "/") // Should be some file on your system
     val spark = SparkSession.builder
             .appName("Simple Application")
-            .config("spark.master", "local")
+            .config("spark.master", "local[*]")
             .getOrCreate()
     //val sparkContext = new SparkContext()
     val analisiPerTaxi=new AnalisiPerTaxi(spark.sparkContext)

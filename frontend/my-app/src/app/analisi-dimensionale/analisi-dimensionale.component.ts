@@ -18,7 +18,46 @@ export class AnalisiDimensionaleComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+		var list1 = document.getElementById('firstList');
+
+		list1!.appendChild(new Option('--Select--', ''));
+		list1!.appendChild(new Option('data', 'data'));
+    list1!.appendChild(new Option('longitudine', 'longitudine'));
   }
+
+   getOptions(){
+    var list1 = (document.getElementById('firstList')  as HTMLSelectElement);
+    var list2 = (document.getElementById("secondList") as HTMLSelectElement) ;
+    var list1SelectedValue = list1?.options[list1.selectedIndex].value;
+
+    if (list1SelectedValue=='data')
+          {
+
+      list2.options.length=0;
+      list2.options[0] = new Option('--Select--', '');
+      list2.options[1] = new Option('1', '1');
+
+
+    }
+    else if (list1SelectedValue=='longitudine')
+          {
+
+      list2.options.length=0;
+      list2.options[0] = new Option('--Select--', '');
+      list2.options[1] = new Option('1', '1');
+      list2.options[2] = new Option('0.5', '0.5');
+
+
+    }
+}
+
+
+
+
+
+
+
 
   onClickSubmit(parametro: String ) {
 

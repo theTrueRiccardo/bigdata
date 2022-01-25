@@ -1,8 +1,18 @@
 
-<select class="select" #parametro>
-  <option value="data">Data</option>
-</select>
-<button class="button is-info" (click) = "onClickSubmit(parametro.value)">Start</button>
+<div class="col-md-4">
+	<form>
+	<h4>Parametro</h4>
+	<select class="select"  id='firstList' name='firstList' (change)="getOptions()"  #parametro >
+	</select>
+
+	<h4>Range</h4>
+	<select class="select"  id='secondList' name='secondList' >
+	</select>
+
+  <button class="button is-info" (click) = "onClickSubmit(parametro.value)">Start</button>
+
+    </form>
+	</div>
 
 <div id="chartdiv"></div>
 

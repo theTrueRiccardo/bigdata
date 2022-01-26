@@ -24,3 +24,5 @@ GET     /confrontoGiornoNotte/:id   controllers.SparkController.confrontoGiornoN
 GET     /schedaTaxi/:id             controllers.SparkController.schedaTaxi(id : Int)
 
 GET     /analisiDimensionale        controllers.SparkController.analisiDimensionale(dim : List[String])
+
+GET     /testML                     controllers.SparkController.testML

@@ -26,6 +26,11 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
             return json
          }
     }
+
+    def testML(): Action[AnyContent] = Action {
+        val risultato = dao.testML()       
+        Ok(Json.toJson(risultato))
+    }
    
     def schedaTaxi(id : Int): Action[AnyContent] = Action {
         val risultato=dao.schedaTaxi(id)        

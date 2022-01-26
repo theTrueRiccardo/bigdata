@@ -82,4 +82,8 @@ class Dao{
     def analisiDimensionale(dimensioni : List[String]) : Array[(List[Object], Int)]  ={
         return this.analisiDimensionale.queryDimensionale(dimensioni)
     }
+
+    def testML(): List[String] ={
+        return this.machineLearning.testML()
+    }
 }

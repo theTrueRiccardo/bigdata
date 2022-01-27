@@ -23,6 +23,7 @@ class AnalisiDimensionale(sparkContext : SparkContext){
     val tempo=Map("ora" -> rdd.map(x => x.ora))
 
     def queryDimensionale(dimensioniUtente : List[String]): Array[(List[Object], Int)] = { // da vedere
+        println("chiamato metodo")
         val dimensioniUtenteRangeOrdinate=dimensioniRangeOrdinati(dimensioniUtente)
         val dimensioniUtenteOrdinate=dimensioniUtenteRangeOrdinate.map(x => x._1)
         val rangeUtenteOrdinati=dimensioniUtenteRangeOrdinate.map(x => x._2)

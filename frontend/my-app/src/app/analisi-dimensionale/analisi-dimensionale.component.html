@@ -6,10 +6,10 @@
 	</select>
 
 	<h4>Range</h4>
-	<select class="select"  id='secondList' name='secondList' >
+	<select class="select"  id='secondList' name='secondList' #range >
 	</select>
 
-  <button class="button is-info" (click) = "onClickSubmit(parametro.value)">Start</button>
+  <button class="button is-info" (click) = "onClickSubmit(parametro.value,range.value)">Start</button>
 
     </form>
 	</div>

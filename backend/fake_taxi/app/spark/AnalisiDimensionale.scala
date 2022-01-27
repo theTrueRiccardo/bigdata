@@ -70,7 +70,7 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                         var vettore = new ArrayBuffer[(List[Object], Int)]();
                         while(lb < max){
                             println(s"lb=$lb   ub=$ub   max=$max")
-                            var categoria0 = s"[$lb,$ub)"
+                            var categoria0 = s"[$lb;$ub["
                             val array=rdd.filter(x =>
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub

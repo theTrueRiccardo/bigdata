@@ -23,7 +23,7 @@ export class AnalisiDimensionaleComponent implements OnInit {
 
 		list1!.appendChild(new Option('--Select--', ''));
 		list1!.appendChild(new Option('data', 'data'));
-    list1!.appendChild(new Option('longitudine', 'longitudine'));
+    list1!.appendChild(new Option('ora', 'ora'));
   }
 
    getOptions(){
@@ -35,18 +35,18 @@ export class AnalisiDimensionaleComponent implements OnInit {
           {
 
       list2.options.length=0;
-      list2.options[0] = new Option('--Select--', '');
-      list2.options[1] = new Option('1', '1');
+      list2.options[0] = new Option('--None--', '-1');
+
 
 
     }
-    else if (list1SelectedValue=='longitudine')
+    else if (list1SelectedValue=='ora')
           {
 
       list2.options.length=0;
-      list2.options[0] = new Option('--Select--', '');
-      list2.options[1] = new Option('1', '1');
-      list2.options[2] = new Option('0.5', '0.5');
+      list2.options[0] = new Option('--Select--', '12');
+      list2.options[1] = new Option('6', '6');
+      list2.options[2] = new Option('3', '3');
 
 
     }
@@ -59,14 +59,14 @@ export class AnalisiDimensionaleComponent implements OnInit {
 
 
 
-  onClickSubmit(parametro: String ) {
+  onClickSubmit(parametro: String, range:String ) {
 
-    this.getAnalisi(parametro)
+    this.getAnalisi(parametro,range)
 
    }
 
-   public getAnalisi(val : String): void{
-    this.analisiService.getAnalisi(val).subscribe(
+   public getAnalisi(val : String, val1 : String): void{
+    this.analisiService.getAnalisi(val,val1).subscribe(
       (response: JSON ) => {
         this.dati = response;
         console.log(this.dati)
@@ -92,7 +92,7 @@ export class AnalisiDimensionaleComponent implements OnInit {
         let value : Number[] = []
 
         for(let i = 0 ; i < parametro.length ; i++) {
-          let x = parametro[i].indexOf(":")
+          let x = parametro[i].lastIndexOf(":")
           let y = parametro[i].indexOf("(")
           let z = parametro[i].indexOf(")")
           value.push(parseInt(parametro[i].substring(x+1)))

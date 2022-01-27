@@ -16,23 +16,24 @@ class AnalisiDimensionale(sparkContext : SparkContext){
     val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora")
-    val minimi=Map(
-        "latitudine" -> (rdd.map(x => x.latitudine).min),
-        "longitudine" -> (rdd.map(x => x.longitudine).min),
-        "ora" -> (rdd.map(x => x.ora).min)
+    val numeri=Map(
+    "latitudine" -> rdd.map(x => x.latitudine),
+    "longitudine" -> rdd.map(x => x.longitudine)
     )
-    val massimi=Map(
-        "latitudine" -> (rdd.map(x => x.latitudine).max),
-        "longitudine" -> (rdd.map(x => x.longitudine).max),
-        "ora" -> (rdd.map(x => x.ora).max)
-    )
+    val tempo=Map("ora" -> rdd.map(x => x.ora))
 
     def queryDimensionale(dimensioniUtente : List[String]): Array[(List[Object], Int)] = { // da vedere
         val dimensioniUtenteRangeOrdinate=dimensioniRangeOrdinati(dimensioniUtente)
         val dimensioniUtenteOrdinate=dimensioniUtenteRangeOrdinate.map(x => x._1)
         val rangeUtenteOrdinati=dimensioniUtenteRangeOrdinate.map(x => x._2)
         for(numero <- 1 until ((pow(2,dimensioni.length)).asInstanceOf[Int]) ) {
-            val stringaBit = (numero).toBinaryString
+            val stringaBit1 = (numero).toBinaryString
+            var stringaBit = stringaBit1
+            if(stringaBit1.length < 4){
+                var zeri=""
+                for(i <- 1 to 4-stringaBit1.length) zeri=s"0$zeri"
+                stringaBit=s"$zeri$stringaBit1"
+            }
             var sottoinsiemeDimensioniQuery = new ArrayBuffer[String]()
             for(indice <- 0 until stringaBit.length){
                 if(stringaBit.charAt(indice)=='1'){
@@ -40,31 +41,44 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                 }
             }
             if(sottoinsiemeDimensioniQuery sameElements dimensioniUtenteOrdinate){
+                println(s"beccate dimensioni: $sottoinsiemeDimensioniQuery---$dimensioniUtenteOrdinate")
                 val numeroDimensioni=sottoinsiemeDimensioniQuery.length
                 //x.getClass.getDeclaredMethod(dim).invoke(x) = x.dim
                 //[x,y)
                 if(numeroDimensioni==1){
+                    println("numero dimensioni=1")
                     val dim0 = sottoinsiemeDimensioniQuery(0)
                     val ampiezza0 = rangeUtenteOrdinati(0)
                     if(ampiezza0 == -1) return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
                     else {
-                        val max=new Bound(massimi.get(dim0).get)
-                        val min=new Bound(minimi.get(dim0).get)
+                        println("ciao")
+                        var max=null : Bound; var min=null : Bound;
+                        if(tempo.contains(dim0)){
+                            println("miao")
+                            max=new Bound(tempo(dim0).max)
+                            println("miao eccolo")
+                            min=new Bound(tempo(dim0).min)               
+                        }
+                        else{
+                            println("bau")
+                            max=new Bound(numeri(dim0).max)
+                            min=new Bound(numeri(dim0).min)
+                        }
                         var lb=new Bound(min.valore) 
                         var ub=lb+ampiezza0
                         var vettore = new ArrayBuffer[(List[Object], Int)]();
                         while(lb < max){
-                            println(s"$lb   $ub")
+                            println(s"lb=$lb   ub=$ub   max=$max")
                             var categoria0 = s"[$lb,$ub)"
                             val array=rdd.filter(x =>
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub
-                            )
-                            .map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
+                            ).map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
                             vettore += (array(0))
                             lb=ub
                             ub=ub+ampiezza0
                         }
+                        println("ritorna cazzo ritorna")
                         return vettore.toArray
                     }
                 }

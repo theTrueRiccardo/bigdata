@@ -14,7 +14,7 @@ import org.apache.spark.sql.Row
 class MachineLearning(sparkContext : SparkContext){
 
     def  testML() : List[String] ={
-        
+        /*
       val spark = SparkSession
       .builder
       .appName("EstimatorTransformerParamExample")
@@ -66,8 +66,9 @@ class MachineLearning(sparkContext : SparkContext){
         (0.0, Vectors.dense(3.0, 2.0, -0.1)),
         (1.0, Vectors.dense(0.0, 2.2, -1.5))
         )).toDF("label", "features")
-        
+        */
         var result : List[String] = List()
+        /*
         // Make predictions on test data using the Transformer.transform() method.
         // LogisticRegression.transform will only use the 'features' column.
         // Note that model2.transform() outputs a 'myProbability' column instead of the usual
@@ -78,6 +79,7 @@ class MachineLearning(sparkContext : SparkContext){
         .foreach { case Row(features: Vector, label: Double, prob: Vector, prediction: Double) =>
             result = (s"(${features}, ${label}) -> prob=${prob}, prediction=${prediction}") :: result
             }
+            */
         return result
     }
     

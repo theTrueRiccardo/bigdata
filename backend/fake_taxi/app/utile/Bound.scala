@@ -1,10 +1,10 @@
 package utile
 import scala.reflect.ClassTag
-class Bound(var valore : Any) {
+class Bound(var valore : Any) extends Serializable{
     var tempo=false
     var valoreNumero=0.0
     var valoreTempo=""
-    if(ClassTag(valore.getClass) == "String"){
+    if(valore.getClass().getName().equals("java.lang.String")){
          tempo=true
          valoreTempo=valore.asInstanceOf[String] 
     }
@@ -17,7 +17,14 @@ class Bound(var valore : Any) {
         if(tempo){
             val orario=valoreTempo.split(":")
             val ora=(orario(0)).toDouble
-            val prossimaOra=ora+ampiezza
+            val prossimaOra1=((ora+ampiezza).toInt)+""
+            var prossimaOra=""
+            if(prossimaOra1.length==2){
+                prossimaOra=s"$prossimaOra1"
+            }
+            else{
+                prossimaOra=s"0$prossimaOra1"
+            }
             val nuovoValoreTempo=s"$prossimaOra:"+orario(1)+":"+orario(2)
             new Bound(nuovoValoreTempo)
         }
@@ -31,13 +38,13 @@ class Bound(var valore : Any) {
     def < (altro : Bound) : Boolean = {
         if(tempo){
             val orario=valoreTempo.split(":")
-            val ore=orario(0).toInt
-            val minuti=orario(1).toInt
-            val secondi=orario(2).toInt
+            val ore=orario(0).toDouble
+            val minuti=orario(1).toDouble
+            val secondi=orario(2).toDouble
             val orarioAltro=altro.valoreTempo.split(":")
-            val oreAltro=orarioAltro(0).toInt
-            val minutiAltro=orarioAltro(1).toInt
-            val secondiAltro=orarioAltro(2).toInt
+            val oreAltro=orarioAltro(0).toDouble
+            val minutiAltro=orarioAltro(1).toDouble
+            val secondiAltro=orarioAltro(2).toDouble
             if(ore < oreAltro) return true
             else if(ore > oreAltro) return false
             if(minuti < minutiAltro) return true
@@ -54,13 +61,13 @@ class Bound(var valore : Any) {
     def >= (altro : Bound) : Boolean = {
         if(tempo){
             val orario=valoreTempo.split(":")
-            val ore=orario(0).toInt
-            val minuti=orario(1).toInt
-            val secondi=orario(2).toInt
+            val ore=orario(0).toDouble
+            val minuti=orario(1).toDouble
+            val secondi=orario(2).toDouble
             val orarioAltro=altro.valoreTempo.split(":")
-            val oreAltro=orarioAltro(0).toInt
-            val minutiAltro=orarioAltro(1).toInt
-            val secondiAltro=orarioAltro(2).toInt
+            val oreAltro=orarioAltro(0).toDouble
+            val minutiAltro=orarioAltro(1).toDouble
+            val secondiAltro=orarioAltro(2).toDouble
             if(ore > oreAltro) return true
             else if(ore < oreAltro) return false
             if(minuti > minutiAltro) return true

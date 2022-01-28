@@ -10,7 +10,7 @@ class Bound(var valore : Any) extends Serializable{
     }
     else {
         tempo=false
-        valoreNumero=valore.asInstanceOf[Double]
+        valoreNumero=valore.asInstanceOf[Double].toDouble
     }
 
     def + (ampiezza : Double) : Bound = {

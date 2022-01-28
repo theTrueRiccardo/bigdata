@@ -24,6 +24,8 @@ export class AnalisiDimensionaleComponent implements OnInit {
 		list1!.appendChild(new Option('--Select--', ''));
 		list1!.appendChild(new Option('data', 'data'));
     list1!.appendChild(new Option('ora', 'ora'));
+    list1!.appendChild(new Option('latitudine', 'latitudine'));
+    list1!.appendChild(new Option('longitudine', 'longitudine'));
   }
 
    getOptions(){
@@ -35,7 +37,7 @@ export class AnalisiDimensionaleComponent implements OnInit {
           {
 
       list2.options.length=0;
-      list2.options[0] = new Option('--None--', '-1');
+      list2.options[0] = new Option('Default', '-1');
 
 
 
@@ -44,11 +46,29 @@ export class AnalisiDimensionaleComponent implements OnInit {
           {
 
       list2.options.length=0;
-      list2.options[0] = new Option('--Select--', '12');
-      list2.options[1] = new Option('6', '6');
+      list2.options[0] = new Option('12 ore', '12');
+      list2.options[1] = new Option('6 ore', '6');
+      list2.options[2] = new Option('4 ore', '4');
+
+
+    }
+
+    else if (list1SelectedValue=='latitudine')
+          {
+
+      list2.options.length=0;
+      list2.options[0] = new Option('1', '1');
+      list2.options[1] = new Option('2', '2');
       list2.options[2] = new Option('3', '3');
 
 
+    }
+
+    else if (list1SelectedValue=='longitudine')
+          {
+      list2.options.length=0;
+      list2.options[0] = new Option('1', '1');
+      list2.options[1] = new Option('0.5', '0.5');
     }
 }
 
@@ -133,7 +153,7 @@ export class AnalisiDimensionaleComponent implements OnInit {
     series.sequencedInterpolation = true;
     series.dataFields.valueY = "valore";
     series.dataFields.categoryX = "parametro";
-    series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+    series.tooltipText = "{valueY}";
     series.columns.template.strokeWidth = 0;
 
     series.tooltip!.pointerOrientation = "vertical";

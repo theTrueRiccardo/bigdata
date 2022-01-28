@@ -17,10 +17,10 @@ class AnalisiDimensionale(sparkContext : SparkContext){
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora")
     val numeri=Map(
-    "latitudine" -> rdd.map(x => x.latitudine),
-    "longitudine" -> rdd.map(x => x.longitudine)
+    "latitudine" -> (44.0,35.0),
+    "longitudine" -> (118.0,115.0)
     )
-    val tempo=Map("ora" -> rdd.map(x => x.ora))
+    val tempo=Map("ora" -> ("23:59:59","00:00:00"))
 
     def queryDimensionale(dimensioniUtente : List[String]): Array[(List[Object], Int)] = { // da vedere
         println("chiamato metodo")
@@ -47,23 +47,18 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                 //x.getClass.getDeclaredMethod(dim).invoke(x) = x.dim
                 //[x,y)
                 if(numeroDimensioni==1){
-                    println("numero dimensioni=1")
                     val dim0 = sottoinsiemeDimensioniQuery(0)
                     val ampiezza0 = rangeUtenteOrdinati(0)
                     if(ampiezza0 == -1) return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
                     else {
-                        println("ciao")
                         var max=null : Bound; var min=null : Bound;
                         if(tempo.contains(dim0)){
-                            println("miao")
-                            max=new Bound(tempo(dim0).max)
-                            println("miao eccolo")
-                            min=new Bound(tempo(dim0).min)               
+                            max=new Bound(tempo(dim0)._1)
+                            min=new Bound(tempo(dim0)._2)               
                         }
                         else{
-                            println("bau")
-                            max=new Bound(numeri(dim0).max)
-                            min=new Bound(numeri(dim0).min)
+                            max=new Bound(numeri(dim0)._1)
+                            min=new Bound(numeri(dim0)._2)
                         }
                         var lb=new Bound(min.valore) 
                         var ub=lb+ampiezza0
@@ -79,7 +74,7 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                             lb=ub
                             ub=ub+ampiezza0
                         }
-                        println("ritorna cazzo ritorna")
+                        
                         return vettore.toArray
                     }
                 }

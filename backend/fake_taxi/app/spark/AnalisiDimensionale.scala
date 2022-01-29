@@ -7,13 +7,15 @@ import org.apache.spark.rdd.RDD
 import models._
 import scala.collection.mutable.ArrayBuffer
 import scala.math._
+import org.apache.spark.storage._
 
 
 
 class AnalisiDimensionale(sparkContext : SparkContext){
     
     val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
-    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))
+    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x)).filter(x => x.id <= 25)
+    //.filter(x => x.id <= 25)
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora")
     val numeri=Map(
@@ -46,49 +48,36 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                 val numeroDimensioni=sottoinsiemeDimensioniQuery.length
                 //x.getClass.getDeclaredMethod(dim).invoke(x) = x.dim
                 //[x,y)
-                if(numeroDimensioni==1){
-                    val dim0 = sottoinsiemeDimensioniQuery(0)
-                    val ampiezza0 = rangeUtenteOrdinati(0)
-                    if(ampiezza0 == -1) return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
-                    else {
-                        var max=null : Bound; var min=null : Bound;
-                        if(tempo.contains(dim0)){
-                            max=new Bound(tempo(dim0)._1)
-                            min=new Bound(tempo(dim0)._2)               
-                        }
-                        else{
-                            max=new Bound(numeri(dim0)._1)
-                            min=new Bound(numeri(dim0)._2)
-                        }
-                        var lb=new Bound(min.valore) 
-                        var ub=lb+ampiezza0
-                        var vettore = new ArrayBuffer[(List[Object], Int)]();
-                        while(lb < max){
-                            println(s"lb=$lb   ub=$ub   max=$max")
-                            var categoria0 = s"[$lb;$ub["
-                            val array=rdd.filter(x =>
-                                new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
-                                new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub
-                            ).map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
-                            vettore += (array(0))
-                            lb=ub
-                            ub=ub+ampiezza0
-                        }
-                        
-                        return vettore.toArray
+                val dim0 = sottoinsiemeDimensioniQuery(0)
+                val ampiezza0 = rangeUtenteOrdinati(0)
+                if(ampiezza0 == -1) return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
+                else {
+                    var max=null : Bound; var min=null : Bound;
+                    if(tempo.contains(dim0)){
+                        max=new Bound(tempo(dim0)._1)
+                        min=new Bound(tempo(dim0)._2)               
                     }
-                }
-                else if(numeroDimensioni==2){
-                    val dim0 = sottoinsiemeDimensioniQuery(0)
-                    val dim1= sottoinsiemeDimensioniQuery(1)
-                    return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x), x.getClass.getDeclaredMethod(dim1).invoke(x) ) , 1)).reduceByKey(_+_).collect                
-                }
-                //else if(numeroDimensioni==3)
-                //else if(numeroDimensioni==4)
-                //else if(numeroDimensioni==5)
-                else{
-                    //fittizio
-                    return (Array( (List(1,2,3),1), (List(4,5,6),13) )).asInstanceOf[Array[(List[Object], Int)]]
+                    else{
+                        max=new Bound(numeri(dim0)._1)
+                        min=new Bound(numeri(dim0)._2)
+                    }
+                    var lb=new Bound(min.valore) 
+                    var ub=lb+ampiezza0
+                    var vettore = new ArrayBuffer[(List[Object], Int)]();
+                    rdd.cache()
+                    while(lb < max){
+                        println(s"lb=$lb   ub=$ub   max=$max")
+                        var categoria0 = s"[$lb;$ub["
+                        val array=rdd.filter(x =>
+                            new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
+                            new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub
+                        ).map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
+                        if(array.length!=0) vettore += (array(0))
+                        else vettore+=((List(categoria0), 0))
+                        lb=ub
+                        ub=ub+ampiezza0
+                    }                  
+                    return vettore.toArray
                 }
             }
         }
@@ -110,6 +99,71 @@ class AnalisiDimensionale(sparkContext : SparkContext){
         return ris
     }
 
+
+
+    def maxMinDimensione(dim : String) : (Bound, Bound) = {
+        var max=null : Bound; var min=null : Bound;
+        if(tempo.contains(dim)){
+            max=new Bound(tempo(dim)._1)
+            min=new Bound(tempo(dim)._2)               
+        }
+        else{
+            max=new Bound(numeri(dim)._1)
+            min=new Bound(numeri(dim)._2)
+        }
+        return (max,min)
+    }
+
+
+/*
+    def costruisciFiltro(dim : ArrayBuffer[String], range : ArrayBuffer[String]) : Rilevazione => Boolean = {
+        var max = new ArrayBuffer[Bound]()
+        var min = new ArrayBuffer[Bound]()
+        var lb = new ArrayBuffer[Bound]()
+        var ub = new ArrayBuffer[Bound]()
+        var valoriDaVerificare = new ArrayBuffer[Rilevazione => Bound]()
+        var condizioni = new ArrayBuffer[(Bound, Bound) => Boolean]()
+        //massimi e minimi
+        for(i <- 0 until dim.length){
+            val dimensione=dim(i)
+            if(tempo.contains(dimensione)){
+                max+=new Bound(tempo(dim0)._1)
+                min+=new Bound(tempo(dim0)._2)               
+            }
+            else{
+                max+=new Bound(numeri(dim0)._1)
+                min+=new Bound(numeri(dim0)._2)
+            }
+        }
+        //upper bound e lower bound
+        for(i <- 0 until range.length){
+            val ampiezza=range(i)
+            if(ampiezza==-1){
+                lb+=new Bound(-1) 
+                ub+=new Bound(-1)             
+            }
+            else{
+                lb+=min(i)
+                ub+=(lb+ampiezza)
+            }
+        }
+        //valori da mettere nella condizione
+        for(i <- 0 until dim.length){
+            val dimensione=dim(i)
+            valoriDaVerificare+= x : Rilevazione => new Bound( x.getClass.getDeclaredMethod(dimensione).invoke(x) )
+        }
+        for(i <- 0 until range.length){
+            val lbi=lb(i)
+            val ubi=ub(i)
+            if(range(i)==-1){
+                condizioni+=(lowerBound: Bound, upperBound : Bound) => true         
+            }
+            else{
+                condizioni+=(lowerBound: Bound, upperBound : Bound) => valoriDaVerificare(i) >= lbi && valoriDaVerificare(i) < ubi
+            }
+        }
+    }
+*/
 
    
 

@@ -26,3 +26,5 @@ GET     /schedaTaxi/:id             controllers.SparkController.schedaTaxi(id : 
 GET     /analisiDimensionale        controllers.SparkController.analisiDimensionale(dim : List[String])
 
 GET     /testML                     controllers.SparkController.testML
+
+GET     /pipeline                   controllers.SparkController.pipeline

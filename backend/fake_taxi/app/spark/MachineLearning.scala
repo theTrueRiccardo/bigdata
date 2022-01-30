@@ -2,19 +2,30 @@ package spark
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
+import org.apache.spark.rdd.RDD
 import org.apache.spark._
-import spark._
+import scala.math._
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.linalg.{Vector, Vectors}
 import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.sql.Row
+import org.apache.spark.ml.util._
+import utile._
+import models._
+import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.types.{DoubleType, StringType, StructField, StructType}
+import org.apache.spark.sql.functions.{when, _}
 
 
 
 class MachineLearning(sparkContext : SparkContext){
 
+    val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
+    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))
+
+
     def  testML() : List[String] ={
-        /*
+        
       val spark = SparkSession
       .builder
       .appName("EstimatorTransformerParamExample")
@@ -66,9 +77,9 @@ class MachineLearning(sparkContext : SparkContext){
         (0.0, Vectors.dense(3.0, 2.0, -0.1)),
         (1.0, Vectors.dense(0.0, 2.2, -1.5))
         )).toDF("label", "features")
-        */
+        
         var result : List[String] = List()
-        /*
+        
         // Make predictions on test data using the Transformer.transform() method.
         // LogisticRegression.transform will only use the 'features' column.
         // Note that model2.transform() outputs a 'myProbability' column instead of the usual
@@ -79,8 +90,52 @@ class MachineLearning(sparkContext : SparkContext){
         .foreach { case Row(features: Vector, label: Double, prob: Vector, prediction: Double) =>
             result = (s"(${features}, ${label}) -> prob=${prob}, prediction=${prediction}") :: result
             }
-            */
+            
         return result
+    }
+
+
+
+    def pipeline() : Metriche = {
+        val spark = SparkSession
+        .builder
+        .appName("ML")
+        .getOrCreate()
+        //eventualmente modificabili in 1 e 0
+        var rdd1 = rdd.filter(x => x.latitudine >= 35.0 && x.latitudine <= 44.0
+         && x.longitudine>=115 && x.longitudine<=118).map(x => (x.ora, x.longitudine, x.latitudine))
+        //mettiamo il seme a pi greco per questioni di riproducibilità
+        //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
+        //withReplacement, fraction, seed
+        val rdd2=rdd1.sample(false,0.1,Pi.toLong)
+        //creiamo il data frame
+        val df=spark.createDataFrame(rdd2).toDF("orario","longitudine","latitudine")
+        //label
+        val df1=df.withColumn("classe",
+        when(col("orario") >="08:00:00" && col("orario") <= "23:59:59",
+        lit("1"))
+        .otherwise(lit("-1")))
+        //salviamo i dati per la visualizzazione offline
+        //il file sta nella root del progetto ma non viene passato su git, ognuno se lo crea per se
+        println("ciao")
+        //df1.write.format("csv").save("C:\\Users\\Riccardo\\Desktop\\vis.csv")
+        //df.write.csv("../../vis.csv")
+        /*
+        df1.foreach { row => 
+           row.toSeq.foreach{col => println(col) }
+        }
+        */
+        //df1.rdd.saveAsTextFile("C:\\Users\\Riccardo\\Desktop\\vis.csv")
+        var i=0;
+        for (row <- df1.rdd.collect){ 
+            i=i+1  
+            var orario = row.mkString(",").split(",")(0)
+            var longitudine = row.mkString(",").split(",")(1)
+            var latitudine = row.mkString(",").split(",")(2)
+            var classe = row.mkString(",").split(",")(3)
+            if(i<20) println(s"$orario  $longitudine  $latitudine")   
+        }
+        Metriche(0,0,0) //fittizio
     }
     
 }

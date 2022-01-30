@@ -17,6 +17,7 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
     implicit val dataOraJson = Json.format[DataOra]
     implicit val rilevazioneJson = Json.format[Rilevazione]
     implicit val SchedaTaxiJson = Json.format[SchedaTaxi]
+    implicit val metricheJson = Json.format[Metriche]
     implicit val aggregatoJson = new Writes[ Array[(List[Object], Int)] ] {
         def writes( aggr: Array[(List[Object], Int)] ) : JsObject = {
             var json = Json.obj()
@@ -27,8 +28,13 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
          }
     }
 
-    def testML(): Action[AnyContent] = Action {
+    def testML() : Action[AnyContent] = Action {
         val risultato = dao.testML()       
+        Ok(Json.toJson(risultato))
+    }
+
+    def pipeline() : Action[AnyContent] = Action {
+        val risultato = dao.pipeline()       
         Ok(Json.toJson(risultato))
     }
    

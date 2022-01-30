@@ -76,11 +76,15 @@ class Dao{
     
 
     def schedaTaxi(id : Int) : SchedaTaxi={
-        return analisiPerTaxi.scheda(id)
+        return this.analisiPerTaxi.scheda(id)
     }
 
     def analisiDimensionale(dimensioni : List[String]) : Array[(List[Object], Int)]  ={
         return this.analisiDimensionale.queryDimensionale(dimensioni)
+    }
+
+    def pipeline() : Metriche = {
+        return this.machineLearning.pipeline()
     }
 
     def testML(): List[String] ={

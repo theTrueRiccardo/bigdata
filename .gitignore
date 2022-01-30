@@ -6,6 +6,7 @@ frontend/my-app/tmp
 frontend/my-app/out-tsc
 # Only exists if Bazel was run
 frontend/my-app/bazel-out
+vis.csv
 
 # dependencies
 frontend/my-app/node_modules

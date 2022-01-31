@@ -13,6 +13,7 @@ import org.apache.spark.mllib.rdd.RDDFunctions._
 class AnalisiPerTaxi(sparkContext : SparkContext){
 
     val cartellaFileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))
+    val costoTaxiPerKm=3.08
     
     def scheda(id: Int) : SchedaTaxi={
         val taxi=sparkContext.textFile(cartellaFileTaxi+id+".txt")
@@ -29,6 +30,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         val percorso = this.percorso(id, rilevazioni)
         val visite = visiteAiLuoghi(id, rilevazioni)
         val km = kmFatti(rilevazioni)
+        val yuan = km * costoTaxiPerKm
         return SchedaTaxi(
             rilevazioniTotali,
             rilevazioniGiorno,
@@ -39,7 +41,8 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
             tempoFermo,
             percorso,
             visite,
-            km
+            km,
+            yuan
         )
     }
 

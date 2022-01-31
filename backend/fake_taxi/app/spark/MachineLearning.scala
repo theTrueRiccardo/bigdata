@@ -15,6 +15,10 @@ import models._
 import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.types.{DoubleType, StringType, StructField, StructType}
 import org.apache.spark.sql.functions.{when, _}
+import org.apache.spark.ml.classification.MultilayerPerceptronClassifier
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.ml.feature.{LabeledPoint, StandardScaler}
+import org.apache.spark.ml.feature.VectorAssembler
 
 
 
@@ -100,6 +104,7 @@ class MachineLearning(sparkContext : SparkContext){
         val spark = SparkSession
         .builder
         .appName("ML")
+        .config("spark.master", "local[*]")
         .getOrCreate()
         //eventualmente modificabili in 1 e 0
         var rdd1 = rdd.filter(x => x.latitudine >= 35.0 && x.latitudine <= 44.0
@@ -107,17 +112,22 @@ class MachineLearning(sparkContext : SparkContext){
         //mettiamo il seme a pi greco per questioni di riproducibilità
         //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
         //withReplacement, fraction, seed
-        val rdd2=rdd1.sample(false,0.1,Pi.toLong)
+        val rdd2=rdd1.sample(false,0.01,Pi.toLong)
         //creiamo il data frame
         val df=spark.createDataFrame(rdd2).toDF("orario","longitudine","latitudine")
         //label
-        val df1=df.withColumn("classe",
+        val df1=df.withColumn("label",
         when(col("orario") >="08:00:00" && col("orario") <= "23:59:59",
-        lit("1"))
-        .otherwise(lit("-1")))
+        lit("1").cast("int"))
+        .otherwise(lit("0").cast("int")))
+        val df2=df1.drop("orario")
+        val assembler = new VectorAssembler()
+        .setInputCols(Array("longitudine", "latitudine"))
+        .setOutputCol("features")
+        val df3 = assembler.transform(df2).drop("longitudine").drop("latitudine")
         //salviamo i dati per la visualizzazione offline
         //il file sta nella root del progetto ma non viene passato su git, ognuno se lo crea per se
-        println("ciao")
+        //println("ciao")
         //df1.write.format("csv").save("C:\\Users\\Riccardo\\Desktop\\vis.csv")
         //df.write.csv("../../vis.csv")
         /*
@@ -126,6 +136,7 @@ class MachineLearning(sparkContext : SparkContext){
         }
         */
         //df1.rdd.saveAsTextFile("C:\\Users\\Riccardo\\Desktop\\vis.csv")
+        /*
         var i=0;
         for (row <- df1.rdd.collect){ 
             i=i+1  
@@ -133,9 +144,42 @@ class MachineLearning(sparkContext : SparkContext){
             var longitudine = row.mkString(",").split(",")(1)
             var latitudine = row.mkString(",").split(",")(2)
             var classe = row.mkString(",").split(",")(3)
-            if(i<20) println(s"$orario  $longitudine  $latitudine")   
+            if(i<20) println(s"$orario  $longitudine  $latitudine  $classe")   
         }
-        Metriche(0,0,0) //fittizio
+        */
+        val data=df3
+        println(df3.schema)
+        val splits = data.randomSplit(Array(0.70, 0.30), seed = 1234L)
+        val train = splits(0)
+        val test = splits(1)
+
+        //2 nodi di input, 2 livelli hidden da 2 nodi ciascuno, 2 nodi di output
+        val layers = Array[Int](2, 2, 2, 2)
+
+        /*
+        val trainer = new MultilayerPerceptronClassifier()
+        .setLayers(layers)
+        .setBlockSize(128)
+        .setFeaturesCol("features")
+        .setLabelCol("classe")
+        .setSeed(1234L)
+        .setMaxIter(100)
+        */
+        val trainer= new LogisticRegression()
+        .setFeaturesCol("features")
+        .setLabelCol("label")
+        .setMaxIter(3)
+
+        // train the model
+        val model = trainer.fit(train)
+
+        // compute accuracy on the test set
+        val result = model.transform(test)
+        val predictionAndLabels = result.select("prediction", "label")
+        val evaluator = new MulticlassClassificationEvaluator()
+        .setMetricName("accuracy")
+        val acc=evaluator.evaluate(predictionAndLabels)
+        Metriche(acc,0,0) //fittizio
     }
     
 }

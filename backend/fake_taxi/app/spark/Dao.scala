@@ -87,6 +87,10 @@ class Dao{
         return this.machineLearning.pipeline()
     }
 
+    def classifica(longitudine : Double, latitudine : Double) : Int = {
+        return this.machineLearning.classifica(longitudine,latitudine)
+    }
+
     def testML(): List[String] ={
         return this.machineLearning.testML()
     }

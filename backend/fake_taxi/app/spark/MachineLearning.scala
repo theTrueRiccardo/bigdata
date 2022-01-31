@@ -19,6 +19,7 @@ import org.apache.spark.ml.classification.MultilayerPerceptronClassifier
 import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 import org.apache.spark.ml.feature.{LabeledPoint, StandardScaler}
 import org.apache.spark.ml.feature.VectorAssembler
+import org.apache.spark.ml.classification.LogisticRegressionModel
 
 
 
@@ -177,6 +178,15 @@ class MachineLearning(sparkContext : SparkContext){
         .setMetricName("accuracy")
         val acc=evaluator.evaluate(predictionAndLabels)
         Metriche(acc,0,0) //fittizio
+    }
+
+
+
+
+    def classifica(longitudine : Double, latitudine : Double) : Int = {
+        val modello=LogisticRegressionModel.load("modello")
+        val prediction = modello.predict(Vectors.dense(longitudine, latitudine))
+        return prediction.toInt
     }
     
 }

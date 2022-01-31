@@ -80,5 +80,11 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         Ok(Json.toJson(group))
     }
 
+
+    def classifica(longitudine : Double, latitudine : Double) : Action[AnyContent] = Action {
+        val ris=dao.classifica(longitudine,latitudine)
+        Ok(Json.toJson(ris))
+    }
+
 }
 

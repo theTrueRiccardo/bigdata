@@ -25,7 +25,8 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         val tempi = tempoOzioAttivita(id)
         var tempoAttivo=tempi._1
         var tempoFermo=tempi._2
-        val percorso= this.percorso(id, rilevazioni)
+        val percorso = this.percorso(id, rilevazioni)
+        val visite = visiteAiLuoghi(id, rilevazioni)
         return SchedaTaxi(
             rilevazioniTotali,
             rilevazioniGiorno,
@@ -34,7 +35,8 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
             numeroRilevazioniPerFasciaOraria,
             tempoAttivo,
             tempoFermo,
-            percorso
+            percorso,
+            visite
         )
     }
 
@@ -117,24 +119,36 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
     }
 
     
-    /*
-    def differenzaTempo(prima : dataOraPrecedente , dopo : dataOraPrecedente) : Double ={
-        var tempo=0.0
-        var dataOraPrecedente=prima
-        while(dataOraPrecedente.data != dopo.data){
-            val avanzamento=dataOraPrecedente.avanzaAlProssimoGiornoRestituendoMinuti();
-            dataOraPrecedente=avanzamento._1 //altra dataOraPrecedente
-            tempo+=avanzamento._2 //minuti
-        }
-        while(dataOraPrecedente.ore != dopo.ore){
-            val avanzamento=dataOraPrecedente.avanzaAllaProssimaOraRestituendoMinuti();
-            dataOraPrecedente=avanzamento._1 //altra dataOraPrecedente
-            tempo+=avanzamento._2 //minuti
-        }
-        tempo+=(dopo.minuti-dataOraPrecedente.minuti)
-        return tempo
-    } 
-    */
+    def visiteAiLuoghi(id: Int, rilevazioni: RDD[Rilevazione]) : Array[(String, Int)] = {
+        val scostamentoLatitudine=0.0003
+        val scostamentoLongitudine=0.05
+        rilevazioni.map(x => 
+            if(x.latitudine >= 39.8966 && x.latitudine <= 39.9081 && 
+            x.longitudine >= 116.3788 && x.longitudine <= 116.4042) ("Piazza Tiananmen",1)
+            else
+            if(x.latitudine >= 39.9107 && x.latitudine <= 39.9221 && 
+            x.longitudine >= 116.378 && x.longitudine <= 116.4035) ("Città Proibita",1)
+            else
+            if(x.latitudine >= 39.9159 && x.latitudine <= 39.937 && 
+            x.longitudine >= 116.3571 && x.longitudine <= 116.408) ("Parco Beihai",1)
+            else
+            if(x.latitudine >= 39.8693 && x.latitudine <= 39.8904 && 
+            x.longitudine >= 116.3787 && x.longitudine <= 116.4296) ("Tempio del Cielo",1)
+            else
+            if(x.latitudine >= 39.88271 && x.latitudine <= 39.88535 && 
+            x.longitudine >= 116.36062 && x.longitudine <= 116.36698) ("Tempio Fayuan",1)
+            else
+            if(x.latitudine >= 31.4894 && x.latitudine <= 31.5363 && 
+            x.longitudine >= 117.155 && x.longitudine <= 117.2568) ("Hutong",1)
+            else
+            if(x.latitudine >= 39.36026 && x.latitudine <= 39.36558 && 
+            x.longitudine >= 115.33327 && x.longitudine <= 115.346) ("Tomba Ming",1)
+            else
+            if(x.latitudine >= 39.92178 && x.latitudine <= 39.92705 && 
+            x.longitudine >= 116.38402 && x.longitudine <= 116.39675) ("Parco Jingshan",1)
+            else ("Altro",1)
+        ).reduceByKey(_+_).collect
+    }
 
 
     

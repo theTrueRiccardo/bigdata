@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.6 (2311151 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="39.8827100" minlon="116.3606200" maxlat="39.8853500" maxlon="116.3669800"/>
+ <node id="322121110" visible="true" version="12" changeset="111767224" timestamp="2021-09-27T12:35:13Z" user="ZJJ86" uid="11578389" lat="39.8878054" lon="116.3616678">
+  <tag k="highway" v="traffic_signals"/>
+ </node>
+ <node id="342814527" visible="true" version="5" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8829212" lon="116.3631900"/>
+ <node id="342814529" visible="true" version="8" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8828970" lon="116.3644090"/>
+ <node id="342814530" visible="true" version="5" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8851553" lon="116.3639827"/>
+ <node id="342814531" visible="true" version="6" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8851445" lon="116.3633013"/>
+ <node id="342954381" visible="true" version="4" changeset="51568251" timestamp="2017-08-30T08:53:33Z" user="Алекс Мок" uid="4814295" lat="39.8870102" lon="116.3644651"/>
+ <node id="342954530" visible="true" version="2" changeset="4698874" timestamp="2010-05-14T18:41:48Z" user="nuklearerWintersturm" uid="75424" lat="39.8857143" lon="116.3615850"/>
+ <node id="342954532" visible="true" version="5" changeset="11516056" timestamp="2012-05-06T09:38:32Z" user="R438" uid="376715" lat="39.8857984" lon="116.3640551"/>
+ <node id="342954533" visible="true" version="3" changeset="4698874" timestamp="2010-05-14T18:42:29Z" user="nuklearerWintersturm" uid="75424" lat="39.8860029" lon="116.3641012"/>
+ <node id="342954669" visible="true" version="3" changeset="11516056" timestamp="2012-05-06T09:38:32Z" user="R438" uid="376715" lat="39.8864061" lon="116.3643424"/>
+ <node id="342954671" visible="true" version="3" changeset="11516056" timestamp="2012-05-06T09:38:32Z" user="R438" uid="376715" lat="39.8866862" lon="116.3643906"/>
+ <node id="342955313" visible="true" version="4" changeset="11516056" timestamp="2012-05-06T09:38:32Z" user="R438" uid="376715" lat="39.8855725" lon="116.3640872"/>
+ <node id="342955314" visible="true" version="3" changeset="4698874" timestamp="2010-05-14T18:41:44Z" user="nuklearerWintersturm" uid="75424" lat="39.8850905" lon="116.3641696"/>
+ <node id="342955316" visible="true" version="4" changeset="51568251" timestamp="2017-08-30T08:53:33Z" user="Алекс Мок" uid="4814295" lat="39.8848773" lon="116.3643061"/>
+ <node id="342955317" visible="true" version="3" changeset="4698874" timestamp="2010-05-14T18:42:26Z" user="nuklearerWintersturm" uid="75424" lat="39.8840583" lon="116.3644465"/>
+ <node id="342955318" visible="true" version="3" changeset="4698874" timestamp="2010-05-14T18:42:22Z" user="nuklearerWintersturm" uid="75424" lat="39.8836474" lon="116.3644688"/>
+ <node id="342955319" visible="true" version="5" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8828582" lon="116.3644669"/>
+ <node id="385035413" visible="true" version="3" changeset="11473378" timestamp="2012-05-01T19:14:51Z" user="R438" uid="376715" lat="39.8851011" lon="116.3602094"/>
+ <node id="385035414" visible="true" version="6" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8852319" lon="116.3613840"/>
+ <node id="385035416" visible="true" version="3" changeset="11516056" timestamp="2012-05-06T09:38:32Z" user="R438" uid="376715" lat="39.8852996" lon="116.3640613"/>
+ <node id="385035441" visible="true" version="6" changeset="44855781" timestamp="2017-01-02T20:54:08Z" user="Popolon" uid="27454" lat="39.8819985" lon="116.3609492"/>
+ <node id="385035448" visible="true" version="4" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454" lat="39.8829104" lon="116.3609805"/>
+ <node id="385035449" visible="true" version="4" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8842689" lon="116.3611562"/>
+ <node id="385035450" visible="true" version="3" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8845526" lon="116.3611892"/>
+ <node id="385035452" visible="true" version="4" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8870526" lon="116.3616519"/>
+ <node id="385035464" visible="true" version="3" changeset="64683531" timestamp="2018-11-20T06:45:18Z" user="学问大了" uid="9052151" lat="39.8820717" lon="116.3627874"/>
+ <node id="385035465" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8820563" lon="116.3643212"/>
+ <node id="385035466" visible="true" version="4" changeset="64683531" timestamp="2018-11-20T06:45:18Z" user="学问大了" uid="9052151" lat="39.8828033" lon="116.3643703"/>
+ <node id="385035467" visible="true" version="5" changeset="64683531" timestamp="2018-11-20T06:45:18Z" user="学问大了" uid="9052151" lat="39.8828491" lon="116.3627915"/>
+ <node id="385035507" visible="true" version="4" changeset="51568251" timestamp="2017-08-30T08:53:33Z" user="Алекс Мок" uid="4814295" lat="39.8852194" lon="116.3668762"/>
+ <node id="734417780" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8828966" lon="116.3633002"/>
+ <node id="734417959" visible="true" version="3" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454" lat="39.8832422" lon="116.3602326"/>
+ <node id="734417984" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:53:35Z" user="Алекс Мок" uid="4814295" lat="39.8842001" lon="116.3660447"/>
+ <node id="734418106" visible="true" version="3" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8862987" lon="116.3616128"/>
+ <node id="734418110" visible="true" version="2" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8826176" lon="116.3645969"/>
+ <node id="734418127" visible="true" version="4" changeset="106278148" timestamp="2021-06-13T10:26:38Z" user="ZJJ86" uid="11578389" lat="39.8819967" lon="116.3659282"/>
+ <node id="734418214" visible="true" version="3" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8850903" lon="116.3591149"/>
+ <node id="734418239" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8832361" lon="116.3588985"/>
+ <node id="734418303" visible="true" version="4" changeset="110738986" timestamp="2021-09-05T07:54:28Z" user="ZJJ86" uid="11578389" lat="39.8853041" lon="116.3680810"/>
+ <node id="734418387" visible="true" version="2" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8828935" lon="116.3624553"/>
+ <node id="734418409" visible="true" version="3" changeset="51568251" timestamp="2017-08-30T08:53:36Z" user="Алекс Мок" uid="4814295" lat="39.8854187" lon="116.3650989"/>
+ <node id="734418417" visible="true" version="4" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8840695" lon="116.3598165"/>
+ <node id="734418442" visible="true" version="1" changeset="4698874" timestamp="2010-05-14T18:40:59Z" user="nuklearerWintersturm" uid="75424" lat="39.8825650" lon="116.3659384"/>
+ <node id="734418514" visible="true" version="2" changeset="11516056" timestamp="2012-05-06T09:38:34Z" user="R438" uid="376715" lat="39.8852187" lon="116.3623650"/>
+ <node id="734418519" visible="true" version="5" changeset="106278148" timestamp="2021-06-13T10:26:38Z" user="ZJJ86" uid="11578389" lat="39.8819903" lon="116.3650665"/>
+ <node id="734418698" visible="true" version="5" changeset="51671209" timestamp="2017-09-02T14:26:04Z" user="Алекс Мок" uid="4814295" lat="39.8840383" lon="116.3610869"/>
+ <node id="734418706" visible="true" version="5" changeset="44855985" timestamp="2017-01-02T21:03:27Z" user="Popolon" uid="27454" lat="39.8832349" lon="116.3596023"/>
+ <node id="734418775" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:53:37Z" user="Алекс Мок" uid="4814295" lat="39.8852687" lon="116.3651579"/>
+ <node id="734418785" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:05Z" user="Алекс Мок" uid="4814295" lat="39.8838820" lon="116.3588801"/>
+ <node id="734418787" visible="true" version="4" changeset="51671209" timestamp="2017-09-02T14:26:05Z" user="Алекс Мок" uid="4814295" lat="39.8825304" lon="116.3650433"/>
+ <node id="734418937" visible="true" version="3" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8868184" lon="116.3616416"/>
+ <node id="734419002" visible="true" version="4" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8873380" lon="116.3667838"/>
+ <node id="734419066" visible="true" version="3" changeset="51568251" timestamp="2017-08-30T08:53:37Z" user="Алекс Мок" uid="4814295" lat="39.8853216" lon="116.3651132"/>
+ <node id="734419133" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:05Z" user="Алекс Мок" uid="4814295" lat="39.8838911" lon="116.3593784"/>
+ <node id="734419142" visible="true" version="3" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454" lat="39.8829640" lon="116.3602459"/>
+ <node id="734419209" visible="true" version="1" changeset="4698874" timestamp="2010-05-14T18:41:12Z" user="nuklearerWintersturm" uid="75424" lat="39.8850387" lon="116.3624035"/>
+ <node id="734419215" visible="true" version="1" changeset="4698874" timestamp="2010-05-14T18:41:12Z" user="nuklearerWintersturm" uid="75424" lat="39.8839019" lon="116.3650454"/>
+ <node id="734419305" visible="true" version="3" changeset="110738986" timestamp="2021-09-05T07:54:28Z" user="ZJJ86" uid="11578389" lat="39.8853036" lon="116.3671367"/>
+ <node id="734419442" visible="true" version="1" changeset="4698874" timestamp="2010-05-14T18:41:15Z" user="nuklearerWintersturm" uid="75424" lat="39.8828207" lon="116.3645792"/>
+ <node id="734419464" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:53:38Z" user="Алекс Мок" uid="4814295" lat="39.8851957" lon="116.3662778"/>
+ <node id="734419496" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:53:39Z" user="Алекс Мок" uid="4814295" lat="39.8837887" lon="116.3660140"/>
+ <node id="1598433270" visible="true" version="5" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8876705" lon="116.3645235"/>
+ <node id="1598453908" visible="true" version="3" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8876640" lon="116.3667766"/>
+ <node id="1598453911" visible="true" version="5" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8876947" lon="116.3616593">
+  <tag k="highway" v="traffic_signals"/>
+ </node>
+ <node id="1737609894" visible="true" version="2" changeset="44855781" timestamp="2017-01-02T20:54:08Z" user="Popolon" uid="27454" lat="39.8818654" lon="116.3609511"/>
+ <node id="1737609974" visible="true" version="2" changeset="111287943" timestamp="2021-09-16T12:01:29Z" user="ZJJ86" uid="11578389" lat="39.8850820" lon="116.3574649">
+  <tag k="highway" v="traffic_signals"/>
+ </node>
+ <node id="1737609975" visible="true" version="1" changeset="11473378" timestamp="2012-05-01T19:14:07Z" user="R438" uid="376715" lat="39.8850825" lon="116.3598453"/>
+ <node id="1742670756" visible="true" version="2" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454" lat="39.8828126" lon="116.3609172"/>
+ <node id="1742670759" visible="true" version="3" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8836715" lon="116.3611167"/>
+ <node id="1742670760" visible="true" version="2" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8837897" lon="116.3611700"/>
+ <node id="1742670761" visible="true" version="2" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8837916" lon="116.3610796"/>
+ <node id="1742670764" visible="true" version="4" changeset="51671209" timestamp="2017-09-02T14:26:05Z" user="Алекс Мок" uid="4814295" lat="39.8840374" lon="116.3611820"/>
+ <node id="1742670765" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:05Z" user="Алекс Мок" uid="4814295" lat="39.8840319" lon="116.3619688"/>
+ <node id="1742670766" visible="true" version="3" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8841981" lon="116.3611050"/>
+ <node id="1742670767" visible="true" version="2" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8841720" lon="116.3611994"/>
+ <node id="1742670768" visible="true" version="1" changeset="11516056" timestamp="2012-05-06T09:38:23Z" user="R438" uid="376715" lat="39.8851139" lon="116.3640679"/>
+ <node id="4585968189" visible="true" version="1" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454" lat="39.8830839" lon="116.3610616"/>
+ <node id="4585976358" visible="true" version="1" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8828630" lon="116.3610636"/>
+ <node id="4585976359" visible="true" version="1" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8828555" lon="116.3626787"/>
+ <node id="4585976360" visible="true" version="1" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8821234" lon="116.3626852"/>
+ <node id="4585976361" visible="true" version="1" changeset="44855676" timestamp="2017-01-02T20:50:15Z" user="Popolon" uid="27454" lat="39.8821034" lon="116.3610668"/>
+ <node id="4786703230" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:54:23Z" user="Алекс Мок" uid="4814295" lat="39.8849621" lon="116.3642721"/>
+ <node id="4786703231" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:54:23Z" user="Алекс Мок" uid="4814295" lat="39.8849793" lon="116.3649370"/>
+ <node id="4786703232" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:54:23Z" user="Алекс Мок" uid="4814295" lat="39.8851872" lon="116.3653796"/>
+ <node id="4786703233" visible="true" version="2" changeset="51568251" timestamp="2017-08-30T08:54:23Z" user="Алекс Мок" uid="4814295" lat="39.8851234" lon="116.3649666"/>
+ <node id="4802406721" visible="true" version="3" changeset="100966928" timestamp="2021-03-13T19:38:07Z" user="lizzyd710" uid="11896050" lat="39.8852889" lon="116.3607560">
+  <tag k="amenity" v="restaurant"/>
+  <tag k="cuisine" v="chinese"/>
+  <tag k="diet:halal" v="yes"/>
+  <tag k="name:en" v="Famous Halal Restaurant"/>
+  <tag k="opening_hours" v="Mo-Su 10:00-00:00"/>
+ </node>
+ <node id="5068540361" visible="true" version="2" changeset="51671209" timestamp="2017-09-02T14:26:06Z" user="Алекс Мок" uid="4814295" lat="39.8825299" lon="116.3647520"/>
+ <node id="5068540879" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:12Z" user="Алекс Мок" uid="4814295" lat="39.8853146" lon="116.3652563"/>
+ <node id="5068540880" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:12Z" user="Алекс Мок" uid="4814295" lat="39.8853064" lon="116.3667342"/>
+ <node id="5068540881" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:12Z" user="Алекс Мок" uid="4814295" lat="39.8860720" lon="116.3667235"/>
+ <node id="5068540882" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:12Z" user="Алекс Мок" uid="4814295" lat="39.8860679" lon="116.3652483"/>
+ <node id="5075398085" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8829892" lon="116.3603777"/>
+ <node id="5075398086" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8829845" lon="116.3608646"/>
+ <node id="5075398087" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8830986" lon="116.3608665"/>
+ <node id="5075398088" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8831034" lon="116.3603796"/>
+ <node id="5075398089" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8822911" lon="116.3605812"/>
+ <node id="5075398090" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8822417" lon="116.3605356"/>
+ <node id="5075398091" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8822397" lon="116.3604471"/>
+ <node id="5075398092" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8822438" lon="116.3597846"/>
+ <node id="5075398093" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8821203" lon="116.3597900"/>
+ <node id="5075398094" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8821079" lon="116.3604739"/>
+ <node id="5075398095" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8821532" lon="116.3606027"/>
+ <node id="5075398096" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8822850" lon="116.3607448"/>
+ <node id="5075398097" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8828263" lon="116.3607368"/>
+ <node id="5075398098" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8828283" lon="116.3605785"/>
+ <node id="5075398099" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8826128" lon="116.3610996"/>
+ <node id="5075398100" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8826116" lon="116.3613987"/>
+ <node id="5075398101" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8824120" lon="116.3613972"/>
+ <node id="5075398102" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8824111" lon="116.3616126"/>
+ <node id="5075398103" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8827789" lon="116.3616152"/>
+ <node id="5075398104" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:52Z" user="Алекс Мок" uid="4814295" lat="39.8827810" lon="116.3611008"/>
+ <node id="5075398109" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8823652" lon="116.3626304"/>
+ <node id="5075398110" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8827789" lon="116.3626251"/>
+ <node id="5075398111" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8827789" lon="116.3616407"/>
+ <node id="5075398112" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8826698" lon="116.3616434"/>
+ <node id="5075398113" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8826657" lon="116.3624373"/>
+ <node id="5075398114" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8823693" lon="116.3624373"/>
+ <node id="5075398119" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8825669" lon="116.3646421"/>
+ <node id="5075398120" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8829330" lon="116.3625539"/>
+ <node id="5075398121" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8829305" lon="116.3626907"/>
+ <node id="5075398122" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8831049" lon="116.3626962"/>
+ <node id="5075398123" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8831074" lon="116.3625594"/>
+ <node id="5075398124" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8829853" lon="116.3611900"/>
+ <node id="5075398125" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8829719" lon="116.3623261"/>
+ <node id="5075398126" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8832318" lon="116.3623313"/>
+ <node id="5075398127" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8832337" lon="116.3621704"/>
+ <node id="5075398128" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8831065" lon="116.3621679"/>
+ <node id="5075398129" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8831162" lon="116.3613522"/>
+ <node id="5075398130" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8832555" lon="116.3613550"/>
+ <node id="5075398131" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8832574" lon="116.3611955"/>
+ <node id="5075398132" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8833676" lon="116.3626921"/>
+ <node id="5075398133" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8833758" lon="116.3629550"/>
+ <node id="5075398134" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838760" lon="116.3629523"/>
+ <node id="5075398135" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838760" lon="116.3626894"/>
+ <node id="5075398136" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839295" lon="116.3621047"/>
+ <node id="5075398137" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839253" lon="116.3618177"/>
+ <node id="5075398138" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839583" lon="116.3618097"/>
+ <node id="5075398139" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839603" lon="116.3615200"/>
+ <node id="5075398140" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839171" lon="116.3615307"/>
+ <node id="5075398141" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8839151" lon="116.3613000"/>
+ <node id="5075398142" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8833985" lon="116.3613000"/>
+ <node id="5075398143" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8834087" lon="116.3622844"/>
+ <node id="5075398144" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8836516" lon="116.3622764"/>
+ <node id="5075398145" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8836578" lon="116.3621557"/>
+ <node id="5075398146" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835117" lon="116.3621557"/>
+ <node id="5075398147" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835219" lon="116.3618124"/>
+ <node id="5075398148" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835508" lon="116.3618150"/>
+ <node id="5075398149" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835549" lon="116.3614905"/>
+ <node id="5075398150" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835137" lon="116.3614932"/>
+ <node id="5075398151" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8835158" lon="116.3614234"/>
+ <node id="5075398152" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838286" lon="116.3614288"/>
+ <node id="5075398153" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838214" lon="116.3615254"/>
+ <node id="5075398154" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838245" lon="116.3616246"/>
+ <node id="5075398155" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838533" lon="116.3616313"/>
+ <node id="5075398156" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838142" lon="116.3618271"/>
+ <node id="5075398157" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8837885" lon="116.3618325"/>
+ <node id="5075398158" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8837874" lon="116.3621007"/>
+ <node id="5075398159" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838173" lon="116.3620980"/>
+ <node id="5075398160" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8838101" lon="116.3622817"/>
+ <node id="5075398161" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8840653" lon="116.3622791"/>
+ <node id="5075398162" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8840694" lon="116.3621128"/>
+ <node id="5075398163" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8840612" lon="116.3613126"/>
+ <node id="5075398164" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8840568" lon="116.3615338"/>
+ <node id="5075398165" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8842724" lon="116.3615412"/>
+ <node id="5075398166" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:53Z" user="Алекс Мок" uid="4814295" lat="39.8842576" lon="116.3622682"/>
+ <node id="5075398167" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8844108" lon="116.3622734"/>
+ <node id="5075398168" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8844300" lon="116.3613253"/>
+ <node id="5075398169" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8847486" lon="116.3614932"/>
+ <node id="5075398170" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8847321" lon="116.3614529"/>
+ <node id="5075398171" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8846107" lon="116.3614690"/>
+ <node id="5075398172" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8846087" lon="116.3614100"/>
+ <node id="5075398173" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8845366" lon="116.3614234"/>
+ <node id="5075398174" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8845407" lon="116.3616514"/>
+ <node id="5075398175" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8847466" lon="116.3616595"/>
+ <node id="5075398176" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8847486" lon="116.3617426"/>
+ <node id="5075398177" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8849730" lon="116.3617346"/>
+ <node id="5075398178" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8849730" lon="116.3621530"/>
+ <node id="5075398179" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8849318" lon="116.3621530"/>
+ <node id="5075398180" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8849215" lon="116.3621101"/>
+ <node id="5075398181" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8845572" lon="116.3621181"/>
+ <node id="5075398182" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8845551" lon="116.3622817"/>
+ <node id="5075398183" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8850882" lon="116.3622683"/>
+ <node id="5075398184" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8850882" lon="116.3615334"/>
+ <node id="5075398197" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8843082" lon="116.3604578"/>
+ <node id="5075398198" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8842773" lon="116.3609862"/>
+ <node id="5075398199" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8844399" lon="116.3609996"/>
+ <node id="5075398200" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8844728" lon="116.3604900"/>
+ <node id="5075398201" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8846951" lon="116.3606188"/>
+ <node id="5075398202" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8846951" lon="116.3609004"/>
+ <node id="5075398203" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8850368" lon="116.3609675"/>
+ <node id="5075398204" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:54Z" user="Алекс Мок" uid="4814295" lat="39.8850265" lon="116.3605624"/>
+ <node id="5075398261" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:55Z" user="Алекс Мок" uid="4814295" lat="39.8853434" lon="116.3609567"/>
+ <node id="5075398262" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:55Z" user="Алекс Мок" uid="4814295" lat="39.8853434" lon="116.3612491"/>
+ <node id="5075398263" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:55Z" user="Алекс Мок" uid="4814295" lat="39.8857283" lon="116.3613376"/>
+ <node id="5075398264" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:25:55Z" user="Алекс Мок" uid="4814295" lat="39.8857283" lon="116.3608870"/>
+ <node id="5174017121" visible="true" version="1" changeset="53028882" timestamp="2017-10-18T03:25:52Z" user="cheezelicious" uid="6789972" lat="39.8846350" lon="116.3658682">
+  <tag k="name:en" v="Hunan Guild Hall"/>
+  <tag k="tourism" v="attraction"/>
+ </node>
+ <node id="5630185714" visible="true" version="2" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8870305" lon="116.3616526"/>
+ <node id="6075219787" visible="true" version="1" changeset="64681831" timestamp="2018-11-20T05:43:33Z" user="学问大了" uid="9052151" lat="39.8850408" lon="116.3634992"/>
+ <node id="6075219788" visible="true" version="1" changeset="64681831" timestamp="2018-11-20T05:43:33Z" user="学问大了" uid="9052151" lat="39.8850444" lon="116.3638051"/>
+ <node id="6075219789" visible="true" version="1" changeset="64681831" timestamp="2018-11-20T05:43:33Z" user="学问大了" uid="9052151" lat="39.8849315" lon="116.3638121"/>
+ <node id="6075219790" visible="true" version="1" changeset="64681831" timestamp="2018-11-20T05:43:33Z" user="学问大了" uid="9052151" lat="39.8849261" lon="116.3635062"/>
+ <node id="6075225609" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8847380" lon="116.3635156"/>
+ <node id="6075225610" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8846448" lon="116.3635202"/>
+ <node id="6075225611" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8846466" lon="116.3637677"/>
+ <node id="6075225612" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8847433" lon="116.3637677"/>
+ <node id="6075225613" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8844889" lon="116.3635786"/>
+ <node id="6075225614" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8843993" lon="116.3635809"/>
+ <node id="6075225615" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8843975" lon="116.3637561"/>
+ <node id="6075225616" visible="true" version="1" changeset="64681929" timestamp="2018-11-20T05:46:40Z" user="学问大了" uid="9052151" lat="39.8844907" lon="116.3637514"/>
+ <node id="6075271152" visible="true" version="1" changeset="64682721" timestamp="2018-11-20T06:15:12Z" user="学问大了" uid="9052151" lat="39.8841377" lon="116.3636160"/>
+ <node id="6075271153" visible="true" version="1" changeset="64682721" timestamp="2018-11-20T06:15:12Z" user="学问大了" uid="9052151" lat="39.8840786" lon="116.3636160"/>
+ <node id="6075271154" visible="true" version="1" changeset="64682721" timestamp="2018-11-20T06:15:12Z" user="学问大了" uid="9052151" lat="39.8840786" lon="116.3637514"/>
+ <node id="6075271155" visible="true" version="1" changeset="64682721" timestamp="2018-11-20T06:15:12Z" user="学问大了" uid="9052151" lat="39.8841395" lon="116.3637467"/>
+ <node id="6075274512" visible="true" version="2" changeset="68569463" timestamp="2019-03-27T01:56:22Z" user="学问大了" uid="9052151" lat="39.8838833" lon="116.3635786"/>
+ <node id="6075274513" visible="true" version="2" changeset="68569463" timestamp="2019-03-27T01:56:22Z" user="学问大了" uid="9052151" lat="39.8837507" lon="116.3635856"/>
+ <node id="6075274514" visible="true" version="2" changeset="68569463" timestamp="2019-03-27T01:56:22Z" user="学问大了" uid="9052151" lat="39.8837525" lon="116.3638051"/>
+ <node id="6075274515" visible="true" version="2" changeset="68569463" timestamp="2019-03-27T01:56:22Z" user="学问大了" uid="9052151" lat="39.8838851" lon="116.3638004"/>
+ <node id="6075274524" visible="true" version="1" changeset="64682774" timestamp="2018-11-20T06:17:11Z" user="学问大了" uid="9052151" lat="39.8834730" lon="116.3636346"/>
+ <node id="6075274525" visible="true" version="1" changeset="64682774" timestamp="2018-11-20T06:17:11Z" user="学问大了" uid="9052151" lat="39.8834031" lon="116.3636370"/>
+ <node id="6075274526" visible="true" version="1" changeset="64682774" timestamp="2018-11-20T06:17:11Z" user="学问大了" uid="9052151" lat="39.8834013" lon="116.3638144"/>
+ <node id="6075274527" visible="true" version="1" changeset="64682774" timestamp="2018-11-20T06:17:11Z" user="学问大了" uid="9052151" lat="39.8834766" lon="116.3638121"/>
+ <node id="6075274556" visible="true" version="1" changeset="64682797" timestamp="2018-11-20T06:18:26Z" user="学问大了" uid="9052151" lat="39.8829910" lon="116.3635202"/>
+ <node id="6075274557" visible="true" version="1" changeset="64682797" timestamp="2018-11-20T06:18:26Z" user="学问大了" uid="9052151" lat="39.8829408" lon="116.3635179"/>
+ <node id="6075274558" visible="true" version="1" changeset="64682797" timestamp="2018-11-20T06:18:26Z" user="学问大了" uid="9052151" lat="39.8829319" lon="116.3638611"/>
+ <node id="6075274559" visible="true" version="1" changeset="64682797" timestamp="2018-11-20T06:18:26Z" user="学问大了" uid="9052151" lat="39.8829838" lon="116.3638611"/>
+ <node id="6075278894" visible="true" version="1" changeset="64682915" timestamp="2018-11-20T06:22:22Z" user="学问大了" uid="9052151" lat="39.8831953" lon="116.3638658"/>
+ <node id="6075278895" visible="true" version="1" changeset="64682915" timestamp="2018-11-20T06:22:22Z" user="学问大了" uid="9052151" lat="39.8831397" lon="116.3638658"/>
+ <node id="6075278896" visible="true" version="1" changeset="64682915" timestamp="2018-11-20T06:22:22Z" user="学问大了" uid="9052151" lat="39.8831379" lon="116.3639429"/>
+ <node id="6075278897" visible="true" version="1" changeset="64682915" timestamp="2018-11-20T06:22:22Z" user="学问大了" uid="9052151" lat="39.8831971" lon="116.3639452"/>
+ <node id="6075279281" visible="true" version="1" changeset="64682936" timestamp="2018-11-20T06:23:07Z" user="学问大了" uid="9052151" lat="39.8831827" lon="116.3634549"/>
+ <node id="6075279282" visible="true" version="1" changeset="64682936" timestamp="2018-11-20T06:23:07Z" user="学问大了" uid="9052151" lat="39.8831236" lon="116.3634549"/>
+ <node id="6075279283" visible="true" version="1" changeset="64682936" timestamp="2018-11-20T06:23:07Z" user="学问大了" uid="9052151" lat="39.8831200" lon="116.3635412"/>
+ <node id="6075279284" visible="true" version="1" changeset="64682936" timestamp="2018-11-20T06:23:07Z" user="学问大了" uid="9052151" lat="39.8831809" lon="116.3635412"/>
+ <node id="6075297517" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8850267" lon="116.3635001"/>
+ <node id="6075297518" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8850265" lon="116.3633325"/>
+ <node id="6075297519" visible="true" version="2" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8846055" lon="116.3633468"/>
+ <node id="6075297520" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846070" lon="116.3634645"/>
+ <node id="6075297521" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8849905" lon="116.3634505"/>
+ <node id="6075297522" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8849908" lon="116.3635023"/>
+ <node id="6075297523" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8847086" lon="116.3634578"/>
+ <node id="6075297524" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846684" lon="116.3634589"/>
+ <node id="6075297525" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846683" lon="116.3635219"/>
+ <node id="6075297526" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8847065" lon="116.3635172"/>
+ <node id="6075297533" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8834634" lon="116.3634773"/>
+ <node id="6075297534" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8834613" lon="116.3636350"/>
+ <node id="6075297535" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8834161" lon="116.3636366"/>
+ <node id="6075297536" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8834170" lon="116.3634773"/>
+ <node id="6075297537" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8833337" lon="116.3634747"/>
+ <node id="6075297538" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8833347" lon="116.3633862"/>
+ <node id="6075297539" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8837710" lon="116.3633867"/>
+ <node id="6075297540" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8850297" lon="116.3638060"/>
+ <node id="6075297541" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8850309" lon="116.3639477"/>
+ <node id="6075297542" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846314" lon="116.3639508"/>
+ <node id="6075297543" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846290" lon="116.3638506"/>
+ <node id="6075297544" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846798" lon="116.3638491"/>
+ <node id="6075297545" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846787" lon="116.3637677"/>
+ <node id="6075297546" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8847059" lon="116.3637677"/>
+ <node id="6075297547" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8847082" lon="116.3638460"/>
+ <node id="6075297548" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8849943" lon="116.3638429"/>
+ <node id="6075297549" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8849918" lon="116.3638084"/>
+ <node id="6075297550" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8846290" lon="116.3637659"/>
+ <node id="6075297551" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8843276" lon="116.3637875"/>
+ <node id="6075297552" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8843288" lon="116.3638676"/>
+ <node id="6075297553" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8843312" lon="116.3638675"/>
+ <node id="6075297554" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:42Z" user="学问大了" uid="9052151" lat="39.8842886" lon="116.3638892"/>
+ <node id="6075297555" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8837862" lon="116.3639123"/>
+ <node id="6075297556" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8837850" lon="116.3640340"/>
+ <node id="6075297557" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8842898" lon="116.3640016"/>
+ <node id="6075297558" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8837859" lon="116.3639417"/>
+ <node id="6075297559" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8834557" lon="116.3639525"/>
+ <node id="6075297560" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8834533" lon="116.3638128"/>
+ <node id="6075297561" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8834203" lon="116.3638138"/>
+ <node id="6075297562" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8834202" lon="116.3639525"/>
+ <node id="6075297563" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8833434" lon="116.3639525"/>
+ <node id="6075297564" visible="true" version="1" changeset="64683352" timestamp="2018-11-20T06:38:43Z" user="学问大了" uid="9052151" lat="39.8833457" lon="116.3640495"/>
+ <node id="6075311042" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:25Z" user="学问大了" uid="9052151" lat="39.8831336" lon="116.3632232"/>
+ <node id="6075311043" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8831336" lon="116.3633332"/>
+ <node id="6075311044" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8829360" lon="116.3633439"/>
+ <node id="6075311045" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8829360" lon="116.3632286"/>
+ <node id="6075311046" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8832942" lon="116.3640359"/>
+ <node id="6075311047" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8829401" lon="116.3640467"/>
+ <node id="6075311048" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8829422" lon="116.3641379"/>
+ <node id="6075311049" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8832983" lon="116.3641271"/>
+ <node id="6075311050" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8850016" lon="116.3641826"/>
+ <node id="6075311051" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8846892" lon="116.3642928"/>
+ <node id="6075311052" visible="true" version="1" changeset="64683456" timestamp="2018-11-20T06:42:26Z" user="学问大了" uid="9052151" lat="39.8840966" lon="116.3643849"/>
+ <node id="6081121348" visible="true" version="1" changeset="64759917" timestamp="2018-11-22T02:11:40Z" user="学问大了" uid="9052151" lat="39.8848826" lon="116.3637430">
+  <tag k="name" v="银杏"/>
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="6081121349" visible="true" version="1" changeset="64759917" timestamp="2018-11-22T02:11:40Z" user="学问大了" uid="9052151" lat="39.8848810" lon="116.3635702">
+  <tag k="name" v="银杏"/>
+  <tag k="natural" v="tree"/>
+ </node>
+ <node id="6081121633" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8837706" lon="116.3634767"/>
+ <node id="6081121634" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8845971" lon="116.3634523"/>
+ <node id="6081121635" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8845987" lon="116.3635499"/>
+ <node id="6081121636" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8843273" lon="116.3635458"/>
+ <node id="6081121637" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8843304" lon="116.3634381"/>
+ <node id="6081121638" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8842571" lon="116.3633324"/>
+ <node id="6081121639" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8842571" lon="116.3634604"/>
+ <node id="6081121640" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8837954" lon="116.3634604"/>
+ <node id="6081121641" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8837970" lon="116.3633771"/>
+ <node id="6081121642" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8840419" lon="116.3633771"/>
+ <node id="6081121643" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151" lat="39.8840465" lon="116.3633344"/>
+ <node id="9092797718" visible="true" version="1" changeset="111217917" timestamp="2021-09-14T23:34:22Z" user="Maps Man" uid="10216874" lat="39.8853040" lon="116.3679125"/>
+ <node id="9120157536" visible="true" version="1" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389" lat="39.8847578" lon="116.3612141"/>
+ <way id="30834236" visible="true" version="14" changeset="44855424" timestamp="2017-01-02T20:41:04Z" user="Popolon" uid="27454">
+  <nd ref="1737609894"/>
+  <nd ref="385035441"/>
+  <nd ref="1742670756"/>
+  <nd ref="385035448"/>
+  <nd ref="4585968189"/>
+  <nd ref="1742670759"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="教子胡同"/>
+ </way>
+ <way id="30834367" visible="true" version="10" changeset="109057011" timestamp="2021-08-03T02:54:17Z" user="pizzaiolo" uid="1772368">
+  <nd ref="342814527"/>
+  <nd ref="342814529"/>
+  <nd ref="6075311052"/>
+  <nd ref="6075311051"/>
+  <nd ref="6075311050"/>
+  <nd ref="342814530"/>
+  <nd ref="342814531"/>
+  <nd ref="342814527"/>
+  <tag k="amenity" v="place_of_worship"/>
+  <tag k="name" v="法源寺"/>
+  <tag k="name:en" v="Fa Yuan Temple"/>
+  <tag k="name:es" v="Templo de Fayuan - Museo de Reliquias del Budismo"/>
+  <tag k="name:zh_pinyin" v="Fǎyuán Sì"/>
+  <tag k="wikidata" v="Q1399104"/>
+ </way>
+ <way id="30838530" visible="true" version="7" changeset="47631259" timestamp="2017-04-10T17:19:24Z" user="Esperanza36" uid="83557">
+  <nd ref="342955319"/>
+  <nd ref="342955318"/>
+  <nd ref="342955317"/>
+  <nd ref="342955316"/>
+  <nd ref="4786703230"/>
+  <nd ref="342955314"/>
+  <nd ref="1742670768"/>
+  <nd ref="385035416"/>
+  <nd ref="342955313"/>
+  <nd ref="342954532"/>
+  <nd ref="342954533"/>
+  <nd ref="342954669"/>
+  <nd ref="342954671"/>
+  <nd ref="342954381"/>
+  <nd ref="1598433270"/>
+  <tag k="highway" v="service"/>
+  <tag k="name" v="西砖胡同"/>
+  <tag k="name:en" v="Xizhuan Hutong"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="33657794" visible="true" version="4" changeset="11516056" timestamp="2012-05-06T09:38:31Z" user="R438" uid="376715">
+  <nd ref="385035414"/>
+  <nd ref="734418514"/>
+  <nd ref="385035416"/>
+  <tag k="highway" v="service"/>
+  <tag k="name" v="法源寺后街"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="33657822" visible="true" version="6" changeset="94503125" timestamp="2020-11-20T13:15:17Z" user="Esperanza36" uid="83557">
+  <nd ref="385035464"/>
+  <nd ref="385035465"/>
+  <nd ref="385035466"/>
+  <nd ref="385035467"/>
+  <nd ref="385035464"/>
+  <tag k="historic" v="ruins"/>
+  <tag k="name" v="悯忠寺旧址"/>
+ </way>
+ <way id="33657832" visible="true" version="6" changeset="24760873" timestamp="2014-08-15T07:11:24Z" user="hanchao" uid="499500">
+  <nd ref="385035507"/>
+  <nd ref="734419002"/>
+  <nd ref="1598453908"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="烂缦胡同"/>
+  <tag k="name:en" v="Lanman Alley"/>
+ </way>
+ <way id="59210697" visible="true" version="2" changeset="11516056" timestamp="2012-05-06T09:38:29Z" user="R438" uid="376715">
+  <nd ref="1742670765"/>
+  <nd ref="1742670764"/>
+  <nd ref="734418698"/>
+  <nd ref="734418417"/>
+  <nd ref="734419133"/>
+  <nd ref="734418785"/>
+  <nd ref="734418239"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="59210713" visible="true" version="4" changeset="111217917" timestamp="2021-09-14T23:34:22Z" user="Maps Man" uid="10216874">
+  <nd ref="385035507"/>
+  <nd ref="734419305"/>
+  <nd ref="9092797718"/>
+  <nd ref="734418303"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="南半截胡同"/>
+ </way>
+ <way id="59210727" visible="true" version="4" changeset="24760873" timestamp="2014-08-15T07:11:24Z" user="hanchao" uid="499500">
+  <nd ref="734419464"/>
+  <nd ref="734417984"/>
+  <nd ref="734419496"/>
+  <nd ref="734418442"/>
+  <nd ref="734418127"/>
+  <tag k="highway" v="service"/>
+  <tag k="name" v="烂缦胡同"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="59210746" visible="true" version="3" changeset="4804261" timestamp="2010-05-25T14:44:03Z" user="Esperanza36" uid="83557">
+  <nd ref="734418706"/>
+  <nd ref="734417959"/>
+  <nd ref="734419142"/>
+  <nd ref="385035448"/>
+  <nd ref="734418387"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="59210788" visible="true" version="4" changeset="24760873" timestamp="2014-08-15T07:11:24Z" user="hanchao" uid="499500">
+  <nd ref="734418519"/>
+  <nd ref="734418787"/>
+  <nd ref="734419215"/>
+  <tag k="highway" v="service"/>
+  <tag k="name" v="七井胡同"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="59210910" visible="true" version="1" changeset="4698874" timestamp="2010-05-14T18:41:38Z" user="nuklearerWintersturm" uid="75424">
+  <nd ref="734419209"/>
+  <nd ref="734418387"/>
+  <tag k="highway" v="residential"/>
+ </way>
+ <way id="60211264" visible="true" version="3" changeset="51671209" timestamp="2017-09-02T14:26:07Z" user="Алекс Мок" uid="4814295">
+  <nd ref="734418387"/>
+  <nd ref="734417780"/>
+  <nd ref="342955319"/>
+  <nd ref="734419442"/>
+  <nd ref="734418110"/>
+  <nd ref="5075398119"/>
+  <nd ref="5068540361"/>
+  <nd ref="734418787"/>
+  <tag k="highway" v="service"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="161802287" visible="true" version="1" changeset="11473378" timestamp="2012-05-01T19:14:21Z" user="R438" uid="376715">
+  <nd ref="1737609974"/>
+  <nd ref="734418214"/>
+  <nd ref="1737609975"/>
+  <nd ref="385035413"/>
+  <nd ref="385035414"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="输入胡同"/>
+ </way>
+ <way id="162359314" visible="true" version="1" changeset="11516056" timestamp="2012-05-06T09:38:27Z" user="R438" uid="376715">
+  <nd ref="1742670759"/>
+  <nd ref="1742670760"/>
+  <nd ref="1742670764"/>
+  <nd ref="1742670767"/>
+  <nd ref="385035449"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="教子胡同"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="162359315" visible="true" version="1" changeset="11516056" timestamp="2012-05-06T09:38:27Z" user="R438" uid="376715">
+  <nd ref="385035449"/>
+  <nd ref="1742670766"/>
+  <nd ref="734418698"/>
+  <nd ref="1742670761"/>
+  <nd ref="1742670759"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="教子胡同"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="162359316" visible="true" version="4" changeset="111647038" timestamp="2021-09-24T13:02:28Z" user="ZJJ86" uid="11578389">
+  <nd ref="385035449"/>
+  <nd ref="385035450"/>
+  <nd ref="9120157536"/>
+  <nd ref="385035414"/>
+  <nd ref="342954530"/>
+  <nd ref="734418106"/>
+  <nd ref="734418937"/>
+  <nd ref="5630185714"/>
+  <nd ref="385035452"/>
+  <nd ref="1598453911"/>
+  <nd ref="322121110"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="教子胡同"/>
+  <tag k="name:en" v="Jiaozi Alley"/>
+ </way>
+ <way id="297846530" visible="true" version="2" changeset="47631259" timestamp="2017-04-10T17:19:24Z" user="Esperanza36" uid="83557">
+  <nd ref="734418409"/>
+  <nd ref="734419066"/>
+  <nd ref="734418775"/>
+  <nd ref="4786703232"/>
+  <nd ref="734419464"/>
+  <nd ref="385035507"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="永庆胡同"/>
+ </way>
+ <way id="463318843" visible="true" version="2" changeset="44855907" timestamp="2017-01-02T21:00:09Z" user="Popolon" uid="27454">
+  <nd ref="4585976358"/>
+  <nd ref="4585976359"/>
+  <nd ref="4585976360"/>
+  <nd ref="4585976361"/>
+  <nd ref="4585976358"/>
+  <tag k="amenity" v="college"/>
+  <tag k="name" v="中国伊斯兰教经学院"/>
+  <tag k="name:fr" v="Écolle d'ensegienment coranique de Chine"/>
+ </way>
+ <way id="485909243" visible="true" version="1" changeset="47631259" timestamp="2017-04-10T17:19:23Z" user="Esperanza36" uid="83557">
+  <nd ref="4786703232"/>
+  <nd ref="4786703233"/>
+  <nd ref="4786703231"/>
+  <nd ref="4786703230"/>
+  <tag k="highway" v="service"/>
+  <tag k="service" v="alley"/>
+ </way>
+ <way id="519901029" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:26Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5068540882"/>
+  <nd ref="5068540881"/>
+  <nd ref="5068540880"/>
+  <nd ref="5068540879"/>
+  <nd ref="5068540882"/>
+ </way>
+ <way id="520801056" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:00Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398088"/>
+  <nd ref="5075398087"/>
+  <nd ref="5075398086"/>
+  <nd ref="5075398085"/>
+  <nd ref="5075398088"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="1"/>
+ </way>
+ <way id="520801057" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:00Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398098"/>
+  <nd ref="5075398097"/>
+  <nd ref="5075398096"/>
+  <nd ref="5075398095"/>
+  <nd ref="5075398094"/>
+  <nd ref="5075398093"/>
+  <nd ref="5075398092"/>
+  <nd ref="5075398091"/>
+  <nd ref="5075398090"/>
+  <nd ref="5075398089"/>
+  <nd ref="5075398098"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="7"/>
+ </way>
+ <way id="520801058" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:00Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398104"/>
+  <nd ref="5075398103"/>
+  <nd ref="5075398102"/>
+  <nd ref="5075398101"/>
+  <nd ref="5075398100"/>
+  <nd ref="5075398099"/>
+  <nd ref="5075398104"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="6"/>
+ </way>
+ <way id="520801060" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398114"/>
+  <nd ref="5075398113"/>
+  <nd ref="5075398112"/>
+  <nd ref="5075398111"/>
+  <nd ref="5075398110"/>
+  <nd ref="5075398109"/>
+  <nd ref="5075398114"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="6"/>
+ </way>
+ <way id="520801062" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398123"/>
+  <nd ref="5075398122"/>
+  <nd ref="5075398121"/>
+  <nd ref="5075398120"/>
+  <nd ref="5075398123"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="1"/>
+ </way>
+ <way id="520801063" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398131"/>
+  <nd ref="5075398130"/>
+  <nd ref="5075398129"/>
+  <nd ref="5075398128"/>
+  <nd ref="5075398127"/>
+  <nd ref="5075398126"/>
+  <nd ref="5075398125"/>
+  <nd ref="5075398124"/>
+  <nd ref="5075398131"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+ </way>
+ <way id="520801064" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398135"/>
+  <nd ref="5075398134"/>
+  <nd ref="5075398133"/>
+  <nd ref="5075398132"/>
+  <nd ref="5075398135"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="3"/>
+ </way>
+ <way id="520801065" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398162"/>
+  <nd ref="5075398161"/>
+  <nd ref="5075398160"/>
+  <nd ref="5075398159"/>
+  <nd ref="5075398158"/>
+  <nd ref="5075398157"/>
+  <nd ref="5075398156"/>
+  <nd ref="5075398155"/>
+  <nd ref="5075398154"/>
+  <nd ref="5075398153"/>
+  <nd ref="5075398152"/>
+  <nd ref="5075398151"/>
+  <nd ref="5075398150"/>
+  <nd ref="5075398149"/>
+  <nd ref="5075398148"/>
+  <nd ref="5075398147"/>
+  <nd ref="5075398146"/>
+  <nd ref="5075398145"/>
+  <nd ref="5075398144"/>
+  <nd ref="5075398143"/>
+  <nd ref="5075398142"/>
+  <nd ref="5075398141"/>
+  <nd ref="5075398140"/>
+  <nd ref="5075398139"/>
+  <nd ref="5075398138"/>
+  <nd ref="5075398137"/>
+  <nd ref="5075398136"/>
+  <nd ref="5075398162"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+ </way>
+ <way id="520801066" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398168"/>
+  <nd ref="5075398167"/>
+  <nd ref="5075398166"/>
+  <nd ref="5075398165"/>
+  <nd ref="5075398164"/>
+  <nd ref="5075398163"/>
+  <nd ref="5075398168"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+ </way>
+ <way id="520801067" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398184"/>
+  <nd ref="5075398183"/>
+  <nd ref="5075398182"/>
+  <nd ref="5075398181"/>
+  <nd ref="5075398180"/>
+  <nd ref="5075398179"/>
+  <nd ref="5075398178"/>
+  <nd ref="5075398177"/>
+  <nd ref="5075398176"/>
+  <nd ref="5075398175"/>
+  <nd ref="5075398174"/>
+  <nd ref="5075398173"/>
+  <nd ref="5075398172"/>
+  <nd ref="5075398171"/>
+  <nd ref="5075398170"/>
+  <nd ref="5075398169"/>
+  <nd ref="5075398184"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="5"/>
+ </way>
+ <way id="520801071" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:01Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398200"/>
+  <nd ref="5075398199"/>
+  <nd ref="5075398198"/>
+  <nd ref="5075398197"/>
+  <nd ref="5075398200"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="520801072" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:02Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398204"/>
+  <nd ref="5075398203"/>
+  <nd ref="5075398202"/>
+  <nd ref="5075398201"/>
+  <nd ref="5075398204"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="9"/>
+ </way>
+ <way id="520801085" visible="true" version="1" changeset="51671209" timestamp="2017-09-02T14:26:02Z" user="Алекс Мок" uid="4814295">
+  <nd ref="5075398264"/>
+  <nd ref="5075398263"/>
+  <nd ref="5075398262"/>
+  <nd ref="5075398261"/>
+  <nd ref="5075398264"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="8"/>
+ </way>
+ <way id="646692279" visible="true" version="4" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075219787"/>
+  <nd ref="6075219788"/>
+  <nd ref="6075297540"/>
+  <nd ref="6075297549"/>
+  <nd ref="6075219789"/>
+  <nd ref="6075219790"/>
+  <nd ref="6075297522"/>
+  <nd ref="6075297517"/>
+  <nd ref="6075219787"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="藏经阁"/>
+ </way>
+ <way id="646693229" visible="true" version="4" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075225609"/>
+  <nd ref="6075297526"/>
+  <nd ref="6075297525"/>
+  <nd ref="6075225610"/>
+  <nd ref="6075225611"/>
+  <nd ref="6075297545"/>
+  <nd ref="6075297546"/>
+  <nd ref="6075225612"/>
+  <nd ref="6075225609"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="观音殿"/>
+ </way>
+ <way id="646693231" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075225613"/>
+  <nd ref="6075225614"/>
+  <nd ref="6075225615"/>
+  <nd ref="6075225616"/>
+  <nd ref="6075225613"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="毗卢殿"/>
+ </way>
+ <way id="646700712" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075271152"/>
+  <nd ref="6075271153"/>
+  <nd ref="6075271154"/>
+  <nd ref="6075271155"/>
+  <nd ref="6075271152"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="悯忠阁"/>
+ </way>
+ <way id="646701243" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075274512"/>
+  <nd ref="6075274513"/>
+  <nd ref="6075274514"/>
+  <nd ref="6075274515"/>
+  <nd ref="6075274512"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="大雄宝殿"/>
+ </way>
+ <way id="646701424" visible="true" version="4" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075274524"/>
+  <nd ref="6075297534"/>
+  <nd ref="6075297535"/>
+  <nd ref="6075274525"/>
+  <nd ref="6075274526"/>
+  <nd ref="6075297561"/>
+  <nd ref="6075297560"/>
+  <nd ref="6075274527"/>
+  <nd ref="6075274524"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="天王殿"/>
+ </way>
+ <way id="646701449" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075274556"/>
+  <nd ref="6075274557"/>
+  <nd ref="6075274558"/>
+  <nd ref="6075274559"/>
+  <nd ref="6075274556"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="山门"/>
+ </way>
+ <way id="646701758" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075278894"/>
+  <nd ref="6075278895"/>
+  <nd ref="6075278896"/>
+  <nd ref="6075278897"/>
+  <nd ref="6075278894"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="钟楼"/>
+ </way>
+ <way id="646701867" visible="true" version="3" changeset="66586051" timestamp="2019-01-24T01:53:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075279281"/>
+  <nd ref="6075279282"/>
+  <nd ref="6075279283"/>
+  <nd ref="6075279284"/>
+  <nd ref="6075279281"/>
+  <tag k="building" v="yes"/>
+  <tag k="name" v="鼓楼"/>
+ </way>
+ <way id="646704285" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:28Z" user="学问大了" uid="9052151">
+  <nd ref="6075297517"/>
+  <nd ref="6075297518"/>
+  <nd ref="6075297519"/>
+  <nd ref="6075297520"/>
+  <nd ref="6075297524"/>
+  <nd ref="6075297525"/>
+  <nd ref="6075297526"/>
+  <nd ref="6075297523"/>
+  <nd ref="6075297521"/>
+  <nd ref="6075297522"/>
+  <nd ref="6075297517"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646704288" visible="true" version="3" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151">
+  <nd ref="6075297533"/>
+  <nd ref="6075297534"/>
+  <nd ref="6075297535"/>
+  <nd ref="6075297536"/>
+  <nd ref="6075297537"/>
+  <nd ref="6075297538"/>
+  <nd ref="6075297539"/>
+  <nd ref="6081121633"/>
+  <nd ref="6075297533"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646704289" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:28Z" user="学问大了" uid="9052151">
+  <nd ref="6075297540"/>
+  <nd ref="6075297541"/>
+  <nd ref="6075297542"/>
+  <nd ref="6075297543"/>
+  <nd ref="6075297544"/>
+  <nd ref="6075297545"/>
+  <nd ref="6075297546"/>
+  <nd ref="6075297547"/>
+  <nd ref="6075297548"/>
+  <nd ref="6075297549"/>
+  <nd ref="6075297540"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646704290" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:28Z" user="学问大了" uid="9052151">
+  <nd ref="6075297543"/>
+  <nd ref="6075297550"/>
+  <nd ref="6075297551"/>
+  <nd ref="6075297552"/>
+  <nd ref="6075297553"/>
+  <nd ref="6075297543"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646704291" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:28Z" user="学问大了" uid="9052151">
+  <nd ref="6075297554"/>
+  <nd ref="6075297555"/>
+  <nd ref="6075297558"/>
+  <nd ref="6075297556"/>
+  <nd ref="6075297557"/>
+  <nd ref="6075297554"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646704294" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:27Z" user="学问大了" uid="9052151">
+  <nd ref="6075297558"/>
+  <nd ref="6075297559"/>
+  <nd ref="6075297560"/>
+  <nd ref="6075297561"/>
+  <nd ref="6075297562"/>
+  <nd ref="6075297563"/>
+  <nd ref="6075297564"/>
+  <nd ref="6075297556"/>
+  <nd ref="6075297558"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646705192" visible="true" version="2" changeset="64759844" timestamp="2018-11-22T02:02:47Z" user="学问大了" uid="9052151">
+  <nd ref="6075311042"/>
+  <nd ref="6075311043"/>
+  <nd ref="6075311044"/>
+  <nd ref="6075311045"/>
+  <nd ref="6075311042"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="646705193" visible="true" version="2" changeset="64759837" timestamp="2018-11-22T02:02:27Z" user="学问大了" uid="9052151">
+  <nd ref="6075311046"/>
+  <nd ref="6075311047"/>
+  <nd ref="6075311048"/>
+  <nd ref="6075311049"/>
+  <nd ref="6075311046"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="647551726" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151">
+  <nd ref="6081121634"/>
+  <nd ref="6081121635"/>
+  <nd ref="6081121636"/>
+  <nd ref="6081121637"/>
+  <nd ref="6081121634"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <way id="647551727" visible="true" version="1" changeset="64759893" timestamp="2018-11-22T02:09:10Z" user="学问大了" uid="9052151">
+  <nd ref="6081121638"/>
+  <nd ref="6081121639"/>
+  <nd ref="6081121640"/>
+  <nd ref="6081121641"/>
+  <nd ref="6081121642"/>
+  <nd ref="6081121643"/>
+  <nd ref="6081121638"/>
+  <tag k="landuse" v="religious"/>
+ </way>
+ <relation id="7524085" visible="true" version="1" changeset="51568251" timestamp="2017-08-30T08:53:31Z" user="Алекс Мок" uid="4814295">
+  <member type="way" ref="519901028" role="inner"/>
+  <member type="way" ref="519901029" role="outer"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="8"/>
+  <tag k="type" v="multipolygon"/>
+ </relation>
+</osm>

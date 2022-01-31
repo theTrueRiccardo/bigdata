@@ -1,5 +1,6 @@
 package utile;
 import models._
+import scala.math._
 object Util extends Serializable{
 
     def parseRilevazione(linea : String) : Rilevazione ={
@@ -15,5 +16,23 @@ object Util extends Serializable{
         val coordinata=new Coordinata(longitudine, latitudine)
         val rilevazione=new Rilevazione(id,dataOra,coordinata)
         return rilevazione
+    }
+
+    def haversine(c1 : Coordinata, c2 : Coordinata) : Double = {
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(c2.latitudine-c1.latitudine);  // deg2rad below
+        var dLon = deg2rad(c2.longitudine-c1.longitudine); 
+        var a = 
+            sin(dLat/2) * sin(dLat/2) +
+            cos(deg2rad(c1.latitudine)) * cos(deg2rad(c2.latitudine)) * 
+            sin(dLon/2) * sin(dLon/2)
+            ; 
+        var c = 2 * atan2(sqrt(a), sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d;
+    }
+
+    def deg2rad(deg : Double) : Double = {
+        return deg * (Pi/180)
     }
 }

@@ -9,5 +9,6 @@ case class SchedaTaxi(
         val tempoAttivo : Double,
         val tempoFermo : Double,
         val percorso : Array[(String, List[Coordinata])],
-        val visite : Array[(String, Int)]
+        val visite : Array[(String, Int)],
+        val km : Double
         ) extends Serializable

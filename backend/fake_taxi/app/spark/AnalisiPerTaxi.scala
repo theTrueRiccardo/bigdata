@@ -7,6 +7,7 @@ import models._
 import utile._
 import scala.io._
 import scala.util.control.Breaks._
+import org.apache.spark.mllib.rdd.RDDFunctions._
 
 
 class AnalisiPerTaxi(sparkContext : SparkContext){
@@ -27,6 +28,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         var tempoFermo=tempi._2
         val percorso = this.percorso(id, rilevazioni)
         val visite = visiteAiLuoghi(id, rilevazioni)
+        val km = kmFatti(rilevazioni)
         return SchedaTaxi(
             rilevazioniTotali,
             rilevazioniGiorno,
@@ -36,7 +38,8 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
             tempoAttivo,
             tempoFermo,
             percorso,
-            visite
+            visite,
+            km
         )
     }
 
@@ -149,6 +152,13 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
             else ("Altro",1)
         ).reduceByKey(_+_).collect
     }
+
+    def kmFatti(rilevazioni: RDD[Rilevazione]) : Double = {
+        rilevazioni.map(x => x.coordinata).sliding(2)
+        .map{case Array(x, y) => Util.haversine(x,y)}.reduce((x,y) => x + y)
+    }
+
+
 
 
     

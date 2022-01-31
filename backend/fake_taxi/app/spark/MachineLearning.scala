@@ -112,7 +112,7 @@ class MachineLearning(sparkContext : SparkContext){
         //mettiamo il seme a pi greco per questioni di riproducibilità
         //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
         //withReplacement, fraction, seed
-        val rdd2=rdd1.sample(false,0.01,Pi.toLong)
+        val rdd2=rdd1.sample(false,0.01)
         //creiamo il data frame
         val df=spark.createDataFrame(rdd2).toDF("orario","longitudine","latitudine")
         //label
@@ -156,23 +156,20 @@ class MachineLearning(sparkContext : SparkContext){
         //2 nodi di input, 2 livelli hidden da 2 nodi ciascuno, 2 nodi di output
         val layers = Array[Int](2, 2, 2, 2)
 
-        /*
-        val trainer = new MultilayerPerceptronClassifier()
-        .setLayers(layers)
-        .setBlockSize(128)
-        .setFeaturesCol("features")
-        .setLabelCol("classe")
-        .setSeed(1234L)
-        .setMaxIter(100)
-        */
+        
+        
+        
+        
+        
         val trainer= new LogisticRegression()
         .setFeaturesCol("features")
         .setLabelCol("label")
-        .setMaxIter(3)
+        
+        
 
         // train the model
         val model = trainer.fit(train)
-
+        model.write.overwrite.save("modello")
         // compute accuracy on the test set
         val result = model.transform(test)
         val predictionAndLabels = result.select("prediction", "label")

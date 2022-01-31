@@ -186,6 +186,7 @@ class MachineLearning(sparkContext : SparkContext){
     def classifica(longitudine : Double, latitudine : Double) : Int = {
         val modello=LogisticRegressionModel.load("modello")
         val prediction = modello.predict(Vectors.dense(longitudine, latitudine))
+        println(prediction)
         return prediction.toInt
     }
     

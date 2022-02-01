@@ -50,3 +50,7 @@ body {
 .mat-tab-group {
   margin-bottom: 48px;
 }
+#chart{
+  width: 100%;
+  height: 500px;
+}

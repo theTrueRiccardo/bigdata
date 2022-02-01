@@ -10,5 +10,8 @@ export interface schedaTaxi {
   tempoAttivo : Number,
   tempoFermo : Number,
   percorso : Array< [ String, Array<coordinata>] >
+  visite : Array<[String, Number]>,
+  km : Number,
+  yuan : Number
 
 }

@@ -15,7 +15,7 @@
 <br>
 <div class="columns">
   <div class="column">
-    <div id="chartdiv"></div>
+    <div id="chartdiv2"></div>
   </div>
   <div class="column">
     <div id="chartdiv1"></div>
@@ -23,16 +23,16 @@
 </div>
 <br>
 <br>
-<h3 class="subtitle is-3" > {{scheda?.msgConfrontoGiornoNotte}}</h3>
+<h3 class="subtitle is-3" style="text-align:center;" > {{scheda?.msgConfrontoGiornoNotte}}</h3>
+<br>
+<div id="chart"></div>
+<br>
+<br>
+<h3 class="subtitle is-3" style="text-align:center;" > Distanza totale: {{scheda?.km}}</h3>
+<h3 class="subtitle is-3" style="text-align:center;" > Incasso totale: {{scheda?.yuan}}</h3>
 <br>
 <br>
 <br>
-<div id="chartdiv2"></div>
-<br>
-<br>
-<br>
-
-
 <mat-tab-group (selectedIndexChange)="visibile($event)">
   <mat-tab label="2/2/2008">
   </mat-tab>

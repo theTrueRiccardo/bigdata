@@ -39,4 +39,27 @@ object Util extends Serializable{
     def minutiTra(prima : DataOra, dopo : DataOra) : Double = {
         return prima.differenzaTempoMinuti(dopo)
     }
+
+
+    def avanzaOrario(orario : String, tempo : Int, unita : Int) : String = {
+        //1=minuti, 2=ore
+        val orarioSplittato = orario.split(":")
+        val ora=orarioSplittato(0)
+        val minuti=orarioSplittato(1)
+        val secondi=orarioSplittato(2)
+        if(unita==1){
+            var oraNew=0
+            var minutiNew=minuti+tempo
+            var secondiNew=0
+            if(minutiNew > 59) {
+                oraNew=ora+1
+                if(oraNew > 23){
+                    oraNew=0
+                }
+            }
+        }
+        else{
+
+        }
+    }
 }

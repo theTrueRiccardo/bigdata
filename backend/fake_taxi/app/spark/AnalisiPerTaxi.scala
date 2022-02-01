@@ -24,14 +24,13 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         val rilevazioniNotte = confrontoGiornoNotte._3
         val msgConfrontoGiornoNotte = confrontoGiornoNotte._4
         val numeroRilevazioniPerFasciaOraria = rilevazioniPerFasciaOraria(id, rilevazioni)
-        val tempi = tempoOzioAttivita(id)
+        val tempi = tempiTaxi(rilevazioni)
         var tempoAttivo=tempi._1
         var tempoFermo=tempi._2
         val percorso = this.percorso(id, rilevazioni)
         val visite = visiteAiLuoghi(rilevazioni)
         val km = kmFatti(rilevazioni)
         val yuan = km * costoTaxiPerKm
-        val temp=tempiTaxi(rilevazioni)
         return SchedaTaxi(
             rilevazioniTotali,
             rilevazioniGiorno,
@@ -89,7 +88,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
     }
 
 
-
+    /*
     def tempoOzioAttivita(id : Int) : (Double, Double) = {
         val filename = cartellaFileTaxi+id+".txt"
         val file=Source.fromFile(filename)
@@ -120,7 +119,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         println(s"metodo imperativo = $tempoAttivita, $tempoOzio")
         return (tempoAttivita, tempoOzio)
     }
-
+    */
 
     def tempiTaxi(rilevazioni: RDD[Rilevazione]) : (Double, Double) = {
         val tempoFermo=rilevazioni.sliding(2)

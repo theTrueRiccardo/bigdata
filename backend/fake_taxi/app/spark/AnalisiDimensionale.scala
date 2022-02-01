@@ -8,13 +8,16 @@ import models._
 import scala.collection.mutable.ArrayBuffer
 import scala.math._
 import org.apache.spark.storage._
+import java.time.LocalTime
+import java.time.temporal.ChronoUnit
+import util.control.Breaks._
 
 
 
 class AnalisiDimensionale(sparkContext : SparkContext){
     
     val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
-    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x)).filter(x => x.id <= 25)
+    val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x)).sample(false, 0.01)
     //.filter(x => x.id <= 25)
     //quetse dimensioni sono ordinate lessicograficamente
     val dimensioni=Array("data", "latitudine", "longitudine", "ora")
@@ -53,9 +56,11 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                 if(ampiezza0 == -1) return rdd.map(x => (List( x.getClass.getDeclaredMethod(dim0).invoke(x) ) , 1)).reduceByKey(_+_).collect
                 else {
                     var max=null : Bound; var min=null : Bound;
+                    var tempu=false
                     if(tempo.contains(dim0)){
                         max=new Bound(tempo(dim0)._1)
-                        min=new Bound(tempo(dim0)._2)               
+                        min=new Bound(tempo(dim0)._2) 
+                        tempu=true              
                     }
                     else{
                         max=new Bound(numeri(dim0)._1)
@@ -65,17 +70,25 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                     var ub=lb+ampiezza0
                     var vettore = new ArrayBuffer[(List[Object], Int)]();
                     rdd.cache()
-                    while(lb < max){
-                        println(s"lb=$lb   ub=$ub   max=$max")
-                        var categoria0 = s"[$lb;$ub["
-                        val array=rdd.filter(x =>
-                            new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
-                            new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub
-                        ).map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
-                        if(array.length!=0) vettore += (array(0))
-                        else vettore+=((List(categoria0), 0))
-                        lb=ub
-                        ub=ub+ampiezza0
+                    var incontratoMezzanotte=0
+                    breakable {
+                        while(lb < max){
+                            if(tempu){
+                                if(LocalTime.parse(lb.valoreTempo).getHour()==0)
+                                    incontratoMezzanotte=incontratoMezzanotte+1
+                                if(incontratoMezzanotte==2) break
+                            }
+                            println(s"lb=$lb   ub=$ub   max=$max")
+                            var categoria0 = s"[$lb;$ub["
+                            val array=rdd.filter(x =>
+                                new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
+                                new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub
+                            ).map(x => (List( categoria0 ) , 1)).reduceByKey(_+_).collect
+                            if(array.length!=0) vettore += (array(0))
+                            else vettore+=((List(categoria0), 0))
+                            lb=ub
+                            ub=ub+ampiezza0
+                        }
                     }                  
                     return vettore.toArray
                 }

@@ -1,5 +1,7 @@
 package utile
 import scala.reflect.ClassTag
+import java.time.LocalTime
+import java.time.temporal.ChronoUnit
 class Bound(var valore : Any) extends Serializable{
     var tempo=false
     var valoreNumero=0.0
@@ -15,6 +17,7 @@ class Bound(var valore : Any) extends Serializable{
 
     def + (ampiezza : Double) : Bound = {
         if(tempo){
+            /*
             val orario=valoreTempo.split(":")
             val ora=(orario(0)).toDouble
             val prossimaOra1=((ora+ampiezza).toInt)+""
@@ -25,7 +28,14 @@ class Bound(var valore : Any) extends Serializable{
             else{
                 prossimaOra=s"0$prossimaOra1"
             }
-            val nuovoValoreTempo=s"$prossimaOra:"+orario(1)+":"+orario(2)
+            */
+            val nuovoTempo=LocalTime.parse(valoreTempo)
+            .plus(ampiezza.toLong, ChronoUnit.HOURS)
+            //sforato
+            var nuovoValoreTempo=""
+            if(nuovoTempo.getHour()==0) nuovoValoreTempo="23:59:59"
+            else nuovoValoreTempo=nuovoTempo.toString()
+            //val nuovoValoreTempo=s"$prossimaOra:"+orario(1)+":"+orario(2)
             new Bound(nuovoValoreTempo)
         }
         else{
@@ -37,6 +47,12 @@ class Bound(var valore : Any) extends Serializable{
 
     def < (altro : Bound) : Boolean = {
         if(tempo){
+            val mio=LocalTime.parse(valoreTempo)
+            val suo=LocalTime.parse(altro.valoreTempo)
+            val valore = mio.compareTo(suo)
+            if(valore < 0)  return true
+            return false
+            /*
             val orario=valoreTempo.split(":")
             val ore=orario(0).toDouble
             val minuti=orario(1).toDouble
@@ -52,6 +68,7 @@ class Bound(var valore : Any) extends Serializable{
             if(secondi < secondiAltro) return true
             else if(secondi > secondiAltro) return false
             return false
+            */
         }
         else{
             return valoreNumero < altro.valoreNumero
@@ -60,6 +77,13 @@ class Bound(var valore : Any) extends Serializable{
 
     def >= (altro : Bound) : Boolean = {
         if(tempo){
+            //println(valoreTempo)
+            val mio=LocalTime.parse(valoreTempo)
+            val suo=LocalTime.parse(altro.valoreTempo)
+            val valore = mio.compareTo(suo)
+            if(valore >= 0)  return true
+            return false
+            /*
             val orario=valoreTempo.split(":")
             val ore=orario(0).toDouble
             val minuti=orario(1).toDouble
@@ -75,6 +99,7 @@ class Bound(var valore : Any) extends Serializable{
             if(secondi > secondiAltro) return true
             else if(secondi < secondiAltro) return false
             return true
+            */
         }
         else{
             return valoreNumero >= altro.valoreNumero

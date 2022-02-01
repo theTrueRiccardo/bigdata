@@ -11,7 +11,7 @@ object Util extends Serializable{
         val array2=dataOraStringa.split(" ")
         val data=array2(0)
         val ora=array2(1)
-        val dataOrario=LocalDateTime.parse(s"$data"+"t"+"$ora")
+        val dataOrario=LocalDateTime.parse(s"$data"+s"t$ora")
         val longitudine=array(2).toDouble
         val latitudine=array(3).toDouble
         val coordinata=new Coordinata(longitudine, latitudine)

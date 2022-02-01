@@ -32,7 +32,6 @@ case class DataOra(data: String, ora: String) extends Serializable{
         var dataOraPrecedente=new DataOra(data,ora)
         var tempo=0.0
         while(dataOraPrecedente.giorno < dataOraSuccessiva.giorno || dataOraPrecedente.ore < dataOraSuccessiva.ore){
-            println(s"ciao, sto andando in looooooooooooooooooooooooooooooooop: $dataOraPrecedente $dataOraSuccessiva ")
             val avanzamento=dataOraPrecedente.avanzaAllaProssimaOraRestituendoMinuti()
             dataOraPrecedente=avanzamento._1
             tempo = tempo + avanzamento._2

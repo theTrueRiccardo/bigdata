@@ -28,9 +28,10 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
         var tempoAttivo=tempi._1
         var tempoFermo=tempi._2
         val percorso = this.percorso(id, rilevazioni)
-        val visite = visiteAiLuoghi(id, rilevazioni)
+        val visite = visiteAiLuoghi(rilevazioni)
         val km = kmFatti(rilevazioni)
         val yuan = km * costoTaxiPerKm
+        val temp=tempiTaxi(rilevazioni)
         return SchedaTaxi(
             rilevazioniTotali,
             rilevazioniGiorno,
@@ -110,22 +111,32 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
             }
             }
             i=j
-            println("calcolo ozio")
         }
-        println(s"lunghezza array=${array.length}")
         for(i <- 1 until array.length){
             tempoTotale=tempoTotale+(array(i-1).dataOra.differenzaTempoMinuti(array(i).dataOra))
-            println(s"calcolo totale i=$i")
         }
         tempoAttivita=tempoTotale-tempoOzio
-        println("sto chiudendo il file")
         file.close()
-        println("sto tornando")
+        println(s"metodo imperativo = $tempoAttivita, $tempoOzio")
         return (tempoAttivita, tempoOzio)
     }
 
+
+    def tempiTaxi(rilevazioni: RDD[Rilevazione]) : (Double, Double) = {
+        val tempoFermo=rilevazioni.sliding(2)
+        .map(x => if(x(0).coordinata==x(1).coordinata)
+        Util.minutiTra( x(0).dataOra, x(1).dataOra )
+        else 0.0 
+        ).reduce((x,y) => x + y)
+        val tempoTotale=rilevazioni.sliding(2)
+        .map{case Array(x, y) => Util.minutiTra(x.dataOra,y.dataOra)}.reduce((x,y) => x + y)
+        val tempoAttivo=tempoTotale-tempoFermo
+        println(s"metodo dichiarativo = $tempoAttivo, $tempoFermo")
+        return (tempoAttivo,tempoFermo)
+    }
+
     
-    def visiteAiLuoghi(id: Int, rilevazioni: RDD[Rilevazione]) : Array[(String, Int)] = {
+    def visiteAiLuoghi(rilevazioni: RDD[Rilevazione]) : Array[(String, Int)] = {
         val scostamentoLatitudine=0.0005
         val scostamentoLongitudine=0.08
         rilevazioni.map(x => 

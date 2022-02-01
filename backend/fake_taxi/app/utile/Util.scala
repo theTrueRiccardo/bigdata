@@ -35,4 +35,8 @@ object Util extends Serializable{
     def deg2rad(deg : Double) : Double = {
         return deg * (Pi/180)
     }
+
+    def minutiTra(prima : DataOra, dopo : DataOra) : Double = {
+        return prima.differenzaTempoMinuti(dopo)
+    }
 }

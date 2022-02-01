@@ -48,37 +48,6 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         val risultato=dao.analisiDimensionale(dim)        
         Ok(Json.toJson(risultato))
     }
-    
-    
-    def eseguiQuery : Action[AnyContent] = Action {
-        val risultato=dao.query()
-        Ok(risultato)
-    }
-
-    def contaTaxi : Action[AnyContent] = Action {
-        val group=dao.prendiTutti()
-        Ok(Json.toJson(group))
-    }
-
-    def mattia : Action[AnyContent] = Action {
-        val group=dao.mattia()
-        Ok(Json.toJson(group))
-    }
-
-    def orario(orarioInizio: Double, orarioFine : Double) : Action[AnyContent] = Action {
-        val group=dao.orario(orarioInizio,orarioFine)
-        Ok(Json.toJson(group))
-    }
-
-    def area(inizioLong: Double ,fineLong : Double, inizioLat : Double , fineLat: Double) : Action[AnyContent] = Action {
-        val group=dao.area(inizioLong,fineLong,inizioLat,fineLat)
-        Ok(Json.toJson(group))
-    }
-
-    def confrontoGiornoNotte(id: Int) : Action[AnyContent] = Action {
-        val group=dao.confrontoGiornoNotte(id)
-        Ok(Json.toJson(group))
-    }
 
 
     def classifica(longitudine : Double, latitudine : Double) : Action[AnyContent] = Action {

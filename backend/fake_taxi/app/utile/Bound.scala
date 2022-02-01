@@ -17,25 +17,11 @@ class Bound(var valore : Any) extends Serializable{
 
     def + (ampiezza : Double) : Bound = {
         if(tempo){
-            /*
-            val orario=valoreTempo.split(":")
-            val ora=(orario(0)).toDouble
-            val prossimaOra1=((ora+ampiezza).toInt)+""
-            var prossimaOra=""
-            if(prossimaOra1.length==2){
-                prossimaOra=s"$prossimaOra1"
-            }
-            else{
-                prossimaOra=s"0$prossimaOra1"
-            }
-            */
             val nuovoTempo=LocalTime.parse(valoreTempo)
             .plus(ampiezza.toLong, ChronoUnit.HOURS)
-            //sforato
             var nuovoValoreTempo=""
             if(nuovoTempo.getHour()==0) nuovoValoreTempo="23:59:59"
             else nuovoValoreTempo=nuovoTempo.toString()
-            //val nuovoValoreTempo=s"$prossimaOra:"+orario(1)+":"+orario(2)
             new Bound(nuovoValoreTempo)
         }
         else{
@@ -52,23 +38,6 @@ class Bound(var valore : Any) extends Serializable{
             val valore = mio.compareTo(suo)
             if(valore < 0)  return true
             return false
-            /*
-            val orario=valoreTempo.split(":")
-            val ore=orario(0).toDouble
-            val minuti=orario(1).toDouble
-            val secondi=orario(2).toDouble
-            val orarioAltro=altro.valoreTempo.split(":")
-            val oreAltro=orarioAltro(0).toDouble
-            val minutiAltro=orarioAltro(1).toDouble
-            val secondiAltro=orarioAltro(2).toDouble
-            if(ore < oreAltro) return true
-            else if(ore > oreAltro) return false
-            if(minuti < minutiAltro) return true
-            else if(minuti > minutiAltro) return false
-            if(secondi < secondiAltro) return true
-            else if(secondi > secondiAltro) return false
-            return false
-            */
         }
         else{
             return valoreNumero < altro.valoreNumero
@@ -83,23 +52,6 @@ class Bound(var valore : Any) extends Serializable{
             val valore = mio.compareTo(suo)
             if(valore >= 0)  return true
             return false
-            /*
-            val orario=valoreTempo.split(":")
-            val ore=orario(0).toDouble
-            val minuti=orario(1).toDouble
-            val secondi=orario(2).toDouble
-            val orarioAltro=altro.valoreTempo.split(":")
-            val oreAltro=orarioAltro(0).toDouble
-            val minutiAltro=orarioAltro(1).toDouble
-            val secondiAltro=orarioAltro(2).toDouble
-            if(ore > oreAltro) return true
-            else if(ore < oreAltro) return false
-            if(minuti > minutiAltro) return true
-            else if(minuti < minutiAltro) return false
-            if(secondi > secondiAltro) return true
-            else if(secondi < secondiAltro) return false
-            return true
-            */
         }
         else{
             return valoreNumero >= altro.valoreNumero

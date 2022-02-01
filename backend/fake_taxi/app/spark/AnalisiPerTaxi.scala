@@ -8,6 +8,7 @@ import utile._
 import scala.io._
 import scala.util.control.Breaks._
 import org.apache.spark.mllib.rdd.RDDFunctions._
+import java.time.temporal.ChronoUnit
 
 
 class AnalisiPerTaxi(sparkContext : SparkContext){
@@ -49,7 +50,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
     //totali, giorno, notte, msg
     def confrontoGiornoNotte(id: Int, rilevazioni: RDD[Rilevazione]) : (Long, Long, Long, String) = {       
         val rilevazioniTotali = rilevazioni.count
-        val rilevazioniGiorno = rilevazioni.filter(x => x.dataOra.ore >= 7 && x.dataOra.ore < 20).count
+        val rilevazioniGiorno = rilevazioni.filter(x => x.dataOrario.getHour() >= 7 && x.dataOrario.getHour() < 20).count
         val rilevazioniNotte = rilevazioniTotali - rilevazioniGiorno
         if (rilevazioniGiorno > rilevazioniNotte){
              return (
@@ -76,59 +77,29 @@ class AnalisiPerTaxi(sparkContext : SparkContext){
     }
 
     def rilevazioniPerFasciaOraria(id : Int, rilevazioni: RDD[Rilevazione]): Array[(String, Int)] ={
-        return rilevazioni.map(x => (if(x.dataOra.ore >= 0 && x.dataOra.ore < 6) "notte" else
-        if(x.dataOra.ore >= 6 && x.dataOra.ore < 15) "giorno" else if(x.dataOra.ore >= 15 && x.dataOra.ore < 19)
+        return rilevazioni.map(x => (if(x.dataOrario.getHour() >= 0 && x.dataOrario.getHour() < 6) 
+        "notte" else if(x.dataOrario.getHour() >= 6 && x.dataOrario.getHour() < 15) "giorno" 
+        else if(x.dataOrario.getHour() >= 15 && x.dataOrario.getHour() < 19)
         "pomeriggio" else "sera", 1)).reduceByKey(_+_).collect
     }
 
 
     def percorso(id : Int, rilevazioni: RDD[Rilevazione]): Array[(String, List[Coordinata])] ={
-        return rilevazioni.map(x => (x.dataOra.giorno+"/"+x.dataOra.mese+"/"+x.dataOra.anno,List(x.coordinata)))
+        return rilevazioni.map(x => (x.dataOrario.getDayOfMonth()+"/"+x.dataOrario.getMonthValue()+
+        "/"+x.dataOrario.getYear(),List(x.coordinata)))
         .reduceByKey(_:::_).collect
     }
 
 
-    /*
-    def tempoOzioAttivita(id : Int) : (Double, Double) = {
-        val filename = cartellaFileTaxi+id+".txt"
-        val file=Source.fromFile(filename)
-        val array=file.getLines().toArray.map(x => Util.parseRilevazione(x))
-        var tempoTotale=0.0
-        var tempoAttivita=0.0
-        var tempoOzio=0.0
-        var i=0
-        while(i < array.length-1){
-            var rilevazione1 = array(i)
-            var j=i+1
-            var rilevazione2=array(j)
-            breakable{
-            while(j < array.length && rilevazione2.coordinata == rilevazione1.coordinata){
-                tempoOzio=tempoOzio+(rilevazione1.dataOra.differenzaTempoMinuti(rilevazione2.dataOra))
-                j+=1
-                if(j == array.length) break 
-                rilevazione2=array(j)
-            }
-            }
-            i=j
-        }
-        for(i <- 1 until array.length){
-            tempoTotale=tempoTotale+(array(i-1).dataOra.differenzaTempoMinuti(array(i).dataOra))
-        }
-        tempoAttivita=tempoTotale-tempoOzio
-        file.close()
-        println(s"metodo imperativo = $tempoAttivita, $tempoOzio")
-        return (tempoAttivita, tempoOzio)
-    }
-    */
-
     def tempiTaxi(rilevazioni: RDD[Rilevazione]) : (Double, Double) = {
         val tempoFermo=rilevazioni.sliding(2)
         .map(x => if(x(0).coordinata==x(1).coordinata)
-        Util.minutiTra( x(0).dataOra, x(1).dataOra )
+        x(0).dataOrario.until(x(1).dataOrario,ChronoUnit.MINUTES).toDouble
         else 0.0 
         ).reduce((x,y) => x + y)
         val tempoTotale=rilevazioni.sliding(2)
-        .map{case Array(x, y) => Util.minutiTra(x.dataOra,y.dataOra)}.reduce((x,y) => x + y)
+        .map{case Array(x, y) => x.dataOrario.until(y.dataOrario,ChronoUnit.MINUTES).toDouble}
+        .reduce((x,y) => x + y)
         val tempoAttivo=tempoTotale-tempoFermo
         println(s"metodo dichiarativo = $tempoAttivo, $tempoFermo")
         return (tempoAttivo,tempoFermo)

@@ -1,11 +1,12 @@
 package models;
 import utile._
-case class Rilevazione(val id: Int, val dataOra: DataOra, val coordinata: Coordinata) extends Serializable{
-    def ora() : String = {
-        dataOra.ora
+import java.time.LocalDateTime
+case class Rilevazione(val id: Int, val dataOrario: LocalDateTime, val coordinata: Coordinata) extends Serializable{
+    def orario() : String = {
+        dataOrario.toLocalTime().toString()
     }
     def data() : String ={
-        dataOra.data
+        dataOrario.toLocalDate().toString()
     }
     def longitudine() : Double ={
         coordinata.longitudine

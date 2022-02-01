@@ -109,7 +109,7 @@ class MachineLearning(sparkContext : SparkContext){
         .getOrCreate()
         //eventualmente modificabili in 1 e 0
         var rdd1 = rdd.filter(x => x.latitudine >= 35.0 && x.latitudine <= 44.0
-         && x.longitudine>=115 && x.longitudine<=118).map(x => (x.ora, x.longitudine, x.latitudine))
+         && x.longitudine>=115 && x.longitudine<=118).map(x => (x.dataOrario.toLocalTime().toString(), x.longitudine, x.latitudine))
         //mettiamo il seme a pi greco per questioni di riproducibilità
         //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
         //withReplacement, fraction, seed

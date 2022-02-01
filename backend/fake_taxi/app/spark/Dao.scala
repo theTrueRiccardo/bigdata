@@ -44,7 +44,7 @@ class Dao{
     
     def orario(orarioInizio : Double, orarioFine: Double) : Array[(Int,Int)] ={        
         val taxi = logData.map(x => Util.parseRilevazione(x))        
-        val result = taxi.filter(x => x.dataOra.ore < orarioFine && x.dataOra.ore > orarioInizio).map(x => (x.id, 1)).reduceByKey(_+_).collect
+        val result = taxi.filter(x => x.dataOrario.getHour() < orarioFine && x.dataOrario.getHour() > orarioInizio).map(x => (x.id, 1)).reduceByKey(_+_).collect
         return result
     }
 
@@ -60,7 +60,7 @@ class Dao{
     def confrontoGiornoNotte(id : Int) : String ={       
         val taxi = logData.map(x => Util.parseRilevazione(x))
         val totale = taxi.count
-        val giorno = taxi.filter(x => x.id == id && x.dataOra.ore >= 7 && x.dataOra.ore < 20).count
+        val giorno = taxi.filter(x => x.id == id && x.dataOrario.getHour() >= 7 && x.dataOrario.getHour() < 20).count
         val notte = totale - giorno
         if (giorno > notte ) return s"il taxi con id: $id lavora principalmente di giorno; giorno: $giorno, notte: $notte."   
         s"il taxi con id: $id lavora principalmente di notte; giorno: $giorno, notte: $notte."

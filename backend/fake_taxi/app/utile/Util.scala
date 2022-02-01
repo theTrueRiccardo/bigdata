@@ -1,6 +1,7 @@
 package utile;
 import models._
 import scala.math._
+import java.time.LocalDateTime
 object Util extends Serializable{
 
     def parseRilevazione(linea : String) : Rilevazione ={
@@ -10,11 +11,11 @@ object Util extends Serializable{
         val array2=dataOraStringa.split(" ")
         val data=array2(0)
         val ora=array2(1)
-        val dataOra=new DataOra(data,ora)
+        val dataOrario=LocalDateTime.parse(s"$data"+"t"+"$ora")
         val longitudine=array(2).toDouble
         val latitudine=array(3).toDouble
         val coordinata=new Coordinata(longitudine, latitudine)
-        val rilevazione=new Rilevazione(id,dataOra,coordinata)
+        val rilevazione=new Rilevazione(id,dataOrario,coordinata)
         return rilevazione
     }
 
@@ -41,25 +42,5 @@ object Util extends Serializable{
     }
 
 
-    def avanzaOrario(orario : String, tempo : Int, unita : Int) : String = {
-        //1=minuti, 2=ore
-        val orarioSplittato = orario.split(":")
-        val ora=orarioSplittato(0)
-        val minuti=orarioSplittato(1)
-        val secondi=orarioSplittato(2)
-        if(unita==1){
-            var oraNew=0
-            var minutiNew=minuti+tempo
-            var secondiNew=0
-            if(minutiNew > 59) {
-                oraNew=ora+1
-                if(oraNew > 23){
-                    oraNew=0
-                }
-            }
-        }
-        else{
-
-        }
-    }
+    
 }

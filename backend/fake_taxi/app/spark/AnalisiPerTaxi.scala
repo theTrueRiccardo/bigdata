@@ -11,7 +11,7 @@ import org.apache.spark.mllib.rdd.RDDFunctions._
 import java.time.temporal.ChronoUnit
 
 
-class AnalisiPerTaxi(sparkContext : SparkContext){
+class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
 
     val cartellaFileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))
     val costoTaxiPerKm=3.08

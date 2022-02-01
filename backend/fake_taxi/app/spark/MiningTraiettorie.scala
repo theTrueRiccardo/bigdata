@@ -10,6 +10,7 @@ import scala.util.control.Breaks._
 import org.apache.spark.mllib.rdd.RDDFunctions._
 import java.time.temporal.ChronoUnit
 
+
 class MiningTraiettorie(sparkContext : SparkContext){
     val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
     val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))

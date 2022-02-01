@@ -22,8 +22,12 @@ import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.classification.LogisticRegressionModel
 
 
+import org.apache.spark.ml.clustering.KMeans
+import org.apache.spark.ml.evaluation.ClusteringEvaluator
 
-class MachineLearning(sparkContext : SparkContext){
+
+
+class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, analisiPerTaxi : AnalisiPerTaxi){
 
     val fileTaxi=(sys.env.get("DATASET").get.replaceAll("\\\\", "/"))+"/dataset/dataset.txt"
     val rdd = sparkContext.textFile(fileTaxi).map(x => Util.parseRilevazione(x))
@@ -189,5 +193,57 @@ class MachineLearning(sparkContext : SparkContext){
         println(prediction)
         return prediction.toInt
     }
+
+
+
+
+
+
+    def cluster() = {
+        var rdd1 = rdd.filter(x => x.latitudine >= 35.0 
+        && x.latitudine <= 44.0
+        && x.longitudine>=115 && x.longitudine<=118)
+        //mettiamo il seme a pi greco per questioni di riproducibilità
+        //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
+        //withReplacement, fraction, seed
+        /*
+        val rdd2=rdd1.sample(false,0.01,Pi.toLong)
+        //(id,rilevazione)
+        val rdd3=rdd2.map(x => x.id).distinct.map(x => (x,analisiPerTaxi.scheda(x)) )
+        //val rdd3=rdd2.groupBy(x => x.id).reduceByKey((x,y) => )
+        val rdd4=rdd3.map(x => (x._2.km, x._2.tempoAttivo, x._2.tempoFermo) )
+        //creiamo il data frame
+        val df=sparkSession.createDataFrame(rdd3).toDF("distanza","tempoAttivo","tempoFermo")
+        */
+        val df = sparkSession.createDataFrame(Seq(
+        (Vectors.dense(0.0, 1.1, 0.1)),
+        (Vectors.dense(2.0, 1.0, -1.0)),
+        (Vectors.dense(2.0, 1.3, 1.0)),
+        (Vectors.dense(0.0, 1.2, -0.5))
+        )).toDF("features")
+        // Trains a k-means model.
+        val kmeans = new KMeans().setK(10).setSeed(1L)
+        val model = kmeans.fit(df)
+
+        // Make predictions
+        val predictions = model.transform(df)
+
+        // Evaluate clustering by computing Silhouette score
+        val evaluator = new ClusteringEvaluator()
+
+        val silhouette = evaluator.evaluate(predictions)
+        println(s"Silhouette with squared euclidean distance = $silhouette")
+
+        // Shows the result.
+        println("Cluster Centers: ")
+        model.clusterCenters.foreach(println)
+
+        //"ciao"
+    }
+
+
+
+
+
     
 }

@@ -55,5 +55,11 @@ class SparkController @Inject()(val controllerComponents: ControllerComponents, 
         Ok(Json.toJson(ris))
     }
 
+
+    def cluster() : Action[AnyContent] = Action {
+        val ris=dao.cluster()
+        Ok(Json.toJson("ciao"))
+    }
+
 }
 

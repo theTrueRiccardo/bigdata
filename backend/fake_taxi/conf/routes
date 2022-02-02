@@ -20,3 +20,5 @@ GET     /pipeline                   controllers.SparkController.pipeline
 GET     /classifica/:longitudine/:latitudine                 controllers.SparkController.classifica(longitudine : Double, latitudine : Double)
 
 GET     /cluster                    controllers.SparkController.cluster
+
+GET     /valori                    controllers.SparkController.valori

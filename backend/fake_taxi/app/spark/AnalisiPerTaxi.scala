@@ -6,6 +6,7 @@ import org.apache.spark.rdd.RDD
 import models._
 import utile._
 import scala.io._
+import scala.math._
 import scala.util.control.Breaks._
 import org.apache.spark.mllib.rdd.RDDFunctions._
 import java.time.temporal.ChronoUnit
@@ -18,7 +19,8 @@ class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
     
     def scheda(id: Int) : SchedaTaxi={
         val taxi=sparkContext.textFile(cartellaFileTaxi+id+".txt")
-        val rilevazioni = taxi.map(x => Util.parseRilevazione(x))
+        val rilevazioni = taxi.map(x => Util.parseRilevazione(x)).filter(x => x.latitudine >= 35.0 && x.latitudine <= 44.0
+        && x.longitudine>=115 && x.longitudine<=118)
         val confrontoGiornoNotte =  this.confrontoGiornoNotte(id,rilevazioni) 
         val rilevazioniTotali = confrontoGiornoNotte._1
         val rilevazioniGiorno = confrontoGiornoNotte._2
@@ -101,7 +103,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
         .map{case Array(x, y) => x.dataOrario.until(y.dataOrario,ChronoUnit.MINUTES).toDouble}
         .reduce((x,y) => x + y)
         val tempoAttivo=tempoTotale-tempoFermo
-        println(s"metodo dichiarativo = $tempoAttivo, $tempoFermo")
+        //println(s"metodo dichiarativo = $tempoAttivo, $tempoFermo")
         return (tempoAttivo,tempoFermo)
     }
 
@@ -142,7 +144,20 @@ class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
         .map{case Array(x, y) => Util.haversine(x,y)}.reduce((x,y) => x + y)
     }
 
-
+    def valori(){
+        var result = " " 
+        for(i <- 1100 until 1300){
+           if(i != 173 &&  i!= 202){
+           val sched = scheda(i)
+           val km = sched.km
+           val tempoAttivo = sched.tempoAttivo
+           val tempoFermo = sched.tempoFermo
+           println(s"$km $tempoAttivo $tempoFermo")
+           
+           }  
+          
+        }
+    }
 
 
     

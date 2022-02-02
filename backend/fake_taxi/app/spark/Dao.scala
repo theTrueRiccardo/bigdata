@@ -32,6 +32,9 @@ class Dao{
     def schedaTaxi(id : Int) : SchedaTaxi={
         return this.analisiPerTaxi.scheda(id)
     }
+    def valori() {
+         this.analisiPerTaxi.valori
+    }
 
     def analisiDimensionale(dimensioni : List[String]) : Array[(List[Object], Int)]  ={
         return this.analisiDimensionale.queryDimensionale(dimensioni)
@@ -49,7 +52,7 @@ class Dao{
         return this.machineLearning.testML()
     }
 
-    def cluster() = {
-        this.machineLearning.cluster()
+    def cluster() : String ={
+        return this.machineLearning.cluster()
     }
 }

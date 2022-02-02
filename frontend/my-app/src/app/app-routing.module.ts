@@ -1,3 +1,4 @@
+import { HeatMapComponent } from './heat-map/heat-map.component';
 import { SchedaTaxiComponent } from './scheda-taxi/scheda-taxi.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'analisiDimensionale', component: AnalisiDimensionaleComponent },
   { path: 'machineLearning', component: MachineLearningComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'heatMap', component: HeatMapComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }];
 
 

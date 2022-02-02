@@ -11,6 +11,7 @@ import { MachineLearningComponent } from './machine-learning/machine-learning.co
 import { AnalisiDimensionaleComponent } from './analisi-dimensionale/analisi-dimensionale.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
+import { HeatMapComponent } from './heat-map/heat-map.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     HomeComponent,
     MachineLearningComponent,
     AnalisiDimensionaleComponent,
+    HeatMapComponent,
 
   ],
   imports: [
@@ -31,6 +33,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     BrowserAnimationsModule,
     MatTabsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

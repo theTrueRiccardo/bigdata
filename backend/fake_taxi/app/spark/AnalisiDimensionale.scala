@@ -79,7 +79,7 @@ class AnalisiDimensionale(sparkContext : SparkContext){
                                 if(incontratoMezzanotte==2) break
                             }
                             println(s"lb=$lb   ub=$ub   max=$max")
-                            var categoria0 = s"[$lb;$ub["
+                            var categoria0 = s"da $lb a $ub"
                             val array=rdd.filter(x =>
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) >= lb &&
                                 new Bound(x.getClass.getDeclaredMethod(dim0).invoke(x)) < ub

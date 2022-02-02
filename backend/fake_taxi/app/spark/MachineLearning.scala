@@ -21,7 +21,7 @@ import org.apache.spark.ml.feature.{LabeledPoint, StandardScaler}
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.classification.LogisticRegressionModel
 
-
+import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.ml.clustering.KMeans
 import org.apache.spark.ml.evaluation.ClusteringEvaluator
 
@@ -42,10 +42,10 @@ class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, 
 
     
       val training = spark.createDataFrame(Seq(
-      (1.0, Vectors.dense(0.0, 1.1, 0.1)),
-      (0.0, Vectors.dense(2.0, 1.0, -1.0)),
-      (0.0, Vectors.dense(2.0, 1.3, 1.0)),
-      (1.0, Vectors.dense(0.0, 1.2, -0.5))
+      (1.0, ml.linalg.Vectors.dense(0.0, 1.1, 0.1)),
+      (0.0, ml.linalg.Vectors.dense(2.0, 1.0, -1.0)),
+      (0.0, ml.linalg.Vectors.dense(2.0, 1.3, 1.0)),
+      (1.0, ml.linalg.Vectors.dense(0.0, 1.2, -0.5))
        )).toDF("label", "features")
 
         // Create a LogisticRegression instance. This instance is an Estimator.
@@ -82,9 +82,9 @@ class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, 
 
         // Prepare test data.
         val test = spark.createDataFrame(Seq(
-        (1.0, Vectors.dense(-1.0, 1.5, 1.3)),
-        (0.0, Vectors.dense(3.0, 2.0, -0.1)),
-        (1.0, Vectors.dense(0.0, 2.2, -1.5))
+        (1.0, ml.linalg.Vectors.dense(-1.0, 1.5, 1.3)),
+        (0.0, ml.linalg.Vectors.dense(3.0, 2.0, -0.1)),
+        (1.0, ml.linalg.Vectors.dense(0.0, 2.2, -1.5))
         )).toDF("label", "features")
         
         var result : List[String] = List()
@@ -189,7 +189,7 @@ class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, 
 
     def classifica(longitudine : Double, latitudine : Double) : Int = {
         val modello=LogisticRegressionModel.load("modello")
-        val prediction = modello.predict(Vectors.dense(longitudine, latitudine))
+        val prediction = modello.predict(ml.linalg.Vectors.dense(longitudine, latitudine))
         println(prediction)
         return prediction.toInt
     }
@@ -199,46 +199,41 @@ class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, 
 
 
 
-    def cluster() = {
-        var rdd1 = rdd.filter(x => x.latitudine >= 35.0 
-        && x.latitudine <= 44.0
-        && x.longitudine>=115 && x.longitudine<=118)
-        //mettiamo il seme a pi greco per questioni di riproducibilità
-        //campioniamo perchè sennò l'addestramento è temporalmente insostenibile
-        //withReplacement, fraction, seed
-        /*
-        val rdd2=rdd1.sample(false,0.01,Pi.toLong)
-        //(id,rilevazione)
-        val rdd3=rdd2.map(x => x.id).distinct.map(x => (x,analisiPerTaxi.scheda(x)) )
-        //val rdd3=rdd2.groupBy(x => x.id).reduceByKey((x,y) => )
-        val rdd4=rdd3.map(x => (x._2.km, x._2.tempoAttivo, x._2.tempoFermo) )
-        //creiamo il data frame
-        val df=sparkSession.createDataFrame(rdd3).toDF("distanza","tempoAttivo","tempoFermo")
-        */
-        val df = sparkSession.createDataFrame(Seq(
-        (Vectors.dense(0.0, 1.1, 0.1)),
-        (Vectors.dense(2.0, 1.0, -1.0)),
-        (Vectors.dense(2.0, 1.3, 1.0)),
-        (Vectors.dense(0.0, 1.2, -0.5))
-        )).toDF("features")
-        // Trains a k-means model.
-        val kmeans = new KMeans().setK(10).setSeed(1L)
-        val model = kmeans.fit(df)
+    def cluster(): String ={
+         
+        val data = sparkContext.textFile("../../kmeans_data.txt")
+        val ds = data.map(s => s.split(' ').map(_.toDouble)).cache()
+        val ds1 = ds.map(x => (x(0),x(1),x(2))).collect
+        //val ds1 = sparkContext.broadCast(ds)
+        var ds2 = Seq((1, ml.linalg.Vectors.dense(647.1955736966862,8716.0,45.0)))
+        
+        for(i <- 1 until ds1.length){
+            val y = (i+1,ml.linalg.Vectors.dense(ds1(i)._1, ds1(i)._2, ds1(i)._3))
+            
+            ds2 = ds2 :+ y
+        }
+       
+        val dataset = sparkSession.createDataFrame(ds2).toDF("label", "features")
+       
+        val kmeans = new KMeans().setK(3).setSeed(1L)
+        val model = kmeans.fit(dataset)
 
-        // Make predictions
-        val predictions = model.transform(df)
+        
+        val predictions = model.transform(dataset)
 
-        // Evaluate clustering by computing Silhouette score
+       
         val evaluator = new ClusteringEvaluator()
 
         val silhouette = evaluator.evaluate(predictions)
         println(s"Silhouette with squared euclidean distance = $silhouette")
 
-        // Shows the result.
+       
         println("Cluster Centers: ")
         model.clusterCenters.foreach(println)
-
-        //"ciao"
+        
+        var result : String = " "
+        model.clusterCenters.foreach(x => result = result + x )
+        return result
     }
 
 

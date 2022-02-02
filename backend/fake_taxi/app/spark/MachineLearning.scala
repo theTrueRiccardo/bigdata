@@ -232,7 +232,7 @@ class MachineLearning(sparkContext : SparkContext, sparkSession : SparkSession, 
         model.clusterCenters.foreach(println)
         
         var result : String = " "
-        model.clusterCenters.foreach(x => result = result + x )
+        model.clusterCenters.foreach(x => result = result + x + "|" )
         return result
     }
 

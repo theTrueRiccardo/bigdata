@@ -4,6 +4,8 @@ import { MachineLearningService } from '../machine-learning.service';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import * as am4maps from "@amcharts/amcharts4/maps";
+import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 
 @Component({
   selector: 'app-machine-learning',
@@ -26,7 +28,7 @@ export class MachineLearningComponent implements OnInit {
 
   ngOnInit(): void {
     this.Kcluster()
-
+    this.mappa()
   }
 
   Kcluster(){
@@ -150,6 +152,74 @@ grafico(i : Number){
     // Cursor
 
   }
-  }
+
+    mappa(){
+      /*let map = am4core.create("mappa", am4maps.MapChart);
+      //map.geodata = am4geodata_worldLow;
+      console.log(map.geodata)
+      map.geodataSource.url = "https://raw.githubusercontent.com/d3cn/data/master/json/geo/china/province-city/beijing.geojson";
+      map.projection = new am4maps.projections.Miller(); */
+      var chart2 = am4core.create("mappa", am4maps.MapChart);
+      chart2.geodataSource.url = "https://raw.githubusercontent.com/MattiaCost/Pechino/main/Map.json";
+      chart2.projection = new am4maps.projections.Mercator;
+
+      chart2.homeZoomLevel = 10000;
+      chart2.homeGeoPoint = {
+        latitude:  39.91710957679777,
+        longitude: 116.39053344726561,
+      };
+      var polygonSeries = chart2.series.push(new am4maps.MapPolygonSeries());
+
+      polygonSeries.useGeodata = true;
+      var polygonTemplate = polygonSeries.mapPolygons.template;
+
+      // Configure seriesvar polygonTemplate = polygonSeries.mapPolygons.template;
+      polygonTemplate.tooltipText = "{name}";
+      polygonTemplate.fill = am4core.color("#8e6b3f");
+      polygonTemplate.fillOpacity = 0.0;
+      polygonTemplate.stroke = am4core.color("#6e5332");
+
+      var hs = polygonTemplate.states.create("hover");
+      hs.properties.fill = am4core.color("#6e5332");
+
+      var bgSeries = chart2.series.push(new am4maps.MapImageSeries());
+      bgSeries.toBack();
+      var bgImage = bgSeries.mapImages.template.createChild(am4core.Image);
+      bgImage.propertyFields.href = "src";
+      bgImage.width = chart2.width;
+      bgImage.height = chart2.height;
+      bgSeries.data = [{
+        src: "https://github.com/MattiaCost/Pechino/blob/main/Schermata%202022-02-03%20alle%2012.13.01.png?raw=true"
+    }]
+
+    let imageSeries = chart2.series.push(new am4maps.MapImageSeries());
+    let imageSeriesTemplate = imageSeries.mapImages.template;
+    let circle = imageSeriesTemplate.createChild(am4core.Circle);
+    circle.radius = 7;
+    circle.fill = am4core.color("red");
+    circle.stroke = am4core.color("#FFFFFF");
+    circle.strokeWidth = 2;
+    circle.nonScaling = true;
+    circle.tooltipText = "{title}";
+
+    imageSeries.data = [{
+      "latitude": 39.96141,
+      "longitude": 116.39143,
+    },{
+      "latitude": 39.9706,
+      "longitude": 116.41136,
+    },{
+      "latitude": 39.95595,
+      "longitude": 116.41459,
+    },
+    {
+      "latitude": 40.06875,
+      "longitude": 116.56266,
+    }];
+    imageSeriesTemplate.propertyFields.latitude = "latitude";
+    imageSeriesTemplate.propertyFields.longitude = "longitude";
+ }
+
+}
 
 

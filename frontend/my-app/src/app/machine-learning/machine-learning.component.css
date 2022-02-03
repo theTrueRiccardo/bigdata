@@ -16,3 +16,10 @@ body {
   width: 100%;
   height: 500px;
 }
+
+#mappa {
+  margin: auto;
+  width: 50%;
+  height: 800px;
+  float: center;
+}

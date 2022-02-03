@@ -25,12 +25,14 @@ export class SchedaTaxiComponent implements OnInit {
   constructor(private schedaService : SchedaTaxiService) { }
 
   ngOnInit(): void {
+    document.getElementById("loading")!.style.display = 'none';
     this.formData = new FormGroup({
       id : new FormControl,
    });
   }
 
   onClickSubmit(data: any) {
+    document.getElementById("loading")!.style.display = 'block';
     this.id = data.id;
     console.log(this.id)
     this.getScheda();
@@ -51,6 +53,7 @@ export class SchedaTaxiComponent implements OnInit {
     this.schedaService.getScheda(this.id).subscribe(
       (response: schedaTaxi) => {
         this.scheda = response;
+
         this.totaleRilevazioni= "Totale rilevazioni: "+this.scheda.rilevazioniTotali
         this.giornoNotte();
         this.tempoAttivita();
@@ -75,7 +78,7 @@ export class SchedaTaxiComponent implements OnInit {
     am4core.useTheme(am4themes_animated);
     let rilevazioniGiorno = this.scheda?.rilevazioniGiorno
     let rilevazioniNotte = this.scheda?.rilevazioniNotte
-
+     document.getElementById("loading")!.style.display = 'none';
     let chart = am4core.create("chartdiv", am4charts.PieChart);
     chart.data = [ {
       "fascia": "Giorno",

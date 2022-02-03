@@ -15,10 +15,10 @@ export class AnalisiDimensionaleComponent implements OnInit {
   dati : JSON | undefined;
   parametro : String = ""
   constructor(private analisiService : AnanlisiDimensionaleService) { }
-
+  check : number = 0
 
   ngOnInit(): void {
-
+    document.getElementById("loading")!.style.display = 'none';
 		var list1 = document.getElementById('firstList');
 
 		list1!.appendChild(new Option('--Select--', ''));
@@ -80,9 +80,12 @@ export class AnalisiDimensionaleComponent implements OnInit {
 
 
   onClickSubmit(parametro: String, range:String ) {
-
+    document.getElementById("loading")!.style.display = 'block';
     this.getAnalisi(parametro,range)
+   }
 
+   showPage(){
+    console.log(0)
    }
 
    public getAnalisi(val : String, val1 : String): void{
@@ -91,6 +94,7 @@ export class AnalisiDimensionaleComponent implements OnInit {
         this.dati = response;
         console.log(this.dati)
         this.grafico(response)
+        this.check= 1
       },
       (error : HttpErrorResponse) => {
         alert(error.message);
@@ -102,6 +106,9 @@ export class AnalisiDimensionaleComponent implements OnInit {
         am4core.useTheme(am4themes_animated);
         let chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.scrollbarX = new am4core.Scrollbar();
+
+        document.getElementById("loading")!.style.display = 'none';
+
 
         let r  : String = JSON.stringify(response)
         console.log(r)

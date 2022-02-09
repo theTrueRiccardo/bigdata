@@ -79,6 +79,7 @@ export class SchedaTaxiComponent implements OnInit {
     let rilevazioniGiorno = this.scheda?.rilevazioniGiorno
     let rilevazioniNotte = this.scheda?.rilevazioniNotte
      document.getElementById("loading")!.style.display = 'none';
+     document.getElementById("points")!.style.display = 'block';
     let chart = am4core.create("chartdiv", am4charts.PieChart);
     chart.data = [ {
       "fascia": "Giorno",

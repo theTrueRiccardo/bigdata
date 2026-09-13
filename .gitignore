@@ -58,6 +58,10 @@ backend/fake_taxi/.settings
 backend/fake_taxi/RUNNING_PID
 backend/fake_taxi/build.sbt
 
+.metals/
+.vscode/
+.scala-build/
+
 
 #RICCARDO
 backend/powershell.exe

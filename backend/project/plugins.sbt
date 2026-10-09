@@ -1,3 +1,2 @@
-//addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.9.7")
+//This is required to let sbt launch play - it's this plugin that is able to run the server
 addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.12")
-

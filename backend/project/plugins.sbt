@@ -1,3 +1,3 @@
-//addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.8.12")
-//addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.13.1")
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.9.7")
+//addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.9.7")
+addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.12")
+

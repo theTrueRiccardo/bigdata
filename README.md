@@ -21,4 +21,4 @@ The project uses different technologies to run. Specifically:
 
 Ideally, one would use the highest versions for all the technologies involved, but that's not possible unfortunately. Spark doesn't support, at the present day (2026-10-10), a version of Scala higher than 2.13.18. Moreover, sbt build tool cannot
 correctly retrieve artifacts of the Play framework if the version is higher than 1.9.6. This implies using an old version
-of Scala and an old version of sbt, but all the rest can be at maximum version (Spark, Play, Java).
+of Scala and an old version of sbt, but all the rest can be at latest version (Spark, Play, Java).

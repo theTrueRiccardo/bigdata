@@ -10,6 +10,7 @@ import scala.math._
 import scala.util.control.Breaks._
 import org.apache.spark.mllib.rdd.RDDFunctions._
 import java.time.temporal.ChronoUnit
+import java.nio.file.Paths
 
 
 class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
@@ -18,7 +19,7 @@ class AnalisiPerTaxi(sparkContext : SparkContext) extends Serializable{
     val costoTaxiPerKm=3.08
     
     def scheda(id: Int) : SchedaTaxi={
-        val taxi=sparkContext.textFile(cartellaFileTaxi+id+".txt")
+        val taxi=sparkContext.textFile(Paths.get(cartellaFileTaxi, s"$id.txt").toString)
         val rilevazioni = taxi.map(x => Util.parseRilevazione(x)).filter(x => x.latitudine >= 35.0 && x.latitudine <= 44.0
         && x.longitudine>=115 && x.longitudine<=118)
         val confrontoGiornoNotte =  this.confrontoGiornoNotte(id,rilevazioni) 

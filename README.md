@@ -8,6 +8,8 @@ The project naturally divides into three parts:
 2. Multidimensional analysis
 3. Clustering
 
+The dataset can be downloaded from https://www.kaggle.com/datasets/arashnic/tdriver
+
 ## Architecture
 The project it's a web application that runs jobs on Spark engine. An application server, built with Play framework, is responsible for accepting requests from the UI. These requests trigger computations on Spark, for which the driver program resides in the application server itself. As such, Spark is not only another backend component, but also a compile time dependency for the application server.
 

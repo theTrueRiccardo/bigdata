@@ -4,7 +4,9 @@ import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 import models._
 import utile._
+import com.google.inject.Singleton
 
+@Singleton
 class Dao {
   val dataset = sys.env
     .get("DATASET")

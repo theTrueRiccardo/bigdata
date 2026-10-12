@@ -7,4 +7,8 @@ target
 /.project
 /.settings
 /RUNNING_PID
+/.bloop
+project/.bloop
+project/metals.sbt
+project/project
 public

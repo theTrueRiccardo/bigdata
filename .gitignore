@@ -46,25 +46,10 @@ frontend/my-app/node_modules
 #frontend/my-app/.DS_Store
 #frontend/my-app/Thumbs.db
 
-
-backend/fake_taxi/logs
-backend/fake_taxi/target
-backend/fake_taxi/.bsp
-backend/fake_taxi/.idea
-backend/fake_taxi/.idea_modules
-backend/fake_taxi/.classpath
-backend/fake_taxi/.project
-backend/fake_taxi/.settings
-backend/fake_taxi/RUNNING_PID
-backend/fake_taxi/build.sbt
-
 .metals/
 .vscode/
 .scala-build/
 
-
-#RICCARDO
-backend/powershell.exe
 
 
 

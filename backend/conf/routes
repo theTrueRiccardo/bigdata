@@ -4,10 +4,6 @@
 
 # Map static resources from the /public folder to the /assets URL path
 
-GET     /                           controllers.Assets.at(page = "index.html")
-
-GET     /*file                      controllers.Assets.at(file)
-
 GET     /schedaTaxi/:id             controllers.SparkController.schedaTaxi(id : Int)
 
 GET     /analisiDimensionale        controllers.SparkController.analisiDimensionale(dim : List[String])
@@ -21,3 +17,7 @@ GET     /classifica/:longitudine/:latitudine                 controllers.SparkCo
 GET     /cluster                    controllers.SparkController.cluster
 
 GET     /valori                    controllers.SparkController.valori
+
+GET     /                           controllers.Assets.at(page = "index.html")
+
+GET     /*file                      controllers.Assets.at(file)

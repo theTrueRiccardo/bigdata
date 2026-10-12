@@ -22,7 +22,6 @@ class AnalisiDimensionale(sparkContext: SparkContext) {
     .textFile(fileTaxi)
     .map(x => Util.parseRilevazione(x))
     .sample(false, 0.01)
-  // .filter(x => x.id <= 25)
   // quetse dimensioni sono ordinate lessicograficamente
   val dimensioni = Array("data", "latitudine", "longitudine", "ora")
   val numeri = Map(
@@ -143,55 +142,5 @@ class AnalisiDimensionale(sparkContext: SparkContext) {
     }
     return (max, min)
   }
-
-  /*
-    def costruisciFiltro(dim : ArrayBuffer[String], range : ArrayBuffer[String]) : Rilevazione => Boolean = {
-        var max = new ArrayBuffer[Bound]()
-        var min = new ArrayBuffer[Bound]()
-        var lb = new ArrayBuffer[Bound]()
-        var ub = new ArrayBuffer[Bound]()
-        var valoriDaVerificare = new ArrayBuffer[Rilevazione => Bound]()
-        var condizioni = new ArrayBuffer[(Bound, Bound) => Boolean]()
-        //massimi e minimi
-        for(i <- 0 until dim.length){
-            val dimensione=dim(i)
-            if(tempo.contains(dimensione)){
-                max+=new Bound(tempo(dim0)._1)
-                min+=new Bound(tempo(dim0)._2)
-            }
-            else{
-                max+=new Bound(numeri(dim0)._1)
-                min+=new Bound(numeri(dim0)._2)
-            }
-        }
-        //upper bound e lower bound
-        for(i <- 0 until range.length){
-            val ampiezza=range(i)
-            if(ampiezza==-1){
-                lb+=new Bound(-1)
-                ub+=new Bound(-1)
-            }
-            else{
-                lb+=min(i)
-                ub+=(lb+ampiezza)
-            }
-        }
-        //valori da mettere nella condizione
-        for(i <- 0 until dim.length){
-            val dimensione=dim(i)
-            valoriDaVerificare+= x : Rilevazione => new Bound( x.getClass.getDeclaredMethod(dimensione).invoke(x) )
-        }
-        for(i <- 0 until range.length){
-            val lbi=lb(i)
-            val ubi=ub(i)
-            if(range(i)==-1){
-                condizioni+=(lowerBound: Bound, upperBound : Bound) => true
-            }
-            else{
-                condizioni+=(lowerBound: Bound, upperBound : Bound) => valoriDaVerificare(i) >= lbi && valoriDaVerificare(i) < ubi
-            }
-        }
-    }
-   */
 
 }

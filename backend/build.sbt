@@ -1,4 +1,4 @@
-name := "ciao"
+name := "taxi-trajectory-analytics"
 organization := "com.riccardo"
 
 version := "1.0-SNAPSHOT"

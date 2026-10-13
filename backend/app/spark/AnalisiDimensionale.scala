@@ -17,12 +17,14 @@ class AnalisiDimensionale(sparkContext: SparkContext) {
   val fileTaxi = (sys.env
     .get("DATASET")
     .get
-    .replaceAll("\\\\", "/")) + "/dataset/dataset.txt"
+    .replaceAll("\\\\", "/"))
   val rdd = sparkContext
-    .textFile(fileTaxi)
+    .wholeTextFiles(fileTaxi)
+    .flatMap { case (_, contentOfFile) => contentOfFile.split("\\r?\\n") }
+    .filter(line => line.trim.nonEmpty)
     .map(x => Util.parseRilevazione(x))
     .sample(false, 0.01)
-  // quetse dimensioni sono ordinate lessicograficamente
+  // queste dimensioni sono ordinate lessicograficamente
   val dimensioni = Array("data", "latitudine", "longitudine", "ora")
   val numeri = Map(
     "latitudine" -> (44.0, 35.0),
